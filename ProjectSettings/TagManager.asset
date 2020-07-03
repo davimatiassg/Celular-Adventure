@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - hitable
+  - Boss
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - solid
+  - hitable
+  - BackGround
+  - ForeGround
+  - Backlayer
+  - Foreocult
+  - Back
+  - BackParalax
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Back
+    uniqueID: 3124000571
+    locked: 0
+  - name: BackParalax
+    uniqueID: 2450484701
+    locked: 0
+  - name: BackLayer
+    uniqueID: 75067251
+    locked: 0
+  - name: BackGround
+    uniqueID: 1964467511
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: ForeGround
+    uniqueID: 3745514783
+    locked: 0
+  - name: ForeOcult
+    uniqueID: 2560674763
+    locked: 0
+  - name: GUI
+    uniqueID: 3688999435
+    locked: 0
