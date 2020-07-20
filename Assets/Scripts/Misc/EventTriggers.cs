@@ -10,6 +10,7 @@ public class EventTriggers : MonoBehaviour {
 
 	void FixedUpdate()
 	{	
+		Player = GameObject.FindWithTag("Player").transform;
 		if(Player.position.x > transform.position.x)
 		{
 			GameEvents.current.BossAreaEnter();

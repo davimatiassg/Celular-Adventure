@@ -15,7 +15,8 @@ public class PlayerBehavior : MonoBehaviour
 	public Collider2D hitbox;
 	public SpriteRenderer spr;
 
-	public CameraBehavior camera;
+	public GameObject cam;
+	public CameraBehavior camcontroll;
 	public ParticleSystem dustmaker;
 	public ParticleSystem DmgParticles;
 	public ParticleSystem HitParticle;
@@ -95,6 +96,10 @@ public class PlayerBehavior : MonoBehaviour
 
 	public GameObject FinalScreen;
 	
+	void Awake()
+	{
+
+	}
 
 	// Use this for initialization
 	void Start () 
@@ -105,7 +110,8 @@ public class PlayerBehavior : MonoBehaviour
 		rigb = GetComponent<Rigidbody2D> ();
 		trs = GetComponent<Transform> ();
 		spr = GetComponent<SpriteRenderer> ();
-
+		cam = GameObject.FindWithTag("MainCamera");
+		camcontroll = cam.gameObject.GetComponent<CameraBehavior>();
 		movSen = 1;
 		lstmovSen = 1;
 		life = maxlife;
@@ -128,11 +134,11 @@ public class PlayerBehavior : MonoBehaviour
 			if(framestop > 0)
 			{
 				framestop -= 1;
-				camera.ToggleShake(true, 0.6f, 0.6f);
+				camcontroll.ToggleShake(true, 0.6f, 0.6f);
 			}
 			else
 			{
-				camera.ToggleShake(false, 0.6f,  0.6f);
+				camcontroll.ToggleShake(false, 0.6f,  0.6f);
 			}
 
 
@@ -211,7 +217,7 @@ public class PlayerBehavior : MonoBehaviour
 			lifeBar.ToggleVisibility(false);	
 			if(life <= 0 && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Dying"))
 			{
-				anim.Play("Neutrofilo_Die");
+				anim.Play("Die");
 				lifeBar.ToggleVisibility(false);
 
 			}	
@@ -433,12 +439,12 @@ public class PlayerBehavior : MonoBehaviour
 
 					else if (isinMov)
 					{
-						anim.Play("Neutrofilo_Run");
+						anim.Play("Run");
 					}
 
 					else if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("idle") && !anim.GetCurrentAnimatorStateInfo(0).IsTag("atk"))
 					{
-						anim.Play("Neutrofilo_idle");
+						anim.Play("Idle");
 					}
 				}
 				else
@@ -447,11 +453,11 @@ public class PlayerBehavior : MonoBehaviour
 					{
 						if(isinMov)
 						{
-							anim.Play("Neutrofilo_Dash_Jump");
+							anim.Play("Dash_Jump");
 						}
 						else
 						{
-							anim.Play("Neutrofilo_Jump");
+							anim.Play("Jump");
 						}
 					}
 				}
@@ -596,13 +602,13 @@ public class PlayerBehavior : MonoBehaviour
 
 	private void die()
 	{
-		anim.Play("Neutrofilo_Die");
+		anim.Play("Die");
 		TogglePlayable(false);
 		spr.sortingLayerName = "ForeOcult";
-		camera.camscale = 4;
-		camera.camsensex = 0f;
-		camera.camsensey = 0f;
-		camera.targeted = true;
+		camcontroll.camscale = 4;
+		camcontroll.camsensex = 0f;
+		camcontroll.camsensey = 0f;
+		camcontroll.targeted = true;
 		
 
 		
@@ -611,7 +617,7 @@ public class PlayerBehavior : MonoBehaviour
 
 	public void Dying()
 	{
-		camera.ToggleShake(false, 0.6f,  0.6f);
+		camcontroll.ToggleShake(false, 0.6f,  0.6f);
 		lifeBar.ToggleVisibility(false);
 		FinalScreen.SetActive(true);
 

@@ -47,7 +47,8 @@ public class CameraBehavior : MonoBehaviour {
 	void FixedUpdate () {
 
 		cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, camscale, ref refer.x, (camsensex+camsensey)/2);
-
+		target = GameObject.FindWithTag("Player").transform;
+		
 
 
 		if(targeted)

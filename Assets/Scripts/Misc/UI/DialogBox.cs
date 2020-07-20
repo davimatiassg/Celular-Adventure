@@ -7,7 +7,7 @@ public class DialogBox : MonoBehaviour
     // Start is called before the first frame update
 
     public List<string> sentences = new List<string>();
-	public List<Texture> character = new List<Texture>(); 
+	public List<Sprite> character = new List<Sprite>(); 
     public List<string> charname = new List<string>(); 
     public bool stop;
 
@@ -15,6 +15,8 @@ public class DialogBox : MonoBehaviour
 
     [SerializeField]
     private Text label;
+    [SerializeField]
+    private Image picture;
     [SerializeField]
     public int msgnum = 0;
     public Animator anim;
@@ -28,6 +30,7 @@ public class DialogBox : MonoBehaviour
     void Update()
     {
         label.text = sentences[msgnum];
+        picture.sprite = character[msgnum];
         //falta ainda repetir a linha acima para as listas dos nomes dos personagens e para as imagens deles.
         if(stop)
         {
@@ -49,6 +52,7 @@ public class DialogBox : MonoBehaviour
     		stop = false;
 
     		label.gameObject.SetActive(false);
+    		picture.gameObject.SetActive(false);
     		//falta ainda repetir a linha acima para as listas dos nomes dos personagens e para as imagens deles.
     	}
     	else
@@ -60,6 +64,7 @@ public class DialogBox : MonoBehaviour
     void EnterChildren()
     {
     	label.gameObject.SetActive(true);
+    	picture.gameObject.SetActive(true);
     	//falta ainda repetir a linha acima para as listas dos nomes dos personagens e para as imagens deles.
     }
     void Exit()

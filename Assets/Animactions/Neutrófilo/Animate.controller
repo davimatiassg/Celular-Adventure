@@ -946,7 +946,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Neutrofilo_Dash_Jump
+  m_Name: Dash_Jump
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -1025,7 +1025,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Neutrofilo_idle
+  m_Name: Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1160,7 +1160,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Neutrofilo_Die
+  m_Name: Die
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -1186,7 +1186,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Neutrofilo_Observation
+  m_Name: Observation
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -1319,7 +1319,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Neutrofilo_Run
+  m_Name: Run
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -1345,7 +1345,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Neutrofilo_Jump
+  m_Name: Jump
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -1394,7 +1394,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102786493200174586}
-    m_Position: {x: -24, y: 1332, z: 0}
+    m_Position: {x: -20, y: 1330, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102643342763876272}
     m_Position: {x: -48, y: 1680, z: 0}
@@ -1415,7 +1415,7 @@ AnimatorStateMachine:
     m_Position: {x: 1224, y: 1284, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102201196344755062}
-    m_Position: {x: -72, y: 1092, z: 0}
+    m_Position: {x: -70, y: 1090, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102412716547008362}
     m_Position: {x: 1104, y: 1092, z: 0}
@@ -1430,13 +1430,13 @@ AnimatorStateMachine:
     m_Position: {x: 1236, y: 1452, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102152976733363368}
-    m_Position: {x: 1092, y: 1632, z: 0}
+    m_Position: {x: 1090, y: 1640, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102964548345542650}
     m_Position: {x: 984, y: 1800, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102102904781480338}
-    m_Position: {x: 984, y: 1548, z: 0}
+    m_Position: {x: 980, y: 1550, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102523469239182142}
     m_Position: {x: 419.05737, y: 1986.981, z: 0}
