@@ -32,7 +32,7 @@ public class Staph2Behavior : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		Player = GameObject.FindGameObjectWithTag("Player").transform;
+		
 		trs = GetComponent<Transform> ();
 		loadtime = load;
 		reloadtime = 0f;
@@ -44,6 +44,7 @@ public class Staph2Behavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Player = GameObject.FindGameObjectWithTag("Player").transform;
 		var combat = GetComponent<CombatEnemy>();
 		stuned = combat.stuncheck();
 		anim.SetBool("Stunned", stuned);

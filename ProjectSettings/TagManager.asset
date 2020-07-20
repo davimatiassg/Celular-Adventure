@@ -6,6 +6,7 @@ TagManager:
   tags:
   - hitable
   - Boss
+  - Indicator
   layers:
   - Default
   - TransparentFX
