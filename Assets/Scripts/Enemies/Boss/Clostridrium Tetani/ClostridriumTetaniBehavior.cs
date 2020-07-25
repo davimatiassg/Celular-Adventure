@@ -23,7 +23,14 @@ public class ClostridriumTetaniBehavior : MonoBehaviour {
 
 	public GameObject FinalScreen;
 
-
+	void OnEnable()
+	{
+		GameEvents.StartListening("BossDie", Die);
+	}
+	void OnDisable()
+	{
+		GameEvents.StopListening("BossDie", Die);
+	}
 
 	void Awake () 
 	{
@@ -36,13 +43,13 @@ public class ClostridriumTetaniBehavior : MonoBehaviour {
 	void Start()
 	{
 		anim = GetComponent<Animator> ();
-		player = P.gameObject.GetComponent<PlayerBehavior> ();
-		GameEvents.current.OnBossDie += Die;
+		player = GameObject.FindWithTag("Player").gameObject.GetComponent<PlayerBehavior> ();
 	}
 	
 	// Update is called once per frame
 	void Update () 
-	{	
+	{		
+		player = GameObject.FindWithTag("Player").gameObject.GetComponent<PlayerBehavior> ();
 			if(Core.life <= Core.maxlife*2/5 && Core.life > 0)
 			{
 				isPinch = true;

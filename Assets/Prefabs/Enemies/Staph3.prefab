@@ -70,6 +70,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -81,6 +82,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -177,8 +179,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b535b7a36c19854cb5f62e71126f029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Staphiloccocus3
   life: 1
   attackdmg: 5
+  hitstun: 2
   hiteffect: {fileID: 1357709085957344, guid: 940af74b4bc820b4e94b7020a2e48efe, type: 3}
   hitparticles: {fileID: 0}
 --- !u!58 &58680405854055140

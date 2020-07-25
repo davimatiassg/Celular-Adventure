@@ -6,8 +6,11 @@ public class SearchIndicator : MonoBehaviour
 {	
 	[SerializeField] private GameObject Indicator;
 	[SerializeField] private GameObject player;
-	[SerializeField] private float min_distance;
+	[SerializeField] private float min_distance = 0;
 	[SerializeField] private float Player_distance;
+
+    private int bpspeed = 1;
+    private float actscale;
     // Start is called before the first frame update
     // Update is called once per frame
     void Start()
@@ -26,20 +29,26 @@ public class SearchIndicator : MonoBehaviour
         
         if(Player_distance < min_distance)
         {
-        	Indicator.transform.localScale = new Vector3((Mathf.PingPong(Time.time*5, 0.5f)+1)*30, (Mathf.PingPong(Time.time*5, 0.5f)+1)*30, 1);
+        	bpspeed = 5;
         }
         else if(Player_distance < min_distance * 1.75f)
         {
-        	Indicator.transform.localScale = new Vector3((Mathf.PingPong(Time.time*3, 0.5f)+1)*30, (Mathf.PingPong(Time.time*3, 0.5f)+1)*30, 1);
+        	bpspeed = 3;
         }
         else if (Player_distance < min_distance * 3.5f)
         {
-        	Indicator.transform.localScale = new Vector3((Mathf.PingPong(Time.time, 0.5f)+1)*30, (Mathf.PingPong(Time.time, 0.5f)+1)*30, 1);
+        	bpspeed = 1;
         }
         else
         {
-        	Indicator.transform.localScale = new Vector3(30, 30, 1);
+        	bpspeed = 0;
         }
+
+        actscale = (Mathf.PingPong(Time.time*bpspeed, 0.5f)+1);
+        Indicator.transform.localScale = new Vector3(30*actscale, 30*actscale, 1);
+
+        if(actscale >= 1.4f) Indicator.gameObject.GetComponent<AudioSource>().Play();
+
     }
     void OnTriggerEnter2D(Collider2D other)
    	{

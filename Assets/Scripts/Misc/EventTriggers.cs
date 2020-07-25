@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class EventTriggers : MonoBehaviour {
 
-	public Transform Player;
+	public GameObject Player;
 	public GameObject Boss;
 
 
 	void FixedUpdate()
 	{	
-		Player = GameObject.FindWithTag("Player").transform;
-		if(Player.position.x > transform.position.x)
+		Player = GameObject.FindWithTag("Player");
+		if(Player.transform.position.x > transform.position.x)
 		{
-			GameEvents.current.BossAreaEnter();
+			GameEvents.ScreamEvent("BossAreaEntered");
 			Boss.SetActive(true);
 			Destroy(gameObject);
 
-		}
+		} 
 	}
 }

@@ -35,20 +35,28 @@ public class CameraBehavior : MonoBehaviour {
 	public float desx;
 	public float desy;
 	// Update is called once per frame
+
+	void OnEnable()
+	{
+		GameEvents.StartListening("BossAreaEntered", ToggleToBossCamera);
+	}
+	void OnDisable()
+	{
+		GameEvents.StopListening("BossAreaEntered", ToggleToBossCamera);
+	}
 	void Start() {
 
 		refer = new Vector2(1.0f , 1.0f);
-		if(!lvlselection)
+		/*if(!lvlselection)
 		{
 			GameEvents.current.OnBossAreaEnter += ToggleToBossCamera;
-		}
+		}*/
 
 	}
 	void FixedUpdate () {
 
 		cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, camscale, ref refer.x, (camsensex+camsensey)/2);
-		target = GameObject.FindWithTag("Player").transform;
-		
+
 
 
 		if(targeted)

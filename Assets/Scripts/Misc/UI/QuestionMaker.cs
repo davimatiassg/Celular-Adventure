@@ -12,6 +12,7 @@ public class QuestionMaker : MonoBehaviour
    		if(other.gameObject.tag.Equals("Player"))
    		{
    			Answer.SetActive(true);
+        GameEvents.ScreamEvent("QuestFound");
    		}
    	}
 }

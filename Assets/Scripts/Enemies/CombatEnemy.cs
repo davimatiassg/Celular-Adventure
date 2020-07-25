@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CombatEnemy : MonoBehaviour {
 
-
+	public string name;
 	private Rigidbody2D rigb;
 	public int life;
 	public int attackdmg;
@@ -55,12 +55,39 @@ public class CombatEnemy : MonoBehaviour {
 		return stuned;
 
 	}
-	void Update(){
+
+	void BestiaryAdd()
+    {
+    	if(GameObject.FindGameObjectWithTag("Bestiary").GetComponent<BestiaryElements>().Bestiary.ContainsKey(name))
+    	{
+    		GameObject.FindGameObjectWithTag("Bestiary").GetComponent<BestiaryElements>().Bestiary[name] ++;
+    	}
+    	else
+    	{
+    		GameObject.FindGameObjectWithTag("Bestiary").GetComponent<BestiaryElements>().Bestiary.Add(name, 1);
+
+    	}
+    	
+    	BestiaryRemove();
+    }
+    void BestiaryRemove()
+    {
+    	BestiaryElements.onKillEnemy -= BestiaryAdd;
+
+    }
+
+	void Update()
+	{
 		if (life <= 0)
 		{
 			if(!stuned)
 			{
 				Destroy(this.gameObject);
+				
+				BestiaryElements.onKillEnemy += BestiaryAdd;
+
+				GameEvents.ScreamEvent("EnemyKilled");
+
 			}
 			else
 			{

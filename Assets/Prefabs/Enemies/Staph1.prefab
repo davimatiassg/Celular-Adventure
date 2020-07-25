@@ -202,6 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b535b7a36c19854cb5f62e71126f029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Staphiloccocus1
   life: 50
   attackdmg: 5
   hitstun: 1

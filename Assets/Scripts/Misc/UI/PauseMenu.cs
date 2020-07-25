@@ -15,16 +15,7 @@ public class PauseMenu : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-        	if(isPaused)
-        	{
-        		Resume();
-        		MusicPlayer.UnPause();
-        	}
-        	else
-        	{
-        		Pause();
-        		MusicPlayer.Pause();
-        	}
+        	PauseAlternate();
         }
     }
 
@@ -33,6 +24,7 @@ public class PauseMenu : MonoBehaviour
     	MenuObject.SetActive(false);
     	Time.timeScale = 1f;
     	isPaused = false;
+    	MusicPlayer.UnPause();
     }
 
     public void Menu()
@@ -42,11 +34,27 @@ public class PauseMenu : MonoBehaviour
     }
 
 
-    void Pause()
-    {
+    public void Pause()
+    {	
+    	GameEvents.ScreamEvent("GamePaused");
     	MenuObject.SetActive(true);
     	Time.timeScale = 0f;
+    	MusicPlayer.Pause();
     	isPaused = true;
+    }
+
+    public void PauseAlternate()
+    {
+    	if(isPaused)
+        	{
+        		Resume();
+        		
+        	}
+        	else
+        	{
+        		Pause();
+        		
+        	}
     }
 
     public void Quit()
@@ -59,5 +67,12 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(cscene);
     }
 
-
+    public void BestiaryPlay()
+    {
+        MenuObject.GetComponent<Animator>().Play("Bestiary");
+    }
+    public void MainPauseMenu()
+    {
+        MenuObject.GetComponent<Animator>().Play("PMenuFadein");
+    }
 }
