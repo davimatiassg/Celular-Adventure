@@ -78,7 +78,7 @@ public class HitableParts : MonoBehaviour {
 
 		if (other.gameObject.tag.Equals("Player") && other.isTrigger == false && isdangerous)
 		{
-			var hited = other.gameObject.GetComponent<PlayerBehavior>();
+			var hited = other.gameObject.GetComponent<MasterController>();
 			hited.takedamage(damage);
 		}
 

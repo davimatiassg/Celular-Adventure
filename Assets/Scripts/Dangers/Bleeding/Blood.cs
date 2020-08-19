@@ -31,7 +31,7 @@ public class Blood : MonoBehaviour {
 
 		if (other.gameObject.tag.Equals("Player"))
 		{
-			var hited = other.gameObject.GetComponent<PlayerBehavior>();
+			var hited = other.gameObject.GetComponent<MasterController>();
 			hited.takedamage(dmg);
 		}
 

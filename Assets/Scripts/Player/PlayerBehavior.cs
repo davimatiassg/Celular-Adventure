@@ -15,7 +15,6 @@ public class PlayerBehavior : MonoBehaviour
 	public Collider2D hitbox;
 	public SpriteRenderer spr;
 
-	public GameObject cam;
 	public CameraBehavior camcontroll;
 	public ParticleSystem dustmaker;
 	public ParticleSystem DmgParticles;
@@ -110,8 +109,8 @@ public class PlayerBehavior : MonoBehaviour
 		rigb = GetComponent<Rigidbody2D> ();
 		trs = GetComponent<Transform> ();
 		spr = GetComponent<SpriteRenderer> ();
-		cam = GameObject.FindWithTag("MainCamera");
-		camcontroll = cam.gameObject.GetComponent<CameraBehavior>();
+		camcontroll = GameObject.FindWithTag("MainCamera").gameObject.GetComponent<CameraBehavior>();
+		lifeBar = GameObject.FindWithTag("HealthBar").gameObject.GetComponent<HealthBar>();
 		movSen = 1;
 		lstmovSen = 1;
 		life = maxlife;
@@ -122,9 +121,6 @@ public class PlayerBehavior : MonoBehaviour
 	//main
 	void Update () 
 	{	
-
-
-
 		if(playable)
 		{
 			Jforce = new Vector2 (0, jspeed);
@@ -642,9 +638,11 @@ public class PlayerBehavior : MonoBehaviour
 	}
 
 	private void OnTriggerEnter2D(Collider2D other)
-	{
+	{	
+
 		if ((other.gameObject.tag.Equals("hitable") || other.gameObject.tag.Equals("Boss")) && other.isTrigger == false)
 		{	
+			
 			if(other.gameObject.tag.Equals("hitable"))
 			{
 				var hited = other.gameObject.GetComponent<CombatEnemy>();
@@ -655,8 +653,6 @@ public class PlayerBehavior : MonoBehaviour
 				var hited = other.gameObject.GetComponent<HitableParts>();
 				hited.takedamage(attackdmg);
 			}
-			
-			
 			if(downdash)
 			{	
 				rigb.velocity = new Vector2(movSen, 40.0f);
@@ -664,7 +660,9 @@ public class PlayerBehavior : MonoBehaviour
 				candowndash = false;
 				downdashtm = 0.0f;			
 			}
+
 		}
+
 	}
 	public void GroundSave(Vector2 returnpoint)
 	{

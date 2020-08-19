@@ -47,6 +47,7 @@ public class CameraBehavior : MonoBehaviour {
 	void Start() {
 
 		refer = new Vector2(1.0f , 1.0f);
+		target = GameObject.FindWithTag("Player").GetComponent<Transform>();
 		/*if(!lvlselection)
 		{
 			GameEvents.current.OnBossAreaEnter += ToggleToBossCamera;

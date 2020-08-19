@@ -16,7 +16,7 @@ public class PitfallReturner : MonoBehaviour {
 
 		if (other.gameObject.tag.Equals("Player"))
 		{
-			var hited = other.gameObject.GetComponent<PlayerBehavior>();
+			var hited = other.gameObject.GetComponent<MasterController>();
 			hited.GroundSave(new Vector2(trs.position.x, trs.position.y));
 		}
 
