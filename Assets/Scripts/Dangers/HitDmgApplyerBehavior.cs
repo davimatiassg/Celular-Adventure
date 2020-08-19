@@ -1,4 +1,4 @@
-﻿
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,7 +20,7 @@ public class HitDmgApplyerBehavior : MonoBehaviour {
 
 		if (other.gameObject.tag.Equals("Player"))
 		{
-			var hited = other.gameObject.GetComponent<PlayerBehavior>();
+			var hited = other.gameObject.GetComponent<MasterController>();
 			if(abyss)
 			{
 				hited.fall(dmg);
@@ -31,7 +31,8 @@ public class HitDmgApplyerBehavior : MonoBehaviour {
 			}
 		}
 		else if(other.gameObject.tag.Equals("Hitable") && abyss)
-		{
+		{	
+			GameEvents.ScreamEvent("EnemyKilled");
 			Destroy(other.gameObject);
 		}
 	}

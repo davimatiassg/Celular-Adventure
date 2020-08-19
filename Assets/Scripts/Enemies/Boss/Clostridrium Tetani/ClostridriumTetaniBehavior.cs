@@ -8,7 +8,7 @@ public class ClostridriumTetaniBehavior : MonoBehaviour {
 
 	public GameObject P;
 
-	private PlayerBehavior player;
+	private MasterController player;
 
 	private float timebtwattacks;
 
@@ -20,7 +20,7 @@ public class ClostridriumTetaniBehavior : MonoBehaviour {
 
 	private bool paralized;
 
-
+	private float starty;
 	public GameObject FinalScreen;
 
 	void OnEnable()
@@ -43,13 +43,14 @@ public class ClostridriumTetaniBehavior : MonoBehaviour {
 	void Start()
 	{
 		anim = GetComponent<Animator> ();
-		player = GameObject.FindWithTag("Player").gameObject.GetComponent<PlayerBehavior> ();
+		player = GameObject.FindWithTag("Player").gameObject.GetComponent<MasterController> ();
+		starty = transform.position.y;
 	}
 	
 	// Update is called once per frame
 	void Update () 
-	{		
-		player = GameObject.FindWithTag("Player").gameObject.GetComponent<PlayerBehavior> ();
+	{
+		player = GameObject.FindWithTag("Player").gameObject.GetComponent<MasterController> ();
 			if(Core.life <= Core.maxlife*2/5 && Core.life > 0)
 			{
 				isPinch = true;

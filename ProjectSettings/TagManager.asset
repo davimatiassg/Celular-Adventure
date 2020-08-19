@@ -8,6 +8,7 @@ TagManager:
   - Boss
   - Indicator
   - Bestiary
+  - HealthBar
   layers:
   - Default
   - TransparentFX

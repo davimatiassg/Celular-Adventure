@@ -18,7 +18,7 @@ public class HealPoint : MonoBehaviour {
 	{
 		if (other.gameObject.tag.Equals("Player"))
 		{
-			var player = other.gameObject.GetComponent<PlayerBehavior>();
+			var player = other.gameObject.GetComponent<MasterController>();
 			player.gainlife(lifeheal);
 			Destroy(gameObject);
 		
