@@ -1,0 +1,683 @@
+fileFormatVersion: 2
+guid: 8ef0e780eb51f064f8e35b9ec62aeedf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 46241962523901370
+    second: dojo main tileset_0
+  - first:
+      213: -2377410613470691536
+    second: dojo main tileset_1
+  - first:
+      213: -5376872355666741211
+    second: dojo main tileset_2
+  - first:
+      213: -6365607522447539123
+    second: dojo main tileset_3
+  - first:
+      213: -6828036963897424963
+    second: dojo main tileset_4
+  - first:
+      213: -1450314571784884522
+    second: dojo main tileset_5
+  - first:
+      213: 3769130643998651790
+    second: dojo main tileset_6
+  - first:
+      213: -2987878998416233496
+    second: dojo main tileset_7
+  - first:
+      213: 6162368442992671670
+    second: dojo main tileset_8
+  - first:
+      213: -964086703013597866
+    second: dojo main tileset_9
+  - first:
+      213: -4175256387449140321
+    second: dojo main tileset_10
+  - first:
+      213: 7218209857252769227
+    second: dojo main tileset_11
+  - first:
+      213: 7205953265936583294
+    second: dojo main tileset_12
+  - first:
+      213: 2853503668870996521
+    second: dojo main tileset_13
+  - first:
+      213: -5300553839255602189
+    second: dojo main tileset_14
+  - first:
+      213: 805790379480792499
+    second: dojo main tileset_15
+  - first:
+      213: -8617322552364866276
+    second: dojo main tileset_16
+  - first:
+      213: 4192007199326410997
+    second: dojo main tileset_17
+  - first:
+      213: -1546730043268206780
+    second: dojo main tileset_18
+  - first:
+      213: 3260347411663313722
+    second: dojo main tileset_19
+  - first:
+      213: 4603606482462954421
+    second: dojo main tileset_20
+  - first:
+      213: 2528672316240959206
+    second: dojo main tileset_21
+  - first:
+      213: 7588773782404965378
+    second: dojo main tileset_22
+  - first:
+      213: 8975256061315491550
+    second: dojo main tileset_23
+  - first:
+      213: 8480803529129561578
+    second: dojo main tileset_24
+  - first:
+      213: -6679071581182394140
+    second: dojo main tileset_25
+  - first:
+      213: 2773090360257049871
+    second: dojo main tileset_26
+  - first:
+      213: 5342016004746460649
+    second: dojo main tileset_27
+  - first:
+      213: -6130750120716399314
+    second: dojo main tileset_28
+  - first:
+      213: -6426360586884207430
+    second: dojo main tileset_29
+  - first:
+      213: 8641617039995928990
+    second: dojo main tileset_30
+  - first:
+      213: 4642947265804315377
+    second: dojo main tileset_31
+  - first:
+      213: -2990369270377435461
+    second: dojo main tileset_2
+  - first:
+      213: 2354303339333901107
+    second: dojo main tileset_0
+  - first:
+      213: 2593770029341324389
+    second: dojo main tileset_1
+  - first:
+      213: 2431606357588822499
+    second: dojo main tileset_6
+  - first:
+      213: 7293557940791602322
+    second: dojo main tileset_7
+  - first:
+      213: 406255017566540361
+    second: dojo main tileset_8
+  - first:
+      213: -769103474359700048
+    second: dojo main tileset_9
+  - first:
+      213: 7733071719514127290
+    second: dojo main tileset_10
+  - first:
+      213: 4411921249197938213
+    second: dojo main tileset_13
+  - first:
+      213: -3062995676531316743
+    second: dojo main tileset_14
+  - first:
+      213: 7615019726025326648
+    second: dojo main tileset_17
+  - first:
+      213: 8718175947660312943
+    second: dojo main tileset_18
+  - first:
+      213: 7651520311357593445
+    second: dojo main tileset_21
+  - first:
+      213: -1643619163250049822
+    second: dojo main tileset_22
+  - first:
+      213: 7752755690930239011
+    second: dojo main tileset_23
+  - first:
+      213: 1761292043750807972
+    second: dojo main tileset_24
+  - first:
+      213: 362291569001383038
+    second: dojo main tileset_27
+  - first:
+      213: 6897408613529866070
+    second: dojo main tileset_32
+  - first:
+      213: -5582858687435774277
+    second: dojo main tileset_33
+  - first:
+      213: 5638945310835373599
+    second: dojo main tileset_34
+  - first:
+      213: -948243896815690296
+    second: dojo main tileset_35
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: dojo main tileset_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33b538ad96a2ca020800000000000000
+      internalID: 2354303339333901107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dojo main tileset_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 564b1fb691ceef320800000000000000
+      internalID: 2593770029341324389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dojo main tileset_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e9c9a9591dceb120800000000000000
+      internalID: 2431606357588822499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dojo main tileset_7
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29cec91ed4ce73560800000000000000
+      internalID: 7293557940791602322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dojo main tileset_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 942164a39ce43a500800000000000000
+      internalID: 406255017566540361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dojo main tileset_9
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b5754707789355f0800000000000000
+      internalID: -769103474359700048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dojo main tileset_10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abb3240e1c3615b60800000000000000
+      internalID: 7733071719514127290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dojo main tileset_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 526d073300b4a3d30800000000000000
+      internalID: 4411921249197938213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dojo main tileset_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f72bcf19ad0e75d0800000000000000
+      internalID: -3062995676531316743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dojo main tileset_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bd3164b41ebe2b00800000000000000
+      internalID: 805790379480792499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dojo main tileset_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c15645f8bce196880800000000000000
+      internalID: -8617322552364866276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dojo main tileset_19
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3b5e8462b41f3d20800000000000000
+      internalID: 3260347411663313722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dojo main tileset_20
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b3d3e074bb43ef30800000000000000
+      internalID: 4603606482462954421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dojo main tileset_21
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 567d7260f29af2a60800000000000000
+      internalID: 7651520311357593445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dojo main tileset_22
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ecb47c4411b039e0800000000000000
+      internalID: -1643619163250049822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dojo main tileset_25
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e0873eb8cb2f43a0800000000000000
+      internalID: -6679071581182394140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dojo main tileset_26
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f057e2d7dfefb7620800000000000000
+      internalID: 2773090360257049871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dojo main tileset_27
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e744273334e170500800000000000000
+      internalID: 362291569001383038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dojo main tileset_28
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2d04005f333beaa0800000000000000
+      internalID: -6130750120716399314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dojo main tileset_31
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fa232950ff0f6040800000000000000
+      internalID: 4642947265804315377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

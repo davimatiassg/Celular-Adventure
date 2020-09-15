@@ -119,7 +119,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 1.43
 --- !u!114 &8560474123034375376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +136,11 @@ MonoBehaviour:
   SplashScreen: {fileID: 21300000, guid: bfe5d30c8d5edd644b34a9e51f34867c, type: 3}
   Screen: {fileID: 0}
   label: {fileID: 0}
-  text: And jooj, Bitch
+  text: "Amea\xE7a Urgente de m\xE9dio porte. Local: Pele do bra\xE7o. Ocorreu uma
+    fissura na pele, possivelmente um corte por objeto met\xE1lico. A ferida abre
+    espa\xE7o para a entrada de micr\xF3bios. Rea\xE7\xE3o Inflamat\xF3ria de extrema
+    import\xE2ncia."
   Pannel: {fileID: 0}
+  scene: Level 1 - skin
+  startb: {fileID: 0}
   isselected: 0

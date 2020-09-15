@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level Selection.unity
     guid: ffbeeba1e2c78664d8353690f903a297
+  - enabled: 1
+    path: Assets/Scenes/Level2 - intestin.unity
+    guid: d82761b949fb5974e883d11df142049e
   m_configObjects: {}

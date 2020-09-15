@@ -9,6 +9,7 @@ public class ShootBehavior : MonoBehaviour {
 	public float speed;
 	private Rigidbody2D rigb;
 	public GameObject HitEffect;
+	public Vector2 knockback = new Vector2(0f, 0f);
 
 	public bool enemie = true;
 
@@ -20,9 +21,9 @@ public class ShootBehavior : MonoBehaviour {
 
 	void Update () {
 		rigb.velocity = transform.right * speed;
-		if (Mathf.Abs(rigb.velocity.x) <= 0.3f)
+		if (!enemie)
 		{
-			Destroy(gameObject);
+			Physics2D.IgnoreCollision(this.gameObject.GetComponent<Collider2D>(), GameObject.FindWithTag("Player").GetComponent<Collider2D>(), true);
 		}
 	}
 	
@@ -38,8 +39,13 @@ public class ShootBehavior : MonoBehaviour {
 		else if(other.gameObject.tag.Equals("hitable") && !enemie)
 		{	
 			var hited = other.gameObject.GetComponent<CombatEnemy>();
-			hited.takedamage(dmg, new Vector2(rigb.velocity.x/Mathf.Abs(rigb.velocity.x)*6f, 5f));
-			Destroy(gameObject);
+			hited.takedamage(dmg, new Vector2(rigb.velocity.x/(Mathf.Abs(rigb.velocity.x+1f)*6f) + knockback.x*(this.transform.rotation.y + Mathf.Abs(this.transform.rotation.y + 1)), rigb.velocity.y/(1+Mathf.Abs(rigb.velocity.x)*2f) + knockback.y*this.transform.rotation.z/Mathf.Abs(this.transform.rotation.z + 0.01f)));
+			if(speed != 0f)
+			{
+				Destroy(gameObject);
+
+			}
+			
 			Instantiate(HitEffect);
 		}
 	}
@@ -51,7 +57,9 @@ public class ShootBehavior : MonoBehaviour {
 			Instantiate(HitEffect);
 			Destroy(this.gameObject);
 		}
-		
-		
+	}
+	public void end()
+	{
+		Destroy(gameObject);
 	}
 }

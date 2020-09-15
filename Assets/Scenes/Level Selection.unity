@@ -213,7 +213,7 @@ RectTransform:
   m_Children:
   - {fileID: 1853321750}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -304,7 +304,7 @@ Transform:
   - {fileID: 1591220041}
   - {fileID: 1004010876}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &483759347
 GameObject:
@@ -464,7 +464,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &527988867
 MonoBehaviour:
@@ -874,6 +874,105 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198520789}
   m_CullTransparentMesh: 0
+--- !u!1001 &1246175061
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2837522512629119660, guid: b0f950ff12b5b814598625eeb98d9f24,
+        type: 3}
+      propertyPath: m_Name
+      value: Icon - Intestin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856673309530474667, guid: b0f950ff12b5b814598625eeb98d9f24,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.5281017
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856673309530474667, guid: b0f950ff12b5b814598625eeb98d9f24,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.8510218
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856673309530474667, guid: b0f950ff12b5b814598625eeb98d9f24,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856673309530474667, guid: b0f950ff12b5b814598625eeb98d9f24,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856673309530474667, guid: b0f950ff12b5b814598625eeb98d9f24,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856673309530474667, guid: b0f950ff12b5b814598625eeb98d9f24,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856673309530474667, guid: b0f950ff12b5b814598625eeb98d9f24,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856673309530474667, guid: b0f950ff12b5b814598625eeb98d9f24,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856673309530474667, guid: b0f950ff12b5b814598625eeb98d9f24,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856673309530474667, guid: b0f950ff12b5b814598625eeb98d9f24,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856673309530474667, guid: b0f950ff12b5b814598625eeb98d9f24,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560474123034375376, guid: b0f950ff12b5b814598625eeb98d9f24,
+        type: 3}
+      propertyPath: scene
+      value: Level2 - intestin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560474123034375376, guid: b0f950ff12b5b814598625eeb98d9f24,
+        type: 3}
+      propertyPath: Pannel
+      value: 
+      objectReference: {fileID: 1853321749}
+    - target: {fileID: 8560474123034375376, guid: b0f950ff12b5b814598625eeb98d9f24,
+        type: 3}
+      propertyPath: Selecter
+      value: 
+      objectReference: {fileID: 1619032560}
+    - target: {fileID: 8560474123034375376, guid: b0f950ff12b5b814598625eeb98d9f24,
+        type: 3}
+      propertyPath: startb
+      value: 
+      objectReference: {fileID: 2073148901}
+    - target: {fileID: 8560474123034375376, guid: b0f950ff12b5b814598625eeb98d9f24,
+        type: 3}
+      propertyPath: Screen
+      value: 
+      objectReference: {fileID: 1570562471}
+    - target: {fileID: 8560474123034375376, guid: b0f950ff12b5b814598625eeb98d9f24,
+        type: 3}
+      propertyPath: label
+      value: 
+      objectReference: {fileID: 1675952846}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b0f950ff12b5b814598625eeb98d9f24, type: 3}
 --- !u!1 &1570562469
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,7 +1357,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1675952843
 GameObject:
@@ -1966,7 +2065,7 @@ PrefabInstance:
     - target: {fileID: 5856673309530474667, guid: b0f950ff12b5b814598625eeb98d9f24,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5856673309530474667, guid: b0f950ff12b5b814598625eeb98d9f24,
         type: 3}
@@ -2005,26 +2104,13 @@ PrefabInstance:
       objectReference: {fileID: 1853321749}
     - target: {fileID: 8560474123034375376, guid: b0f950ff12b5b814598625eeb98d9f24,
         type: 3}
-      propertyPath: text
-      value: "Amea\xE7a Urgente de m\xE9dio porte. Local: Pele do bra\xE7o. Ocorreu
-        uma fissura na pele, possivelmente um corte por objeto met\xE1lico. A ferida
-        abre espa\xE7o para a entrada de micr\xF3bios. Rea\xE7\xE3o Inflamat\xF3ria
-        de extrema import\xE2ncia."
-      objectReference: {fileID: 0}
-    - target: {fileID: 8560474123034375376, guid: b0f950ff12b5b814598625eeb98d9f24,
-        type: 3}
-      propertyPath: scene
-      value: Level 1 - skin
-      objectReference: {fileID: 0}
-    - target: {fileID: 8560474123034375376, guid: b0f950ff12b5b814598625eeb98d9f24,
-        type: 3}
       propertyPath: startb
       value: 
       objectReference: {fileID: 2073148901}
-    - target: {fileID: 8560474123034375379, guid: b0f950ff12b5b814598625eeb98d9f24,
+    - target: {fileID: 8560474123034375376, guid: b0f950ff12b5b814598625eeb98d9f24,
         type: 3}
-      propertyPath: m_Radius
-      value: 1.43
+      propertyPath: scene
+      value: Level1 - skin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0f950ff12b5b814598625eeb98d9f24, type: 3}
