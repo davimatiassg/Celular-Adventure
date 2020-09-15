@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -27,12 +27,15 @@ public class MasterController : MonoBehaviour
 	public bool isJump;
 	public bool isAscend;
 	public bool isCrouch;
-	public bool isRoll;
+
 
 	//variáveis dos controles
 	public float axis;
 	public float ayis;
+	public bool i_jump;
+	public bool jump;
 	public bool atk;
+	public bool atk2;
 	public bool reset;
 
 	//atributos de movimentação
@@ -54,8 +57,6 @@ public class MasterController : MonoBehaviour
 	public bool dead;
 	public bool gothit;
 	public Vector2 knockback;
-	public float rollcdr;
-	public float rolltm;
 
 
 	//vida e hud
@@ -110,6 +111,9 @@ public class MasterController : MonoBehaviour
 	{	
 		axis =  Input.GetAxisRaw("Horizontal");
 		ayis = Input.GetAxisRaw("Vertical");
+		i_jump = Input.GetButtonDown("Jump");
+		jump = Input.GetButton("Jump");
+		atk2 = Input.GetButtonDown("Fire2");
 		atk = Input.GetButtonDown("Fire1");
 		reset = Input.GetButtonDown("reset");
 
@@ -130,22 +134,25 @@ public class MasterController : MonoBehaviour
 
 		trs.localScale = trs.localScale = new Vector2 (-trs.localScale.x, trs.localScale.y);
 	}
-
+	void FixedUpdate()
+	{
+		rigb.velocity += Vector2.down*1.8f;
+	}
+	
 	public void GroundMoviment()
 	{
 		flytime = 0;
 		gothit = false;
-		if(isCrouch && !isRoll)
-		{
-			rigb.velocity = new Vector2(0, rigb.velocity.y);
-		}
-
 		if(axis == 0)
 		{
 			rigb.velocity = new Vector2(0, rigb.velocity.y);
 			runtime = 0f;
 		}
-			
+
+/*		if(isCrouch && !isRoll)
+		{
+			rigb.velocity = new Vector2(0, rigb.velocity.y);
+		}
 		//rolamento
 
 		if(isCrouch == true && axis != 0 && rolltm >= rollcdr)
@@ -178,14 +185,13 @@ public class MasterController : MonoBehaviour
 				rolltm = rollcdr;
 			}
 		}
-
+	*/
 		//pulo
-		if (Input.GetButtonDown("Jump"))
+		if (i_jump)
 		{	
-			rigb.AddForce(Jforce, ForceMode2D.Impulse);
+			rigb.velocity = new Vector2(rigb.velocity.x, Jforce.y);
 			flytime = 0f;
 			MakeDust();
-			isRoll = false;
 			isCrouch = false;
 		}
 
@@ -229,10 +235,11 @@ public class MasterController : MonoBehaviour
 	{	
 		//movimento vertical
 		flytime += Time.deltaTime;
-			isRoll = false;
+		
+		
 			isCrouch = false;
 
-			if(Input.GetButton("Jump") ||  ayis > 0.0f)
+			if(jump)
 			{	
 				if(rigb.velocity.y >= 0.0f)
 				{
@@ -301,7 +308,7 @@ public class MasterController : MonoBehaviour
 	public void takedamage(int dmg)
 	{	
 
-		if (invt <= 0 && !isRoll)
+		if (invt <= 0)
 		{	
 			anim.Play("takedmg");
 			life -= dmg;

@@ -10,6 +10,9 @@ public class NeutrBehavior : MonoBehaviour
 	private bool candowndash;
 	public float downdashtm = 0.3f;
 	private float yfly;
+	public bool isRoll;
+	public float rollcdr;
+	public float rolltm;
 
     void Start()
     {
@@ -32,6 +35,42 @@ public class NeutrBehavior : MonoBehaviour
     // Update is called once per frame
 	void Update()
     {	
+    	if(mainCode.isCrouch && !isRoll)
+		{
+			mainCode.rigb.velocity = new Vector2(0, mainCode.rigb.velocity.y);
+		}
+		//rolamento
+
+		if(mainCode.isCrouch == true && mainCode.axis != 0 && rolltm >= rollcdr)
+		{	
+			isRoll = true;
+		}
+
+		if(isRoll)
+		{
+			mainCode.rigb.velocity = new Vector2(mainCode.speed*4*mainCode.movSen, mainCode.rigb.velocity.y);
+			
+			if(rolltm >= 0)
+			{
+				rolltm -= Time.deltaTime;
+			}
+			else
+			{
+				isRoll = false;
+				rolltm -= rollcdr;
+			}
+		}
+		else
+		{	
+			if(rolltm < 0)
+			{
+				rolltm += Time.deltaTime;
+			}
+			else
+			{
+				rolltm = rollcdr;
+			}
+		}
     	if(mainCode.invt == mainCode.invtime)
     	{
     		candowndash = false;
@@ -159,10 +198,10 @@ public class NeutrBehavior : MonoBehaviour
 
 				if (mainCode.isGrounded) 
 				{	
-					if(mainCode.isRoll)
+					if(isRoll)
 					{
 						mainCode.anim.Play("Roll");
-						mainCode.isCrouch = mainCode.isRoll;
+						mainCode.isCrouch = isRoll;
 						mainCode.MakeDust();
 					}
 					else if(mainCode.isCrouch)

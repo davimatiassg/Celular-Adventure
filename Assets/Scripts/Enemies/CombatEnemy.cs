@@ -1,10 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CombatEnemy : MonoBehaviour {
 
 	//declaração das variáveis:
+	public bool DieDestroy = true;
 
 	public string name; //nome do inimigo
 
@@ -29,6 +30,8 @@ public class CombatEnemy : MonoBehaviour {
 	private AudioSource aud; //espaço para receber o componente de tocar áudio do inimigo
 
 	[SerializeField] private List<AudioClip> sfx = new List<AudioClip>(); // espaço para receber os áudios que o inimigo vai tocar
+
+	public Vector2 KnBackIntensity = new Vector2(1f, 1f);
 			
 
 	void Start()//método padrão do unity que roda no início da fase/cena
@@ -49,11 +52,11 @@ public class CombatEnemy : MonoBehaviour {
 
 	public void takedamage(int dmg, Vector2 knockback) //método que faz o inimigo tomar dano, dmg = dano recebido (inteiro) e Knockback = direção e intensidade da repulsão (Vector2(x, y))
 	{	
-		if(!stuned || life > 0)//verifica se o inimigo é capaz de receber dano de alguma forma
+		if(life > 0 || (life <= 0 && !DieDestroy) )//verifica se o inimigo é capaz de receber dano de alguma forma
 		{
 			stun = hitstun; //faz com que o inimigo tenha o tempo de atordoamento ativado
 			stuned = true; //ativa o status de atordoado
-			if(life > dmg) // se o inimigo não for morrer ao tomar esse dano...
+			if(life > dmg || (life <= 0 && !DieDestroy)) // se o inimigo não for morrer ao tomar esse dano...
 			{
 			
 				Instantiate(hiteffect, transform.position, transform.rotation); // instanciar o efeito visual para tomar dano não-letal
@@ -67,9 +70,13 @@ public class CombatEnemy : MonoBehaviour {
 				aud.clip = sfx[1]; //selecionar efeito sonoro de morte
 				life = 0; // duh, vida = 0
 				aud.Play(); //tocar o efeito sonoro selecionado
+
+				BestiaryElements.onKillEnemy += BestiaryAdd; //adicione o valor dele ao bestiário
+
+				GameEvents.ScreamEvent("EnemyKilled"); //diga pra todo mundo que um inimigo morreu
 			}
 
-			this.gameObject.GetComponent<Rigidbody2D>().AddForce(knockback, ForceMode2D.Impulse); // aplicar repulsão (pega o componente de física, o RigidBody2D e chama o método AddForce, para empurrar o jogador na direção do vetor (ForceMode2D.Impulse é um parâmetro que precisa estar lá, mas eu não sei o que ele faz))
+			this.gameObject.GetComponent<Rigidbody2D>().velocity = knockback * KnBackIntensity; // aplicar repulsão (pega o componente de física, o RigidBody2D e chama o método AddForce, para empurrar o jogador na direção do vetor (ForceMode2D.Impulse é um parâmetro que precisa estar lá, mas eu não sei o que ele faz))
 
 		}
 	}
@@ -105,30 +112,44 @@ public class CombatEnemy : MonoBehaviour {
 	void Update() //método padrão do unity que roda no início de cada frame
 	{
 		if (life <= 0) //verifica se o inimigo está morto
-		{
-			if(!stuned) // se ele não estiver atordoado...
+		{	
+			if(DieDestroy)
 			{
-				Destroy(this.gameObject); //destrua esse objeto
+				if(!stuned) // se ele não estiver atordoado...
+				{	
+					Destroy(this.gameObject); //destrua esse objeto
+
+				}
+				else //se ele estiver atordoado (pra gente poder ver o inimigo saindo voando depois de tomar o último hit)
+				{	
+
+					HitF = Instantiate(hiteffect, transform.position, transform.rotation).GetComponent<SpriteRenderer>(); //instanciar o efeito visual de dano
+					HitF.color = new Color(1f, stun, stun, 1f); //escolher uma cor para o efeito cada vez mais avermelhada de acordo com o tempo de atordoamento restante 
+					HitF.gameObject.transform.localScale = new Vector3(1/(stun+0.1f)+6f, 1/(stun+0.1f)+6f, 1f); // ir aumentando o tamanho do efeito visual
+					this.gameObject.GetComponent<Collider2D>().enabled = false; // desabilitar os colisores do inimigo, para ele não bater em nada
+				}
+			}
+			else
+			{
+				if(!stuned)
+				{	
+					Debug.Log("ta serto");
+					BestiaryElements.onKillEnemy += BestiaryAdd;
+					GameEvents.ScreamEvent("EnemyKilled");
+				}
+				stuned = true;
+				stun = 5;
+				life = 0;
 				
-				BestiaryElements.onKillEnemy += BestiaryAdd; //adicione o valor dele ao bestiário
-
-				GameEvents.ScreamEvent("EnemyKilled"); //diga pra todo mundo que um inimigo morreu
-
 			}
-			else //se ele estiver atordoado (pra gente poder ver o inimigo saindo voando depois de tomar o último hit)
-			{
-				HitF = Instantiate(hiteffect, transform.position, transform.rotation).GetComponent<SpriteRenderer>(); //instanciar o efeito visual de dano
-				HitF.color = new Color(1f, stun, stun, 1f); //escolher uma cor para o efeito cada vez mais avermelhada de acordo com o tempo de atordoamento restante 
-				HitF.gameObject.transform.localScale = new Vector3(1/(stun+0.1f)+6f, 1/(stun+0.1f)+6f, 1f); // ir aumentando o tamanho do efeito visual
-				this.gameObject.GetComponent<Collider2D>().enabled = false; // desabilitar os colisores do inimigo, para ele não bater em nada
-			}
+
 		}
 
-		if(stun > 0.0f) //se o inimigo estiver atordoado..
+		if(stun > 0.0f && (DieDestroy || life > 0)) //se o inimigo estiver atordoado..
 		{
 			stun -= Time.deltaTime; //diminuir o tempo restante de atordoamento, com base em quanto tempo passa entre cada frame
 		}
-		else //se ele não estiver atordoado
+		else if(DieDestroy || life > 0) //se ele não estiver atordoado
 		{
 			stuned = false; //então ele não está atordoado. (não dá pra ser verdadeiro e falso ao mesmo tempo ainda.)
 		}

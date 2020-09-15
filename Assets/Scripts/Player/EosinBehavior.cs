@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,41 +6,28 @@ public class EosinBehavior : MonoBehaviour
 {
     [SerializeField] private MasterController mainCode;
     [SerializeField] private GameObject Shot;
+    [SerializeField] private GameObject MeleeShot;
     [SerializeField] private Transform ShotLocal;
    	private float TbtwAtk = 0f;
    	private bool atkqueue = false;
    	private float direction;
-
-    private bool downdash = false;
-	private bool candowndash;
-	public float downdashtm = 0.3f;
 	private float yfly;
-	public bool atk2;	
+	private bool rangedatk;
 
     void Start()
     {
         mainCode = this.gameObject.GetComponent<MasterController>();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-	{
-		if ((other.gameObject.tag.Equals("hitable") || other.gameObject.tag.Equals("Boss")) && other.isTrigger == false)
-		{	
-			if(downdash)
-			{	
-				mainCode.rigb.velocity = new Vector2(mainCode.movSen, 40.0f);
-				downdash = false;
-				candowndash = false;
-				downdashtm = 0.0f;			
-			}
-		}
-	}
     // Update is called once per frame
 	void Update()
     {	
+    	if(mainCode.isCrouch)
+    	{
+    		mainCode.rigb.velocity = new Vector2(0f, 0f);
+    	}	
     	if(TbtwAtk > 0f)
     	{	
-    		Debug.Log(TbtwAtk);
     		TbtwAtk -= Time.deltaTime;
     		
     	}
@@ -48,16 +35,11 @@ public class EosinBehavior : MonoBehaviour
     	{
     		TbtwAtk = 0f;
     	}
-    	if(mainCode.invt == mainCode.invtime)
-    	{
-    		candowndash = false;
-			downdashtm = -0.3f;
-    	}
       if(mainCode.playable)
 		{
 			mainCode.Jforce = new Vector2 (0, mainCode.jspeed);
 			mainCode.Cforce = new Vector2 (mainCode.speed/12*mainCode.movSen, 0.0f);
-			mainCode.isGrounded = Physics2D.OverlapCircle(mainCode.flchk.position, mainCode.radius, mainCode.solid);;
+			mainCode.isGrounded = Physics2D.OverlapCircle(mainCode.flchk.position, mainCode.radius, mainCode.solid);
 			
 			if(mainCode.framestop > 0)
 			{
@@ -93,7 +75,7 @@ public class EosinBehavior : MonoBehaviour
 				{
 					mainCode.rigb.velocity = new Vector2(mainCode.rigb.velocity.x/2, mainCode.rigb.velocity.y);
 				}
-				
+				direction = this.gameObject.GetComponent<Transform>().localScale.x;	
 				mainCode.lstmovSen = mainCode.movSen;
 				mainCode.axis = 0;
 				mainCode.runtime = 0;
@@ -107,8 +89,6 @@ public class EosinBehavior : MonoBehaviour
 				if (mainCode.isGrounded)
 				{
 					mainCode.GroundMoviment();
-					candowndash = true;
-					downdash = false;
 					if(!mainCode.landed)
 					{
 						mainCode.MakeDust();
@@ -122,22 +102,20 @@ public class EosinBehavior : MonoBehaviour
 				}
 				Animate();
 
-				if(!downdash)
-				{
-					mainCode.GetControlInput();
+				mainCode.GetControlInput();
 
-					atk2 = Input.GetButtonDown("Fire2");
+				//atk2 = Input.GetButtonDown("Fire2");
 
-					mainCode.isinMov = (mainCode.axis*mainCode.rigb.velocity.x != 0);
+				mainCode.isinMov = (mainCode.axis*mainCode.rigb.velocity.x != 0);
 
-					if(mainCode.axis != 0.0f)
-					{	
-						if(Mathf.Abs(mainCode.axis) == 1.0f)
-						{
-							mainCode.movSen = (int) mainCode.axis;
-						}	
+				if(mainCode.axis != 0.0f)
+				{	
+					if(Mathf.Abs(mainCode.axis) == 1.0f)
+					{
+						mainCode.movSen = (int) mainCode.axis;
 					}	
-				}
+				}	
+				
 			}
 		}
 		else 
@@ -171,37 +149,24 @@ public class EosinBehavior : MonoBehaviour
 					yfly = 0;
 				}
 				mainCode.anim.SetFloat("AirmovV", yfly);
-				if (mainCode.isGrounded) 
-				{	
-					if(mainCode.isRoll)
-					{
-						mainCode.anim.Play("Roll");
-						mainCode.isCrouch = mainCode.isRoll;
-						mainCode.MakeDust();
-					}
-				}
 			if (!mainCode.anim.GetCurrentAnimatorStateInfo(0).IsTag("atk"))
 			{
-
 				if (mainCode.isGrounded) 
 				{	
-					if(!mainCode.isRoll)
+					if(mainCode.isCrouch && !mainCode.atk && !mainCode.atk2) 
 					{
-						if(mainCode.isCrouch)
-						{
-							mainCode.anim.Play("Crouch");
-							mainCode.anim.SetTrigger("Crouch");
-						}
+						mainCode.anim.Play("Crouch");
+						mainCode.anim.SetTrigger("Crouch");
+					}
 
-						else if (mainCode.isinMov)
-						{
-							mainCode.anim.Play("Run");
-						}
+					else if (mainCode.isinMov)
+					{
+						mainCode.anim.Play("Run");
+					}
 
-						else if (!mainCode.anim.GetCurrentAnimatorStateInfo(0).IsTag("idle"))
-						{
-							mainCode.anim.Play("Idle");
-						}
+					else if (!mainCode.anim.GetCurrentAnimatorStateInfo(0).IsTag("idle"))
+					{
+						mainCode.anim.Play("Idle");
 					}
 				}
 				else
@@ -228,121 +193,76 @@ public class EosinBehavior : MonoBehaviour
 	}
 
 	public void Attack()
-	{		
+	{	
 
-		if(mainCode.atk)
+		if(mainCode.atk || mainCode.atk2)
 		{
+			rangedatk = mainCode.atk && !mainCode.atk2;
+
 			if(mainCode.isGrounded)
 			{	
-				if(mainCode.anim.GetCurrentAnimatorStateInfo(0).IsTag("down"))
-				{
-					mainCode.anim.Play("downtilt");
-					mainCode.MakeDust();
-
-					mainCode.knockback = new Vector2(3f*mainCode.movSen, 15f);
-				}
-				else if(mainCode.anim.GetCurrentAnimatorStateInfo(0).IsTag("idle") && TbtwAtk <= 0f)
+				if(TbtwAtk <= 0f && (!mainCode.anim.GetCurrentAnimatorStateInfo(0).IsTag("atk")))
 				{	
 					direction = this.gameObject.GetComponent<Transform>().localScale.x;
 					mainCode.anim.Play("first");
 					TbtwAtk = mainCode.anim.GetCurrentAnimatorStateInfo(0).length/2;
 					atkqueue = false;
-					Debug.Log("F");
+					mainCode.rigb.velocity = new Vector2(0, mainCode.rigb.velocity.y);
 	
 				}
-				else if(mainCode.anim.GetCurrentAnimatorStateInfo(0).IsTag("run"))
-				{
-					mainCode.anim.Play("dash attack");
-					mainCode.rigb.velocity = new Vector2(0, mainCode.rigb.velocity.y);
-					mainCode.rigb.AddForce(new Vector2(20*mainCode.movSen, 0), ForceMode2D.Impulse);
-					mainCode.knockback = new Vector2(15f*mainCode.movSen, 15f);
-					
-				}
-				else if(mainCode.anim.GetCurrentAnimatorStateInfo(0).IsTag("air"))
-				{
-					mainCode.anim.SetTrigger("Atk");
-					if((mainCode.ayis < 0.0f) && !mainCode.isGrounded && candowndash)
-					{
-						downdash = true; 
-						mainCode.anim.Play("flying down");
-					}
-				}
+
 			}
-			else
+			else if(!mainCode.anim.GetCurrentAnimatorStateInfo(0).IsTag("atk"))
 			{	
-				if(!downdash)
+				if(TbtwAtk <= 0 && !atkqueue)
 				{
-					if(candowndash && mainCode.ayis <= 0.0f)
-					{	
-						mainCode.anim.Play("flying down");
-						downdash = true;
-						mainCode.knockback = new Vector2(15f*mainCode.movSen, -15f);
-						
-
-					}
-					else if (mainCode.ayis > 0.0f)
-					{
-						mainCode.anim.Play("flying up");
-						
-						mainCode.knockback = new Vector2(0f, 20f);
-					}
+					mainCode.anim.Play("air attack");
+					mainCode.knockback = new Vector2(15f*mainCode.movSen, -15f);
 				}
+				
 			}
 		}
-		if(!candowndash)
-		{
-			downdash = false;
-			if(downdashtm < 0.3f)
-			{
-				downdashtm += Time.deltaTime;
-			}
-			else
-			{
-				candowndash = true;
-			}
-
-		}
-		if(downdash)
-		{
-			mainCode.rigb.velocity = new Vector2(mainCode.movSen * 20.0f, -20.0f);
-
-		}
-		if(Mathf.Abs(mainCode.rigb.velocity.x) < 20 && downdash)
-		{
-			downdash = false;
-			mainCode.rigb.velocity = new Vector2(-10*mainCode.movSen, 20.0f);
-		}
-		mainCode.anim.SetBool("Downattack", downdash);
-
 		if(mainCode.anim.GetCurrentAnimatorStateInfo(0).IsName("first") && mainCode.isGrounded)
 		{	
 			if(TbtwAtk <= 0 && atkqueue)
 			{
-			direction = this.gameObject.GetComponent<Transform>().localScale.x;
-			mainCode.anim.Play("second");
-			atkqueue = false;
-			Debug.Log("F");
+				mainCode.anim.Play("second");
+				atkqueue = false;
 			}
-			else if(mainCode.atk)
+			else if(mainCode.atk || mainCode.atk2)
 			{
 				atkqueue = true;
-				Debug.Log("V");
 			}
 		}
 	}
 
 
-	void shot()
-	{	
-		
-		var Object = Instantiate(Shot, ShotLocal.position, ShotLocal.rotation);
-		Object.transform.Rotate(0, (direction/Mathf.Abs(direction)-1)*(-90), 0, Space.Self);
+	public void selAttack()
+	{
+		if(rangedatk)
+		{
+			Fire();
+		}
+		else
+		{
+			Melee();
+		}
 	}
-	void endatk()
+	void Fire()
+	{
+		var Object = Instantiate(Shot, ShotLocal.position, ShotLocal.rotation);
+		Object.transform.Rotate(0f, (direction/Mathf.Abs(direction)-1)*(-90), mainCode.ayis*(45f), Space.Self);
+	}
+	private void Melee()
+	{
+		var Object = Instantiate(MeleeShot, ShotLocal.position, ShotLocal.rotation);
+		Object.transform.Rotate(0f, (direction/Mathf.Abs(direction)-1)*(-90), mainCode.ayis*(45f), Space.Self);
+	}
+	private void endatk()
 	{	
 		if(!atkqueue)
 		{
-			TbtwAtk = 0.2f;
+			TbtwAtk = 0.3f;
 		}
 		
 	}
