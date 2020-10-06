@@ -7,6 +7,7 @@ public class Parallax : MonoBehaviour
 	[SerializeField] private Vector2 limit_up_right;
 	[SerializeField] private Vector2 limit_down_left;
 	[SerializeField] private Vector2 parallax_factor;
+    [SerializeField] private Vector2 compensation = Vector2.zero;
     
 	[SerializeField] private Transform camera_trs;
 	private Vector3 last_cam_position;
@@ -28,7 +29,7 @@ public class Parallax : MonoBehaviour
     {
         Vector3 delta = camera_trs.position - last_cam_position;
 
-        if(camera_trs.position.x >= limit_down_left.x && camera_trs.position.x <= limit_up_right.x)
+        if(camera_trs.position.x + compensation.x >= limit_down_left.x && camera_trs.position.x + compensation.x <= limit_up_right.x )
         {   
             parallaxing = true;
         	transform.position += new Vector3(delta.x*parallax_factor.x, 0);

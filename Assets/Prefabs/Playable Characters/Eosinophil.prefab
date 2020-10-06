@@ -4953,8 +4953,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCode: {fileID: 7638923946676144860}
   Shot: {fileID: 1063744640479934, guid: 1cfda5cc3904e624aba1bf22f4b4dfe0, type: 3}
+  MeleeShot: {fileID: 1063744640479934, guid: 9d262840769106d439a986be7deed403, type: 3}
   ShotLocal: {fileID: 1289254804}
-  atk2: 0
 --- !u!114 &7638923946676144860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4983,7 +4983,6 @@ MonoBehaviour:
   isJump: 0
   isAscend: 0
   isCrouch: 0
-  isRoll: 0
   axis: 0
   ayis: 0
   i_jump: 0
@@ -4992,20 +4991,19 @@ MonoBehaviour:
   atk2: 0
   reset: 0
   speed: 7
-  jspeed: 30
+  jspeed: 25
   movSen: 0
   lstmovSen: 0
   yfly: 0
   flytime: 0
   runtime: 0
+  dragforce: 1.25
   attackdmg: 30
   invtime: 2
   invt: 1
   dead: 0
   gothit: 0
   knockback: {x: 0, y: 0}
-  rollcdr: 0.4
-  rolltm: 1.6
   lifeBar: {fileID: 0}
   life: 120
   maxlife: 120

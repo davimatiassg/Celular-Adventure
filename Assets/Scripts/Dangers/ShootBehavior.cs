@@ -39,9 +39,11 @@ public class ShootBehavior : MonoBehaviour {
 		else if(other.gameObject.tag.Equals("hitable") && !enemie)
 		{	
 			var hited = other.gameObject.GetComponent<CombatEnemy>();
-			hited.takedamage(dmg, new Vector2(rigb.velocity.x/(Mathf.Abs(rigb.velocity.x+1f)*6f) + knockback.x*(this.transform.rotation.y + Mathf.Abs(this.transform.rotation.y + 1)), rigb.velocity.y/(1+Mathf.Abs(rigb.velocity.x)*2f) + knockback.y*this.transform.rotation.z/Mathf.Abs(this.transform.rotation.z + 0.01f)));
+			Debug.Log(rigb.rotation/45);
+			hited.takedamage(dmg, new Vector2(Mathf.Sign(90f - transform.eulerAngles.y)*knockback.x, knockback.y*rigb.rotation/45));
+
 			if(speed != 0f)
-			{
+			{	
 				Destroy(gameObject);
 
 			}

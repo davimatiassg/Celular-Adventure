@@ -40,6 +40,7 @@ public class MasterController : MonoBehaviour
 
 	//atributos de movimentação
 	public float speed;
+	public float maxspeed;
 	public float jspeed;
 	
 	//atributos de movimentação específicos
@@ -48,6 +49,7 @@ public class MasterController : MonoBehaviour
 	public float yfly;
 	public float flytime;
 	public float runtime;
+	public float dragforce = 1f;
 
 
 	//variáveis para o combate
@@ -73,6 +75,7 @@ public class MasterController : MonoBehaviour
 	public Vector2 Jforce;
 	public Vector2 Wforce;
 	public Vector2 Cforce;
+	public Vector2 jumpDirection;
 
 	//partículas
 
@@ -90,6 +93,7 @@ public class MasterController : MonoBehaviour
 
 	public GameObject FinalScreen;
 
+	private int jumpframes = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -109,6 +113,7 @@ public class MasterController : MonoBehaviour
     // Update is called once per frame
     public void GetControlInput()
 	{	
+		jumpDirection = Vector2.up;
 		axis =  Input.GetAxisRaw("Horizontal");
 		ayis = Input.GetAxisRaw("Vertical");
 		i_jump = Input.GetButtonDown("Jump");
@@ -127,7 +132,7 @@ public class MasterController : MonoBehaviour
 	public void FliptFr ()
 	{	
 		if(isGrounded)
-		{
+		{	
 			MakeDust();
 		}
 		
@@ -135,91 +140,81 @@ public class MasterController : MonoBehaviour
 		trs.localScale = trs.localScale = new Vector2 (-trs.localScale.x, trs.localScale.y);
 	}
 	void FixedUpdate()
-	{
-		rigb.velocity += Vector2.down*1.8f;
+	{	
+		float d = 0.0f;
+		jumpDirection = OnSlopeMoviment(out d);
+		if(!isGrounded || (isGrounded && jumpDirection == Vector2.up && d > 0.05f))
+		{
+			rigb.velocity -= jumpDirection*2f;
+		}
+
 	}
 	
 	public void GroundMoviment()
-	{
+	{	
+		
 		flytime = 0;
 		gothit = false;
-		if(axis == 0)
+		if(!i_jump && jumpframes == 0)
 		{
-			rigb.velocity = new Vector2(0, rigb.velocity.y);
-			runtime = 0f;
-		}
+			if(axis == 0)
+				{	
+					rigb.velocity -= new Vector2(movSen*Mathf.Abs(rigb.velocity.x)*Mathf.Pow(dragforce, 2f)*runtime, Mathf.Abs(Vector2.Perpendicular(jumpDirection).y) + Mathf.Abs(rigb.velocity.y)*Mathf.Pow(dragforce, 3f));
+					runtime -= dragforce*Time.deltaTime;
 
-/*		if(isCrouch && !isRoll)
-		{
-			rigb.velocity = new Vector2(0, rigb.velocity.y);
-		}
-		//rolamento
+			if(runtime <= 0)
+				{	
+				
+					runtime = 0;
+					rigb.velocity -= new Vector2(rigb.velocity.x, 0);
+				}
+			}
 
-		if(isCrouch == true && axis != 0 && rolltm >= rollcdr)
-		{	
-			isRoll = true;
-		}
-
-		if(isRoll)
-		{
-			rigb.velocity = new Vector2(speed*4*movSen, rigb.velocity.y);
-			
-			if(rolltm >= 0)
+			//"se as direcionais forem pressionadas e não estiver agachado" (andar)
+			if (axis != 0 && !isCrouch && !anim.GetCurrentAnimatorStateInfo(0).IsTag("atk")) 
 			{
-				rolltm -= Time.deltaTime;
+				runtime += Time.deltaTime;
+				if(runtime > 1f)
+				{
+					runtime = 1f;
+				}
+				rigb.velocity += new Vector2(dragforce*movSen*speed*Mathf.Pow(0.05f, 0 - runtime) * Mathf.Abs(Vector2.Perpendicular(jumpDirection).x), -dragforce*movSen*speed*Mathf.Pow(0.05f, 0 - runtime) * Vector2.Perpendicular(jumpDirection).y);
+			}
+
+			//se a velocidade atual for maior que 2.5x a variável pública speed
+			if	(Mathf.Abs(rigb.velocity.x) > speed*maxspeed && !isCrouch)
+			{	
+				if(!dashed)
+				{
+					MakeDust();
+					dashed = true;
+				}
+				rigb.velocity = new Vector2 (speed*movSen*maxspeed, rigb.velocity.y);
 			}
 			else
 			{
-				isRoll = false;
-				rolltm -= rollcdr;
+				dashed = false;
+			}
+
+			if((Mathf.Abs(rigb.velocity.x) < Mathf.Abs(rigb.velocity.y) ||  (Mathf.Abs(rigb.velocity.x) > Mathf.Abs(rigb.velocity.y)) && jumpDirection != Vector2.up))
+			{	
+				rigb.velocity = new Vector2(rigb.velocity.x, (Mathf.Abs(rigb.velocity.x)/Mathf.Abs(Vector2.Perpendicular(jumpDirection).x))*-movSen*Vector2.Perpendicular(jumpDirection).y);
 			}
 		}
-		else
-		{	
-			if(rolltm < 0)
-			{
-				rolltm += Time.deltaTime;
-			}
-			else
-			{
-				rolltm = rollcdr;
-			}
-		}
-	*/
+		
 		//pulo
-		if (i_jump)
+		else if(i_jump)
 		{	
-			rigb.velocity = new Vector2(rigb.velocity.x, Jforce.y);
+			jumpframes = 3;
+
+			rigb.velocity += Vector2.up*jspeed;
 			flytime = 0f;
 			MakeDust();
 			isCrouch = false;
 		}
-
-		//"se as direcionais forem pressionadas e não estiver agachado" (andar)
-		if (axis != 0 && !isCrouch && !anim.GetCurrentAnimatorStateInfo(0).IsTag("atk")) 
-		{
-			runtime += Time.deltaTime;
-			if(runtime > 1f)
-			{
-				runtime = 1f;
-			}
-
-			rigb.velocity = new Vector2(1*movSen*speed*Mathf.Pow(0.05f, 0 - runtime), rigb.velocity.y);
-		}
-
-		//se a velocidade atual for maior que 2.5x a variável pública speed
-		if	(rigb.velocity.x*movSen > speed*2 && !isCrouch)
-		{	
-			if(!dashed)
-			{
-				MakeDust();
-				dashed = true;
-			}
-			rigb.velocity = new Vector2 (speed*movSen*2, rigb.velocity.y);
-		}
 		else
 		{
-			dashed = false;
+			jumpframes -= 1;
 		}
 		//Se estiver num local com teto baixo, para agachar automaticamente
 		if(ayis == -1 || Physics2D.Linecast(trs.position, tpchk.position, 1 << LayerMask.NameToLayer("solid")))
@@ -258,13 +253,18 @@ public class MasterController : MonoBehaviour
 
 
 		//movimento horizontal
-
+			if(maxspeed >= 2f)
+			{
+				maxspeed -= Time.deltaTime*2;
+			}
+			else
+			{
+				maxspeed = 2f;
+			}
 
 		if(axis == 0 && Mathf.Abs(rigb.velocity.x) > 0)
 		{
-			SlowDown(3.0f);
-			runtime -= Time.deltaTime;
-
+			SlowDown(1f/3.0f);
 		}
 		if(Mathf.Abs(rigb.velocity.x) < 1)
 		{
@@ -280,9 +280,9 @@ public class MasterController : MonoBehaviour
 
 			rigb.velocity = new Vector2(rigb.velocity.x + movSen*speed*Mathf.Pow(0.5f, 3.5f - runtime), rigb.velocity.y);
 		}
-		if(Mathf.Abs(rigb.velocity.x) > speed*2)
+		if(Mathf.Abs(rigb.velocity.x) > speed*maxspeed)
 		{
-			rigb.velocity = new Vector2(movSen*speed*2, rigb.velocity.y);
+			rigb.velocity = new Vector2(movSen*speed*maxspeed, rigb.velocity.y);
 		}
 
 	}
@@ -383,10 +383,8 @@ public class MasterController : MonoBehaviour
 	void OnDrawGizmosSelected()
 	{
 		Gizmos.color = Color.red;
-		Gizmos.DrawWireSphere(flchk.position, radius);
+		Gizmos.DrawLine(flchk.position, flchk.position + Vector3.down*radius);
 	}
-
-
 
  	public void TogglePlayable(bool x)
  	{
@@ -396,27 +394,40 @@ public class MasterController : MonoBehaviour
  	{
  		dustmaker.Play();
  	}
+
  	public void Explode()
  	{
  		DmgParticles.Play();
  	}
+
  	public void SlowDown(float factor)
  	{
-		rigb.velocity = new Vector2(rigb.velocity.x/factor, rigb.velocity.y);
- 
+		rigb.velocity = new Vector2(rigb.velocity.x*factor, rigb.velocity.y);
+		runtime -= Time.deltaTime;
  	}
 
-/* 	void hitenemy(GameObject hited, bool isBoss)
- 	{	
- 		//HitParticle.Transform.position = hited.Transform.position;
- 		//HitParticle.Play;
- 		pass 
- 	}
-
-
-*/
- 	public void SetTimeScale(float x)
+	public void SetTimeScale(float x)
  	{
  		Time.timeScale = x;
  	}
+
+ 	private Vector2 OnSlopeMoviment(out float dist)
+ 	{	
+ 		RaycastHit2D hit = Physics2D.Raycast(flchk.position, Vector2.down, 1f, solid);
+
+ 		if(hit)
+ 		{	
+ 			dist = hit.distance;
+ 			float Angle = Vector2.Angle(hit.normal, Vector2.up);
+
+ 			Debug.DrawRay(hit.point, Vector2.Perpendicular(hit.normal), Color.green);
+ 			Debug.DrawRay(hit.point, hit.normal, Color.red);
+
+ 			return hit.normal;
+ 		}
+ 		dist = 0.0f;
+ 		return Vector2.up;
+ 	}
+
+
 }

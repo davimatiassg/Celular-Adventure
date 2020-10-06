@@ -8,6 +8,8 @@ public class EosinBehavior : MonoBehaviour
     [SerializeField] private GameObject Shot;
     [SerializeField] private GameObject MeleeShot;
     [SerializeField] private Transform ShotLocal;
+
+   
    	private float TbtwAtk = 0f;
    	private bool atkqueue = false;
    	private float direction;
@@ -39,7 +41,7 @@ public class EosinBehavior : MonoBehaviour
 		{
 			mainCode.Jforce = new Vector2 (0, mainCode.jspeed);
 			mainCode.Cforce = new Vector2 (mainCode.speed/12*mainCode.movSen, 0.0f);
-			mainCode.isGrounded = Physics2D.OverlapCircle(mainCode.flchk.position, mainCode.radius, mainCode.solid);
+			mainCode.isGrounded = GroundDetect();
 			
 			if(mainCode.framestop > 0)
 			{
@@ -264,6 +266,18 @@ public class EosinBehavior : MonoBehaviour
 		{
 			TbtwAtk = 0.3f;
 		}
-		
+	}
+	public bool GroundDetect()
+	{	
+		RaycastHit2D hit = Physics2D.Raycast(mainCode.flchk.position, Vector2.down, mainCode.radius, mainCode.solid);
+
+		if(hit)
+		{
+			if(Vector2.Angle(Vector2.up, hit.normal) < 50)
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 }
