@@ -9,6 +9,8 @@ TagManager:
   - Indicator
   - Bestiary
   - HealthBar
+  - Parallax
+  - Scenary
   layers:
   - Default
   - TransparentFX

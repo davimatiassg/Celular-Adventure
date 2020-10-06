@@ -25,6 +25,8 @@ public class AmebaBehavior : MonoBehaviour {
 
 	private CombatEnemy combat;
 
+	[SerializeField] private bool ststill;
+
 
 	private RaycastHit2D detectedobj;
 
@@ -79,7 +81,7 @@ public class AmebaBehavior : MonoBehaviour {
 					anim.Play("Attack");
 					rigb.velocity = new Vector2(0f, rigb.velocity.y);
 				}
-				else if((detectedobj.collider.gameObject.CompareTag("Untagged") || detectedobj.collider.gameObject.CompareTag("hitable")) && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Over"))
+				else if(((detectedobj.collider.gameObject.CompareTag("Untagged") || detectedobj.collider.gameObject.CompareTag("hitable")) && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Over")) || ststill)
 				{
 
 					rigb.velocity = new Vector2(0f, rigb.velocity.y);
@@ -87,14 +89,14 @@ public class AmebaBehavior : MonoBehaviour {
 					wkt -= Time.deltaTime;
 				}
 			}
-			else if(wkt >= 0 && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Over"))
+			else if(wkt >= 0 && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Over") && !ststill)
 			{	
 				rigb.velocity = new Vector2(-trs.localScale.x/Mathf.Abs(trs.localScale.x) * speed, rigb.velocity.y);
 
 				anim.Play("Walk");
 				wkt -= Time.deltaTime;
 			}
-			if(wkt <= 0 && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Over"))
+			if(wkt <= 0 && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Over") && !ststill)
 			{
 				Flip();
 				wkt = walktime;
