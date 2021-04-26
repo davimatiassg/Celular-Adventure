@@ -4,10 +4,35 @@ using UnityEngine;
 
 public class CombatEnemy : MonoBehaviour {
 
+	[Header("Detalhes do inimigo")]
+
+    [Tooltip("Identificador")]
+    [SerializeField] public int enemyID; 
+
+    [Tooltip("Nome científico")]
+    [SerializeField] public string enemyName;
+
+    [Tooltip("Local de Encontro")]
+    [SerializeField] public string encounterLocal; 
+
+    [TextArea]
+    [Tooltip("Comportamento In-Game")]
+    [SerializeField] public string enemyBehavior;
+
+    [TextArea]
+    [Tooltip("Informações científicas")]
+    [SerializeField] public string realInfo; 
+
+    [SerializeField] public Sprite inGameImg;
+
+    [SerializeField] public Sprite realImg;
+
+	[Header("Atributos do Inimigo")]
+
 	//declaração das variáveis:
 	public bool DieDestroy = true;
 
-	public string name; //nome do inimigo
+	public string tname; //nome do inimigo
 
 	private Rigidbody2D rigb; //variável que receberá o valor do componente de física (a Classe RigidBody2D) do inimigo
 
@@ -15,9 +40,9 @@ public class CombatEnemy : MonoBehaviour {
 
 	public int attackdmg; //o dano aplicado ao jogador caso ele entre na área de colisão
 
-	public float hitstun = 2f; //o tempo de atordoamento que o inimigo receberá ao tomar dano do jogador  (stun = atordoamento, só pra constar)
+	public float hitstun = 1.4f; //o tempo de atordoamento que o inimigo receberá ao tomar dano do jogador  (stun = atordoamento, só pra constar)
 
-	private float stun; //a mesma coisa que a variável anterior, só que essa daqui vai ser utilizada nos cálculos (a cada instante(frame) em que estiver atordoado, o tempo de atordoamento restante diminui)
+	[SerializeField] private float stun; //a mesma coisa que a variável anterior, só que essa daqui vai ser utilizada nos cálculos (a cada instante(frame) em que estiver atordoado, o tempo de atordoamento restante diminui)
 
 	private bool stuned; // uma bool pra identificar se o iinimigo está atordoado ou não
 
@@ -27,19 +52,18 @@ public class CombatEnemy : MonoBehaviour {
 
 	private SpriteRenderer HitF; //isso daqui vai receber a classe que controla a cor da variável da linha 23 (GameObject hiteffect)
 
-	private AudioSource aud; //espaço para receber o componente de tocar áudio do inimigo
-
-	[SerializeField] private List<AudioClip> sfx = new List<AudioClip>(); // espaço para receber os áudios que o inimigo vai tocar
 
 	public Vector2 KnBackIntensity = new Vector2(1f, 1f);
+
+	public AudioInterface a;
 			
 
 	void Start()//método padrão do unity que roda no início da fase/cena
 	{
-		aud = this.gameObject.GetComponent<AudioSource>(); //this.gameObject vai acessar o objeto em que esse script foi colocado e, com o método GetComponent<AudioSource>() vai pegar o componente de áudio dele e jogar para a variável aud;
+		a = this.gameObject.GetComponent<AudioInterface>(); //this.gameObject vai acessar o objeto em que esse script foi colocado e, com o método GetComponent<AudioSource>() vai pegar o componente de áudio dele e jogar para a variável aud;
 	}
 
-	private void OnTriggerEnter2D(Collider2D other)//método padrão do unity que roda sempre que um objeto entrar numa caixa de colisão classificada como gatilho ("Trigger", que não vai ser solida mas vai ativar um comando quando algo entrar nela)
+	private void OnTriggerStay2D(Collider2D other)//método padrão do unity que roda sempre que um objeto entrar numa caixa de colisão classificada como gatilho ("Trigger", que não vai ser solida mas vai ativar um comando quando algo entrar nela)
 	{								//^^^^^ other é o componente do colisor que entrou no gatilho do inimigo
 
 		if (other.gameObject.tag.Equals("Player") && other.isTrigger == false && !stuned) //vai ver se o objeto que entrou na caixa de colisão é o jogador e se o inimigo não está atordoado
@@ -52,32 +76,43 @@ public class CombatEnemy : MonoBehaviour {
 
 	public void takedamage(int dmg, Vector2 knockback) //método que faz o inimigo tomar dano, dmg = dano recebido (inteiro) e Knockback = direção e intensidade da repulsão (Vector2(x, y))
 	{	
+		
 		if(life > 0 || (life <= 0 && !DieDestroy) )//verifica se o inimigo é capaz de receber dano de alguma forma
-		{
+		{	
 			stun = hitstun; //faz com que o inimigo tenha o tempo de atordoamento ativado
 			stuned = true; //ativa o status de atordoado
 			if(life > dmg || (life <= 0 && !DieDestroy)) // se o inimigo não for morrer ao tomar esse dano...
 			{
-			
-				Instantiate(hiteffect, transform.position, transform.rotation); // instanciar o efeito visual para tomar dano não-letal
-				aud.clip = sfx[0]; //selecionar o efeito de dano recebido
-				aud.Play(); //tocar o efeito sonoro selecionado
+				if(hiteffect != null)
+				{
+					Instantiate(hiteffect, transform.position, transform.rotation); // instanciar o efeito visual para tomar dano não-letal
+				}
+				
+				if(a != null)
+				{
+					a.PlaySound("dmg");
+				}
+				
 				life -= dmg; //diminuir a vida do inimigo
 			}
 
 			else //se ele for morrer ao receber esse dano
 			{	
-				aud.clip = sfx[1]; //selecionar efeito sonoro de morte
+				if(a != null)
+				{
+					a.PlaySound("die");
+				}
+				
 				life = 0; // duh, vida = 0
-				aud.Play(); //tocar o efeito sonoro selecionado
-
-				BestiaryElements.onKillEnemy += BestiaryAdd; //adicione o valor dele ao bestiário
+				
 
 				GameEvents.ScreamEvent("EnemyKilled"); //diga pra todo mundo que um inimigo morreu
+				CardIndex enemyCard = new CardIndex(enemyID, realImg, inGameImg, encounterLocal, enemyBehavior, enemyName, realInfo);
+				BestiaryElements.AddCardEnemy(enemyCard);
+				PontuationCounter.AddScore(500);
 			}
 
-			this.gameObject.GetComponent<Rigidbody2D>().velocity = knockback * KnBackIntensity; // aplicar repulsão (pega o componente de física, o RigidBody2D e chama o método AddForce, para empurrar o jogador na direção do vetor (ForceMode2D.Impulse é um parâmetro que precisa estar lá, mas eu não sei o que ele faz))
-
+			this.gameObject.GetComponent<Rigidbody2D>().velocity += knockback * KnBackIntensity; 
 		}
 	}
 
@@ -85,29 +120,22 @@ public class CombatEnemy : MonoBehaviour {
 	public bool stuncheck() // um método para outro script conseguir ver se o inimigo está stunado, usado para comunicação
 	{
 		return stuned;
+	}
+	public void SetStuned(float t = 1)
+	{
+		
+		stun = t;
+		if(t == 0)
+		{
+			stuned = false;
+		}
+		else
+		{
+			stuned = true;
+		}
 
 	}
 
-	void BestiaryAdd() // não meche nisso pelo amor de Deus (coisa do bestiário, não lembro mais o que isso faz)
-    {
-    	if(GameObject.FindGameObjectWithTag("Bestiary").GetComponent<BestiaryElements>().Bestiary.ContainsKey(name))
-    	{
-    		GameObject.FindGameObjectWithTag("Bestiary").GetComponent<BestiaryElements>().Bestiary[name] ++;
-    	}
-    	else
-    	{
-    		GameObject.FindGameObjectWithTag("Bestiary").GetComponent<BestiaryElements>().Bestiary.Add(name, 1);
-
-    	}
-    	
-    	BestiaryRemove();
-    }
-
-
-    void BestiaryRemove()// isso daqui tbm é meio que a mesma coisa
-    {
-    	BestiaryElements.onKillEnemy -= BestiaryAdd;
-    }
 
 	void Update() //método padrão do unity que roda no início de cada frame
 	{
@@ -133,16 +161,24 @@ public class CombatEnemy : MonoBehaviour {
 			{
 				if(!stuned)
 				{	
-					Debug.Log("ta serto");
-					BestiaryElements.onKillEnemy += BestiaryAdd;
 					GameEvents.ScreamEvent("EnemyKilled");
+					CardIndex enemyCard = new CardIndex(enemyID, realImg, inGameImg, encounterLocal, enemyBehavior, enemyName, realInfo);
+					BestiaryElements.AddCardEnemy(enemyCard);
+					PontuationCounter.AddScore(500);
+					a.PlaySound("die");
 				}
-				stuned = true;
-				stun = 5;
+				SetStuned(5);
 				life = 0;
 				
 			}
 
+		}
+		else
+		{
+			if(stuned && stun <= 0)
+			{
+				stuned = false;
+			}
 		}
 
 		if(stun > 0.0f && (DieDestroy || life > 0)) //se o inimigo estiver atordoado..
@@ -153,5 +189,6 @@ public class CombatEnemy : MonoBehaviour {
 		{
 			stuned = false; //então ele não está atordoado. (não dá pra ser verdadeiro e falso ao mesmo tempo ainda.)
 		}
+
 	}
 }

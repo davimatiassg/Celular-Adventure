@@ -16,6 +16,7 @@ public class Cursor : MonoBehaviour
 	{
 		trs = GetComponent<Transform>();
 		UnityEngine.Cursor.visible = false;
+		CameraBehavior.target = trs;
 	}
 
 	void Update()

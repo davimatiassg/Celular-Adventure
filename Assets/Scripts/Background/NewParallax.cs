@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NewParallax : MonoBehaviour
 {	
-	[SerializeField] private Vector4 limit;
+	[SerializeField] private Vector2 V_Limit;
 	[SerializeField] private Vector2 parallax_factor;
     [SerializeField] private Vector2 compensation = Vector2.zero;
     [SerializeField] private float startpos = 0f;
@@ -46,6 +46,17 @@ public class NewParallax : MonoBehaviour
         {
         	startpos -= lenght;
         }
+
+		temp = (camera_trs.position.y * (1f - parallax_factor.y));
+        dist = camera_trs.position.y * parallax_factor.y;
+
+        if((camera_trs.position.y + dist + compensation.y < V_Limit.y && camera_trs.position.y + dist + compensation.y > V_Limit.x) || V_Limit == Vector2.zero)
+        {
+        	transform.position = new Vector3(transform.position.x, camera_trs.position.y + dist + compensation.y, transform.position.z);
+        }
+        
+
+
     }
     public void ChangeBackground(int t)
     {

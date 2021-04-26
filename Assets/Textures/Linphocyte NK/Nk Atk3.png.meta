@@ -1,0 +1,470 @@
+fileFormatVersion: 2
+guid: 2a72d6ea217a6904db62f5123da52c3c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3624349638166609424
+    second: Nk Atk3_0
+  - first:
+      213: 749722063558081642
+    second: Nk Atk3_1
+  - first:
+      213: 2737539005468705009
+    second: Nk Atk3_2
+  - first:
+      213: 3260281741651374355
+    second: Nk Atk3_3
+  - first:
+      213: -441332913369408671
+    second: Nk Atk3_4
+  - first:
+      213: -2728793266603892036
+    second: Nk Atk3_5
+  - first:
+      213: 8523169934386944761
+    second: Nk Atk3_6
+  - first:
+      213: 7780437663094289389
+    second: Nk Atk3_7
+  - first:
+      213: -7100250848015373059
+    second: Nk Atk3_8
+  - first:
+      213: -3048271824180979671
+    second: Nk Atk3_9
+  - first:
+      213: 6906406892300026859
+    second: Nk Atk3_10
+  - first:
+      213: 3271694245091829832
+    second: Nk Atk3_11
+  - first:
+      213: 1310931830110227813
+    second: Nk Atk3_12
+  - first:
+      213: -4247044648244586479
+    second: Nk Atk3_13
+  - first:
+      213: -6434597927230418886
+    second: Nk Atk3_0
+  - first:
+      213: 3314780546427579722
+    second: Nk Atk3_1
+  - first:
+      213: 4311710845668951657
+    second: Nk Atk3_2
+  - first:
+      213: 5149493970420034896
+    second: Nk Atk3_3
+  - first:
+      213: 406924846340391695
+    second: Nk Atk3_4
+  - first:
+      213: 8973077348165553179
+    second: Nk Atk3_5
+  - first:
+      213: 4783102189507668031
+    second: Nk Atk3_6
+  - first:
+      213: -3486193094097877866
+    second: Nk Atk3_7
+  - first:
+      213: -5131210733487779879
+    second: Nk Atk3_8
+  - first:
+      213: 5630563167668337908
+    second: Nk Atk3_9
+  - first:
+      213: -7467468048933727069
+    second: Nk Atk3_10
+  - first:
+      213: -3007601700130771859
+    second: Nk Atk3_11
+  - first:
+      213: 1981126488843289344
+    second: Nk Atk3_12
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Nk Atk3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 108
+        height: 96
+      alignment: 9
+      pivot: {x: 0.42592594, y: 0.2604167}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3057f2f647b3b6a0800000000000000
+      internalID: -6434597927230418886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nk Atk3_1
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 0
+        width: 108
+        height: 96
+      alignment: 9
+      pivot: {x: 0.42592594, y: 0.2604167}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4de0323857700e20800000000000000
+      internalID: 3314780546427579722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nk Atk3_2
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 0
+        width: 108
+        height: 96
+      alignment: 9
+      pivot: {x: 0.42592594, y: 0.2604167}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9660c427b2646db30800000000000000
+      internalID: 4311710845668951657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nk Atk3_3
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 0
+        width: 108
+        height: 96
+      alignment: 9
+      pivot: {x: 0.42592594, y: 0.2604167}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05de6ef9b7da67740800000000000000
+      internalID: 5149493970420034896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nk Atk3_4
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 0
+        width: 108
+        height: 96
+      alignment: 9
+      pivot: {x: 0.42592594, y: 0.2604167}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f034664edffa5a500800000000000000
+      internalID: 406924846340391695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nk Atk3_5
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 0
+        width: 108
+        height: 96
+      alignment: 9
+      pivot: {x: 0.42592594, y: 0.2604167}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1c03878e46c68c70800000000000000
+      internalID: 8973077348165553179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nk Atk3_6
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 0
+        width: 108
+        height: 96
+      alignment: 9
+      pivot: {x: 0.42592594, y: 0.2604167}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f386ff1791ef06240800000000000000
+      internalID: 4783102189507668031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nk Atk3_7
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 0
+        width: 108
+        height: 96
+      alignment: 9
+      pivot: {x: 0.42592594, y: 0.2604167}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69440eff9dd8e9fc0800000000000000
+      internalID: -3486193094097877866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nk Atk3_8
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 108
+        height: 96
+      alignment: 9
+      pivot: {x: 0.42592594, y: 0.2604167}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9df0ac236074ac8b0800000000000000
+      internalID: -5131210733487779879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nk Atk3_9
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 0
+        width: 108
+        height: 96
+      alignment: 9
+      pivot: {x: 0.42592594, y: 0.2604167}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fcf4467e57c32e40800000000000000
+      internalID: 5630563167668337908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nk Atk3_10
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 0
+        width: 108
+        height: 96
+      alignment: 9
+      pivot: {x: 0.42592594, y: 0.2604167}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a4d9b3bf593e5890800000000000000
+      internalID: -7467468048933727069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nk Atk3_11
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 0
+        width: 108
+        height: 96
+      alignment: 9
+      pivot: {x: 0.42592594, y: 0.2604167}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6c28dd403ad246d0800000000000000
+      internalID: -3007601700130771859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nk Atk3_12
+      rect:
+        serializedVersion: 2
+        x: 1296
+        y: 0
+        width: 108
+        height: 96
+      alignment: 9
+      pivot: {x: 0.42592594, y: 0.2604167}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0030f9e8b006e7b10800000000000000
+      internalID: 1981126488843289344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

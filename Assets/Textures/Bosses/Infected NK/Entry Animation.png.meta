@@ -1,0 +1,838 @@
+fileFormatVersion: 2
+guid: 14d9e72edfb84aa44a55a28557ef92db
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8576177876962153996
+    second: Entry Animation_0
+  - first:
+      213: -821154716937312722
+    second: Entry Animation_1
+  - first:
+      213: -7748640743655060975
+    second: Entry Animation_2
+  - first:
+      213: -6576720512121948611
+    second: Entry Animation_3
+  - first:
+      213: 4738700563502102021
+    second: Entry Animation_4
+  - first:
+      213: 4497308311638391596
+    second: Entry Animation_5
+  - first:
+      213: 59616404307126164
+    second: Entry Animation_6
+  - first:
+      213: -4953468772719522883
+    second: Entry Animation_7
+  - first:
+      213: 4943861178855954375
+    second: Entry Animation_8
+  - first:
+      213: -2903589073227644403
+    second: Entry Animation_9
+  - first:
+      213: 2822862409590958879
+    second: Entry Animation_10
+  - first:
+      213: -6826527232518982525
+    second: Entry Animation_11
+  - first:
+      213: 1845935628377659232
+    second: Entry Animation_12
+  - first:
+      213: 4322057905504465611
+    second: Entry Animation_13
+  - first:
+      213: 8553846835058470392
+    second: Entry Animation_14
+  - first:
+      213: -4541059491381606631
+    second: Entry Animation_15
+  - first:
+      213: 2237996604460922671
+    second: Entry Animation_16
+  - first:
+      213: 8124094245994596033
+    second: Entry Animation_17
+  - first:
+      213: 6706171743841106581
+    second: Entry Animation_18
+  - first:
+      213: -4644359080255590256
+    second: Entry Animation_19
+  - first:
+      213: -3785027228453045982
+    second: Entry Animation_20
+  - first:
+      213: 3078477924655832120
+    second: Entry Animation_21
+  - first:
+      213: -758427223923723997
+    second: Entry Animation_22
+  - first:
+      213: -6720664832383438617
+    second: Entry Animation_23
+  - first:
+      213: -7271004097478625858
+    second: Entry Animation_24
+  - first:
+      213: -6683376914909589275
+    second: Entry Animation_25
+  - first:
+      213: 7135921927973758952
+    second: Entry Animation_26
+  - first:
+      213: 5101178022037079926
+    second: Entry Animation_27
+  - first:
+      213: 517794398993234842
+    second: Entry Animation_28
+  - first:
+      213: 7409672727130243726
+    second: Entry Animation_29
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Entry Animation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.50261784, y: 0.1015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f96b11d8ab4bf880800000000000000
+      internalID: -8576177876962153996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_1
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.50261784, y: 0.1015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e26a057b22caa94f0800000000000000
+      internalID: -821154716937312722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_2
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.50261784, y: 0.1015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11a42563c4c477490800000000000000
+      internalID: -7748640743655060975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_3
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.50261784, y: 0.1015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3632f70a8bcab4a0800000000000000
+      internalID: -6576720512121948611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_4
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.50261784, y: 0.1015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5067c784e0f33c140800000000000000
+      internalID: 4738700563502102021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_5
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.50261784, y: 0.1015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2b3e98e416a96e30800000000000000
+      internalID: 4497308311638391596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_6
+      rect:
+        serializedVersion: 2
+        x: 1146
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.50261784, y: 0.1015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4972389cdccc3d000800000000000000
+      internalID: 59616404307126164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_7
+      rect:
+        serializedVersion: 2
+        x: 1337
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.50261784, y: 0.1015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbb0014556eb14bb0800000000000000
+      internalID: -4953468772719522883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_8
+      rect:
+        serializedVersion: 2
+        x: 1528
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.50261784, y: 0.1015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c79d886c8f1c9440800000000000000
+      internalID: 4943861178855954375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_9
+      rect:
+        serializedVersion: 2
+        x: 1719
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.50261784, y: 0.1015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d028f8c2f1164b7d0800000000000000
+      internalID: -2903589073227644403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_10
+      rect:
+        serializedVersion: 2
+        x: 1910
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.50261784, y: 0.1015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1be875c762dc2720800000000000000
+      internalID: 2822862409590958879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_11
+      rect:
+        serializedVersion: 2
+        x: 2101
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.50261784, y: 0.1015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 384fc2886ad4341a0800000000000000
+      internalID: -6826527232518982525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_12
+      rect:
+        serializedVersion: 2
+        x: 2292
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.50261784, y: 0.1015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06710bf7ca41e9910800000000000000
+      internalID: 1845935628377659232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_13
+      rect:
+        serializedVersion: 2
+        x: 2483
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.50261784, y: 0.1015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc2334c04c80bfb30800000000000000
+      internalID: 4322057905504465611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_14
+      rect:
+        serializedVersion: 2
+        x: 2674
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.50261784, y: 0.1015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fd62c2506e55b670800000000000000
+      internalID: 8553846835058470392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_15
+      rect:
+        serializedVersion: 2
+        x: 2865
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5026178, y: 0.1015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9178840c37aeaf0c0800000000000000
+      internalID: -4541059491381606631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_16
+      rect:
+        serializedVersion: 2
+        x: 3056
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.50261784, y: 0.1015625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f277c69ed06fe0f10800000000000000
+      internalID: 2237996604460922671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_17
+      rect:
+        serializedVersion: 2
+        x: 3247
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5026178, y: 0.203125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c68d466ca49eb070800000000000000
+      internalID: 8124094245994596033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_18
+      rect:
+        serializedVersion: 2
+        x: 3438
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.50261784, y: 0.203125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59a39629bab111d50800000000000000
+      internalID: 6706171743841106581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_19
+      rect:
+        serializedVersion: 2
+        x: 3629
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.50261784, y: 0.203125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 090710cf50ceb8fb0800000000000000
+      internalID: -4644359080255590256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_20
+      rect:
+        serializedVersion: 2
+        x: 3820
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.50261784, y: 0.203125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 229ffd62ac1e87bc0800000000000000
+      internalID: -3785027228453045982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_21
+      rect:
+        serializedVersion: 2
+        x: 4011
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.50261784, y: 0.203125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83c1efbac53f8ba20800000000000000
+      internalID: 3078477924655832120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_22
+      rect:
+        serializedVersion: 2
+        x: 4202
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.50261784, y: 0.203125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3217a0a45768975f0800000000000000
+      internalID: -758427223923723997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_23
+      rect:
+        serializedVersion: 2
+        x: 4393
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.203125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e0335b41f66bb2a0800000000000000
+      internalID: -6720664832383438617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_24
+      rect:
+        serializedVersion: 2
+        x: 4584
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5026178, y: 0.203125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb57069fb44381b90800000000000000
+      internalID: -7271004097478625858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_25
+      rect:
+        serializedVersion: 2
+        x: 4775
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.50261784, y: 0.203125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e094ce1b10ef33a0800000000000000
+      internalID: -6683376914909589275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_26
+      rect:
+        serializedVersion: 2
+        x: 4966
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.50261784, y: 0.234375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e7ebcd8f23e70360800000000000000
+      internalID: 7135921927973758952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_27
+      rect:
+        serializedVersion: 2
+        x: 5157
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.50261784, y: 0.2734375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 677cc8342660bc640800000000000000
+      internalID: 5101178022037079926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_28
+      rect:
+        serializedVersion: 2
+        x: 5348
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.4973822, y: 0.40625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9bbda233439f2700800000000000000
+      internalID: 517794398993234842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Entry Animation_29
+      rect:
+        serializedVersion: 2
+        x: 5539
+        y: 0
+        width: 191
+        height: 128
+      alignment: 9
+      pivot: {x: 0.50261784, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e828f72561274d660800000000000000
+      internalID: 7409672727130243726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

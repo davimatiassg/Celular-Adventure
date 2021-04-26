@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 114642557875108760}
   - component: {fileID: 114349357693349404}
   - component: {fileID: -2200516861272566982}
+  - component: {fileID: 5069135389223018494}
   m_Layer: 9
   m_Name: Staph1
   m_TagString: hitable
@@ -74,6 +75,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -203,15 +205,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b535b7a36c19854cb5f62e71126f029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Staphiloccocus1
+  enemyID: 0
+  enemyName: Staphylococcus aureus
+  encounterLocal: Fase 1 - Pele
+  enemyBehavior: "Vida: 60; Dano: 5;\nAvan\xE7a na dire\xE7\xE3o do jogador. Quando
+    pr\xF3ximo o suficiente espera por 1.5 segundos e atira-se na dire\xE7\xE3o do
+    jogador"
+  realInfo: "Essas bact\xE9rias s\xE3o comuns na pele humana. Possuem formato redondo
+    e formam col\xF4nias parecidas com cachos de uva. Altamente t\xF3xicas."
+  inGameImg: {fileID: 21300002, guid: 5dac845dc73ba674092678eb4acfa610, type: 3}
+  realImg: {fileID: 21300000, guid: 75d14618b9153524bbdf4ae4585e221f, type: 3}
+  DieDestroy: 1
+  tname: 
   life: 60
   attackdmg: 5
   hitstun: 0.3
+  stun: 0
   hiteffect: {fileID: 1357709085957344, guid: 940af74b4bc820b4e94b7020a2e48efe, type: 3}
   hitparticles: {fileID: 198831886802629820}
-  sfx:
-  - {fileID: 8300000, guid: 24b984b4e664bb44882088770293a70a, type: 3}
-  - {fileID: 8300000, guid: 2d0fd496da60b1440918ba34b7151f4f, type: 3}
+  KnBackIntensity: {x: 1, y: 1}
 --- !u!82 &-2200516861272566982
 AudioSource:
   m_ObjectHideFlags: 0
@@ -223,9 +235,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 0.8
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -233,7 +245,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -298,7 +310,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.46813202
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -308,6 +320,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5069135389223018494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747137165754164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab2ba0dac15889f44ab0ce99eb19bd03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aud: {fileID: -2200516861272566982}
+  thistag: sfx
+  clip:
+  - {fileID: 8300000, guid: 24b984b4e664bb44882088770293a70a, type: 3}
+  - {fileID: 8300000, guid: 2d0fd496da60b1440918ba34b7151f4f, type: 3}
+  - {fileID: 8300000, guid: 7b4ffd59315dede49be02eb98d703901, type: 3}
+  - {fileID: 8300000, guid: 83e11a3d18535544da8a7bd87cd6acfc, type: 3}
+  cname:
+  - dmg
+  - die
+  - load
+  - dash
 --- !u!1 &1883682146988354
 GameObject:
   m_ObjectHideFlags: 0
@@ -2433,6 +2469,62 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+  LifetimeByEmitterSpeedModule:
+    enabled: 0
+    m_Curve:
+      serializedVersion: 2
+      minMaxState: 1
+      scalar: 1
+      minScalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: -0.8
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 0.2
+          inSlope: -0.8
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    m_Range: {x: 0, y: 1}
   ForceModule:
     enabled: 0
     x:
@@ -5014,6 +5106,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5056,6 +5149,8 @@ ParticleSystemRenderer:
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
+  m_FreeformStretching: 0
+  m_RotateWithStretchDirection: 1
   m_VertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
@@ -5108,6 +5203,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

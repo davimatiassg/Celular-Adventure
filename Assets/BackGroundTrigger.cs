@@ -9,10 +9,13 @@ public class BackGroundTrigger : MonoBehaviour
 	public int startbg = 0;
 	private bool arin = false;
     public Vector2 BackgLeft_Right;
+    public Color[] BgCollors;
+    private Camera cam;
     // Start is called before the first frame update
     void Start()
     {
         Player = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
         obj = this.gameObject.GetComponent<Transform>();
     }
 
@@ -40,10 +43,12 @@ public class BackGroundTrigger : MonoBehaviour
         if(Player.position.x < obj.position.x)
         {
             startbg = Mathf.RoundToInt(BackgLeft_Right.y);
+            cam.backgroundColor =  BgCollors[1];
         }
         else if(Player.position.x > obj.position.x)
         {
             startbg = Mathf.RoundToInt(BackgLeft_Right.x);
+            cam.backgroundColor =  BgCollors[0];
         }
     	foreach(GameObject b in bglist)
     	{

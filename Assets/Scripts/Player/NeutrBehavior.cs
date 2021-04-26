@@ -1,11 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class NeutrBehavior : MonoBehaviour
 {
     [SerializeField] private MasterController mainCode;
-
+    [SerializeField] private AudioInterface a;
     private bool downdash = false;
 	private bool candowndash;
 	public float downdashtm = 0.3f;
@@ -17,6 +17,7 @@ public class NeutrBehavior : MonoBehaviour
     void Start()
     {
         mainCode = this.gameObject.GetComponent<MasterController>();
+        a = this.gameObject.GetComponent<AudioInterface>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -41,7 +42,7 @@ public class NeutrBehavior : MonoBehaviour
 		}
 		//rolamento
 
-		if(mainCode.isCrouch == true && mainCode.axis != 0 && rolltm >= rollcdr)
+		if(((mainCode.isCrouch == true && mainCode.axis != 0) || mainCode.atk2 && mainCode.isGrounded)&& rolltm >= rollcdr)
 		{	
 			isRoll = true;
 		}
@@ -49,6 +50,7 @@ public class NeutrBehavior : MonoBehaviour
 		if(isRoll)
 		{
 			mainCode.rigb.velocity = new Vector2(mainCode.speed*4*mainCode.movSen, mainCode.rigb.velocity.y);
+			mainCode.axis = mainCode.movSen;
 			
 			if(rolltm >= 0)
 			{
@@ -78,8 +80,6 @@ public class NeutrBehavior : MonoBehaviour
     	}
       if(mainCode.playable)
 		{
-			mainCode.Jforce = new Vector2 (0, mainCode.jspeed);
-			mainCode.Cforce = new Vector2 (mainCode.speed/12*mainCode.movSen, 0.0f);
 			mainCode.isGrounded = Physics2D.OverlapCircle(mainCode.flchk.position, mainCode.radius, mainCode.solid);;
 			
 			if(mainCode.framestop > 0)
@@ -167,6 +167,11 @@ public class NeutrBehavior : MonoBehaviour
 			if(mainCode.life <= 0 && !mainCode.anim.GetCurrentAnimatorStateInfo(0).IsTag("Dying"))
 			{
 				mainCode.anim.Play("Die");
+				AnotationPoint an = this.gameObject.GetComponent<AnotationPoint>();
+				if(an != null)
+				{
+					an.AdcthisNote();
+				}
 				mainCode.lifeBar.ToggleVisibility(false);
 
 			}	
@@ -179,19 +184,20 @@ public class NeutrBehavior : MonoBehaviour
 	public void Animate()
 	{	
 		if(!mainCode.anim.GetCurrentAnimatorStateInfo(0).IsTag("takedmg"))
-		{		if(mainCode.rigb.velocity.y < -5)
-				{
-					yfly = -5;
-				}
-				else if(mainCode.rigb.velocity.y > 5)
-				{
-					yfly = 5;
-				}
-				else
-				{
-					yfly = 0;
-				}
-				mainCode.anim.SetFloat("AirmovV", yfly);
+		{		
+			if(mainCode.rigb.velocity.y < -5)
+			{
+				yfly = -5;
+			}
+			else if(mainCode.rigb.velocity.y > 5)
+			{
+				yfly = 5;
+			}
+			else
+			{
+				yfly = 0;
+			}
+			mainCode.anim.SetFloat("AirmovV", yfly);
 
 			if (!mainCode.anim.GetCurrentAnimatorStateInfo(0).IsTag("atk"))
 			{
@@ -199,9 +205,14 @@ public class NeutrBehavior : MonoBehaviour
 				if (mainCode.isGrounded) 
 				{	
 					if(isRoll)
-					{
+					{	
+						if(!mainCode.anim.GetCurrentAnimatorStateInfo(0).IsName("Roll"))
+						{
+							a.PlaySound("dash");
+						}
 						mainCode.anim.Play("Roll");
 						mainCode.isCrouch = isRoll;
+
 						mainCode.MakeDust();
 					}
 					else if(mainCode.isCrouch)
@@ -223,7 +234,8 @@ public class NeutrBehavior : MonoBehaviour
 				else
 				{
 					if (!mainCode.anim.GetCurrentAnimatorStateInfo(0).IsTag("air"))
-					{
+					{	
+						a.PlaySound("dash");
 						if(mainCode.isinMov)
 						{
 							mainCode.anim.Play("Dash_Jump");
@@ -238,7 +250,11 @@ public class NeutrBehavior : MonoBehaviour
 			Attack();
 		}
 		else
-		{
+		{	
+			if(mainCode.gothit)
+			{
+				a.PlaySound("dmg");
+			}
 			mainCode.gothit = false;
 		}	
 	}
@@ -254,11 +270,12 @@ public class NeutrBehavior : MonoBehaviour
 				{
 					mainCode.anim.Play("downtilt");
 					mainCode.MakeDust();
-
+					a.PlaySound("atk1");
 					mainCode.knockback = new Vector2(3f*mainCode.movSen, 15f);
 				}
 				else if(mainCode.anim.GetCurrentAnimatorStateInfo(0).IsTag("idle"))
-				{
+				{	
+					a.PlaySound("atk1");
 					mainCode.anim.Play("first");
 					mainCode.rigb.velocity = new Vector2(0, mainCode.rigb.velocity.y);
 					mainCode.rigb.AddForce(new Vector2(20*mainCode.movSen, 0), ForceMode2D.Impulse);
@@ -267,7 +284,8 @@ public class NeutrBehavior : MonoBehaviour
 					
 				}
 				else if(mainCode.anim.GetCurrentAnimatorStateInfo(0).IsTag("run"))
-				{
+				{	
+					a.PlaySound("atk2");
 					mainCode.anim.Play("dash attack");
 					mainCode.rigb.velocity = new Vector2(0, mainCode.rigb.velocity.y);
 					mainCode.rigb.AddForce(new Vector2(20*mainCode.movSen, 0), ForceMode2D.Impulse);
@@ -276,24 +294,28 @@ public class NeutrBehavior : MonoBehaviour
 				}
 
 				else if(mainCode.anim.GetCurrentAnimatorStateInfo(0).IsName("first"))
-				{
+				{	
+					a.PlaySound("atk2");
 					mainCode.anim.Play("second");
 					mainCode.MakeDust();
 					mainCode.rigb.AddForce(new Vector2(50*mainCode.movSen, 0), ForceMode2D.Impulse);
 					mainCode.knockback = new Vector2(3f, 5f);
 				}
 				else if(mainCode.anim.GetCurrentAnimatorStateInfo(0).IsName("second"))
-				{
+				{	
+					a.PlaySound("atk3");
 					mainCode.anim.Play("third");
 					mainCode.rigb.velocity = new Vector2(0, 0);
 					mainCode.knockback = new Vector2(15f*mainCode.movSen, 15f);
 					
 				}
 				else if(mainCode.anim.GetCurrentAnimatorStateInfo(0).IsTag("air"))
-				{
+				{	
+					
 					mainCode.anim.SetTrigger("Atk");
 					if((mainCode.ayis < 0.0f) && !mainCode.isGrounded && candowndash)
-					{
+					{	
+						a.PlaySound("dash");
 						downdash = true; 
 						mainCode.anim.Play("flying down");
 					}
@@ -305,6 +327,7 @@ public class NeutrBehavior : MonoBehaviour
 				{
 					if(candowndash && mainCode.ayis <= 0.0f)
 					{	
+						a.PlaySound("dash");
 						mainCode.anim.Play("flying down");
 						downdash = true;
 						mainCode.knockback = new Vector2(15f*mainCode.movSen, -15f);
@@ -312,7 +335,8 @@ public class NeutrBehavior : MonoBehaviour
 
 					}
 					else if (mainCode.ayis > 0.0f)
-					{
+					{	
+						a.PlaySound("atk2");
 						mainCode.anim.Play("flying up");
 						
 						mainCode.knockback = new Vector2(0f, 20f);

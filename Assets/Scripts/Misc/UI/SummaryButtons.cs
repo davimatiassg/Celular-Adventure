@@ -6,20 +6,21 @@ public class SummaryButtons : MonoBehaviour
 {
 
 	public GameObject BestButton;
+  public GameObject AnButton;
 
     void Awake()
     {
-    	GameEvents.StartListening("GamePaused", BestiaryButton);
+    	GameEvents.StartListening("GamePaused", ToggleButtons);
     }
-	void OnDisable()
-	{
-		GameEvents.StopListening("GamePaused", BestiaryButton);
-	}
+  	void OnDisable()
+  	{
+  		GameEvents.StopListening("GamePaused", ToggleButtons);
+  	}
 
 
-    public void BestiaryButton()
+    public void ToggleButtons()
     {	
-    	if(GameObject.FindWithTag("Bestiary").GetComponent<BestiaryElements>().Bestiary.Count <= 0)
+    	if(BestiaryElements.Bestiary.Count <= 0)
     	{
     		BestButton.GetComponent<Button>().interactable = false;  	 	
    		}
@@ -27,6 +28,15 @@ public class SummaryButtons : MonoBehaviour
    		{
    			BestButton.GetComponent<Button>().interactable = true;
    		}
+
+      if(AnotationManager.Notes.Count <= 0)
+      {
+        AnButton.GetComponent<Button>().interactable = false;     
+      }
+      else
+      {
+        AnButton.GetComponent<Button>().interactable = true;
+      }
 
     }
 }

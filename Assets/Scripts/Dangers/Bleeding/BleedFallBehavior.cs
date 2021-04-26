@@ -15,10 +15,13 @@ public class BleedFallBehavior : MonoBehaviour {
 	private Blood bloodmain;
 	public float MaxRange = 1;
 
+	private SpriteRenderer spr;
+
 	public ParticleSystem bldparticles;
 	// Use this for initialization
 	void Start () {
 		
+		spr = this.gameObject.GetComponent<SpriteRenderer>();
 		anim = GetComponent<Animator> ();
 		trs = GetComponent<Transform> ();
 		ActualTime = BleedDelay;
@@ -29,22 +32,26 @@ public class BleedFallBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		ActualTime -= Time.deltaTime;
-
-		if (ActualTime <= 0)
+		if(spr.isVisible)
 		{
-			if(IsBleeding)
+			ActualTime -= Time.deltaTime;
+
+			if (ActualTime <= 0)
 			{
-				ActualTime = BleedDelay;
-				IsBleeding = false;
-				
+				if(IsBleeding)
+				{
+					ActualTime = BleedDelay;
+					IsBleeding = false;
+					
+				}
+				else
+				{
+					ActualTime = BleedTime;
+					IsBleeding = true;
+					
+				}
 			}
-			else
-			{
-				ActualTime = BleedTime;
-				IsBleeding = true;
-				
-			}
+
 		}
 
 

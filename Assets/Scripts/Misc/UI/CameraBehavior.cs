@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraBehavior : MonoBehaviour {
+
+
 	public bool lvlselection = false;
 	
 	private Vector2 velocity;
 	private Vector2 refer;
 
-	public Transform target;
+	public static Transform target;
 	public Camera cam;
 
 	public float camsensex;
@@ -36,26 +38,27 @@ public class CameraBehavior : MonoBehaviour {
 	public float desy;
 	// Update is called once per frame
 
+
+
 	void OnEnable()
 	{
 		GameEvents.StartListening("BossAreaEntered", ToggleToBossCamera);
+		GameEvents.StartListening("BossAreaExited", ToggleToPlayerCamera);
+		refer = new Vector2(1.0f , 1.0f);
+		
+
 	}
 	void OnDisable()
 	{
 		GameEvents.StopListening("BossAreaEntered", ToggleToBossCamera);
-	}
-	void Start() {
-
-		refer = new Vector2(1.0f , 1.0f);
-		target = GameObject.FindWithTag("Player").GetComponent<Transform>();
-		/*if(!lvlselection)
-		{
-			GameEvents.current.OnBossAreaEnter += ToggleToBossCamera;
-		}*/
-
+		GameEvents.StopListening("BossAreaExited", ToggleToPlayerCamera);
 	}
 	void FixedUpdate () {
 
+		if(!target)
+		{	
+			target = GameObject.FindWithTag("Player").GetComponent<Transform>();
+		}
 		cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, camscale, ref refer.x, (camsensex+camsensey)/2);
 
 
@@ -106,10 +109,11 @@ public class CameraBehavior : MonoBehaviour {
 
 	private void ToggleToBossCamera()
 	{
-		camscale = 10.0f;
 		targeted = false;
-		posx = 470.5f;
-		posy = 184.5f;
+	}
+	private void ToggleToPlayerCamera()
+	{
+		targeted = true;
 	}
 	public void ToggleShake(bool state, float x, float y)
 	{

@@ -19,9 +19,11 @@ public class HealPoint : MonoBehaviour {
 		if (other.gameObject.tag.Equals("Player"))
 		{
 			var player = other.gameObject.GetComponent<MasterController>();
+			this.gameObject.GetComponent<AudioInterface>().PlaySound("heal");
 			player.gainlife(lifeheal);
-			Destroy(gameObject);
-		
+
+			this.gameObject.GetComponent<CircleCollider2D>().enabled = false;
+			this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
 		}
 	}
 }

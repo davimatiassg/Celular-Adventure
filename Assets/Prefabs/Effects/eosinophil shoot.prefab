@@ -51,6 +51,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -119,6 +120,7 @@ MonoBehaviour:
   speed: 20
   HitEffect: {fileID: 1357709085957344, guid: 940af74b4bc820b4e94b7020a2e48efe, type: 3}
   knockback: {x: 15, y: 15}
+  destroyOnContact: 1
   enemie: 0
 --- !u!50 &50832703487948602
 Rigidbody2D:

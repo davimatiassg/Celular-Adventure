@@ -1,0 +1,151 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7822659906605690854
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7822659906605690872}
+  - component: {fileID: 7822659906605690855}
+  - component: {fileID: 7822659906605690873}
+  - component: {fileID: 7822659906605690874}
+  - component: {fileID: 7822659906605690876}
+  - component: {fileID: 7822659906605690875}
+  m_Layer: 0
+  m_Name: CutscenePlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7822659906605690872
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7822659906605690854}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 461.88312, y: 193.41835, z: -1340.2537}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &7822659906605690855
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7822659906605690854}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 2535fd1884ba1004796f561d1bd6c921, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 4212661964580953561, guid: 2535fd1884ba1004796f561d1bd6c921, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -7993911489024354478, guid: 2535fd1884ba1004796f561d1bd6c921, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -2777288610385378799, guid: 2555c09f89fdcc849a300074836c0880, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4145397664924800943, guid: 2555c09f89fdcc849a300074836c0880, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4293702658341094716, guid: 2555c09f89fdcc849a300074836c0880, type: 2}
+    value: {fileID: 7822659906605690854}
+  m_ExposedReferences:
+    m_References: []
+--- !u!114 &7822659906605690873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7822659906605690854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4db158c2185da74419be4e3b935238bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutscenes:
+  - {fileID: 11400000, guid: 2535fd1884ba1004796f561d1bd6c921, type: 2}
+  - {fileID: 11400000, guid: 2555c09f89fdcc849a300074836c0880, type: 2}
+--- !u!114 &7822659906605690874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7822659906605690854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 822deb557bcb59342990828ca3294568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventTolisten: FinalBossIsDead
+  eventToPlay:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7822659906605690873}
+        m_MethodName: PlayCutscene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7822659906605690876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7822659906605690854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 822deb557bcb59342990828ca3294568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventTolisten: 
+  eventToPlay:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &7822659906605690875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7822659906605690854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 9c660cf2006ed014dbb747476502c7a9, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: CallScene
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Dojo
+            m_BoolArgument: 0
+          m_CallState: 2

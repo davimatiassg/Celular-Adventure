@@ -13,6 +13,7 @@ public class MasterController : MonoBehaviour
 	public Transform tpchk;
 	public Collider2D hitbox;
 	public SpriteRenderer spr;
+	public InputManager InPut;
 
 
 	public CameraBehavior camcontroll;
@@ -36,12 +37,13 @@ public class MasterController : MonoBehaviour
 	public bool jump;
 	public bool atk;
 	public bool atk2;
-	public bool reset;
 
 	//atributos de movimentação
 	public float speed;
 	public float maxspeed;
 	public float jspeed;
+	public float gScale = 2f;
+	public float inWater = 0; // 0 = fora, 1 = dentro d'água;
 	
 	//atributos de movimentação específicos
 	public int movSen;
@@ -72,9 +74,7 @@ public class MasterController : MonoBehaviour
 
 
 	//vetores de força
-	public Vector2 Jforce;
-	public Vector2 Wforce;
-	public Vector2 Cforce;
+
 	public Vector2 jumpDirection;
 
 	//partículas
@@ -91,8 +91,6 @@ public class MasterController : MonoBehaviour
 
 	public int framestop = 0;
 
-	public GameObject FinalScreen;
-
 	private int jumpframes = 0;
     // Start is called before the first frame update
     void Start()
@@ -103,29 +101,25 @@ public class MasterController : MonoBehaviour
 		trs = this.gameObject.GetComponent<Transform> ();
 		spr = this.gameObject.GetComponent<SpriteRenderer> ();
 		camcontroll = GameObject.FindWithTag("MainCamera").gameObject.GetComponent<CameraBehavior>();
-		lifeBar = GameObject.FindWithTag("HealthBar").gameObject.GetComponent<HealthBar>();
+		lifeBar = HealthBar.Instance.GetComponent<HealthBar>();
 		movSen = 1;
 		lstmovSen = 1;
 		life = maxlife;
 		playable = true;
+		InPut = InputManager.instance;
+
     }
 
     // Update is called once per frame
     public void GetControlInput()
 	{	
 		jumpDirection = Vector2.up;
-		axis =  Input.GetAxisRaw("Horizontal");
-		ayis = Input.GetAxisRaw("Vertical");
-		i_jump = Input.GetButtonDown("Jump");
-		jump = Input.GetButton("Jump");
-		atk2 = Input.GetButtonDown("Fire2");
-		atk = Input.GetButtonDown("Fire1");
-		reset = Input.GetButtonDown("reset");
-
-		if(reset)
-		{
-			die();
-		}
+		axis =  InPut.GetAxisRaw("Horizontal");
+		ayis = InPut.GetAxisRaw("Vertical");
+		i_jump = InPut.GetButtonDown("Jump");
+		jump = InPut.GetButton("Jump");
+		atk2 = InPut.GetButtonDown("Spec");
+		atk = InPut.GetButtonDown("Attack");
 	}
 
 
@@ -137,15 +131,16 @@ public class MasterController : MonoBehaviour
 		}
 		
 
-		trs.localScale = trs.localScale = new Vector2 (-trs.localScale.x, trs.localScale.y);
+		trs.localScale = new Vector2 (-trs.localScale.x, trs.localScale.y);
 	}
 	void FixedUpdate()
 	{	
 		float d = 0.0f;
 		jumpDirection = OnSlopeMoviment(out d);
-		if(!isGrounded || (isGrounded && jumpDirection == Vector2.up && d > 0.05f))
+
+		if(!isGrounded || (isGrounded && jumpDirection == Vector2.up && d > 0.05f) && rigb.velocity.y > -30)
 		{
-			rigb.velocity -= jumpDirection*2f;
+			rigb.velocity -= jumpDirection*gScale;
 		}
 
 	}
@@ -234,33 +229,30 @@ public class MasterController : MonoBehaviour
 		
 			isCrouch = false;
 
-			if(jump)
-			{	
-				if(rigb.velocity.y >= 0.0f)
-				{
-					if(flytime <= 0.2f)
-					{	
-						if(rigb.velocity.y < jspeed)
-						rigb.velocity = new Vector2(rigb.velocity.x, jspeed);
-					}
+		if(jump)
+		{	
+			if(rigb.velocity.y >= 0.0f)
+			{
+				if(flytime <= 0.2f)
+				{	
+					if(rigb.velocity.y < jspeed)
+					rigb.velocity += new Vector2(0, jspeed - rigb.velocity.y)*1/2;
+				}
 
-				}
-				else if(rigb.velocity.y < -17f)
-				{
-					rigb.velocity = new Vector2(rigb.velocity.x, -17f);
-				}
 			}
+			else if(rigb.velocity.y < -17f)
+			{
+				rigb.velocity += new Vector2(0, -17f - rigb.velocity.y)/2;
+			}
+		}
+
 
 
 		//movimento horizontal
-			if(maxspeed >= 2f)
-			{
-				maxspeed -= Time.deltaTime*2;
-			}
-			else
-			{
-				maxspeed = 2f;
-			}
+		if(maxspeed >= 2f)
+		{
+			maxspeed -= Time.deltaTime*2;
+		}
 
 		if(axis == 0 && Mathf.Abs(rigb.velocity.x) > 0)
 		{
@@ -270,22 +262,20 @@ public class MasterController : MonoBehaviour
 		{
 			runtime = 0;
 		}
-		if (axis != 0 && !anim.GetCurrentAnimatorStateInfo(0).IsName("flying down")) 
+		if (axis != 0 && !anim.GetCurrentAnimatorStateInfo(0).IsName("flying down") && Mathf.Abs(rigb.velocity.x) < speed*maxspeed) 
 		{
-			runtime += Time.deltaTime;
-			if(runtime > 1f)
+			
+			if(runtime < 1f)
 			{
-				runtime = 1f;
+				runtime += Time.deltaTime;
 			}
 
 			rigb.velocity = new Vector2(rigb.velocity.x + movSen*speed*Mathf.Pow(0.5f, 3.5f - runtime), rigb.velocity.y);
 		}
-		if(Mathf.Abs(rigb.velocity.x) > speed*maxspeed)
-		{
-			rigb.velocity = new Vector2(movSen*speed*maxspeed, rigb.velocity.y);
-		}
+
 
 	}
+	/*https://www.youtube.com/watch?v=zJDR_wD0J5U*/
 	private void OnTriggerEnter2D(Collider2D other)
 	{
 		if ((other.gameObject.tag.Equals("hitable") || other.gameObject.tag.Equals("Boss")) && other.isTrigger == false)
@@ -298,8 +288,20 @@ public class MasterController : MonoBehaviour
 			}
 			if(other.gameObject.tag.Equals("Boss"))
 			{
-				var hited = other.gameObject.GetComponent<HitableParts>();
-				hited.takedamage(attackdmg);
+				
+				
+				if(other.gameObject.GetComponent<HitableParts>())
+				{
+					other.gameObject.GetComponent<HitableParts>().takedamage(attackdmg);
+				}
+				else if(other.gameObject.GetComponent<InfectedNKBehavior>())
+				{
+					other.gameObject.GetComponent<InfectedNKBehavior>().bossCore.takedamage(attackdmg);
+				}
+				else if(other.gameObject.GetComponent<PiranhaBehavior>())
+				{
+					other.gameObject.GetComponent<PiranhaBehavior>().bossCore.takedamage(attackdmg);
+				}
 			}
 			
 		}
@@ -321,7 +323,7 @@ public class MasterController : MonoBehaviour
 			rigb.velocity = new Vector2(movSen*-10, 20);
 			Explode();
 		}
-		lifeBar.SetGaugeValue(life, maxlife);
+		HealthBar.SetGaugeValue(life, maxlife);
 
 	}
 
@@ -333,7 +335,7 @@ public class MasterController : MonoBehaviour
  		{
  			life = maxlife;
  		}
- 		lifeBar.SetGaugeValue(life, maxlife);
+ 		HealthBar.SetGaugeValue(life, maxlife);
 	}
 
 	public void die()
@@ -345,6 +347,10 @@ public class MasterController : MonoBehaviour
 		camcontroll.camsensex = 0f;
 		camcontroll.camsensey = 0f;
 		camcontroll.targeted = true;
+		camcontroll.edgeright = Mathf.Infinity;
+		camcontroll.edgeup = Mathf.Infinity;
+		camcontroll.edgedown = Mathf.NegativeInfinity;
+		camcontroll.edgeleft = Mathf.NegativeInfinity;
 		
 
 		
@@ -355,7 +361,7 @@ public class MasterController : MonoBehaviour
 	{
 		camcontroll.ToggleShake(false, 0.6f,  0.6f);
 		lifeBar.ToggleVisibility(false);
-		FinalScreen.SetActive(true);
+		GameEvents.ScreamEvent("GameOver");
 
 
 	}
@@ -371,7 +377,7 @@ public class MasterController : MonoBehaviour
 		invt = invtime;
 		trs.position = GroundReturn;
 		rigb.velocity = new Vector2(0, 0);
-		lifeBar.SetGaugeValue(life, maxlife);
+		HealthBar.SetGaugeValue(life, maxlife);
 
 	}
 
@@ -418,14 +424,13 @@ public class MasterController : MonoBehaviour
  		if(hit)
  		{	
  			dist = hit.distance;
- 			float Angle = Vector2.Angle(hit.normal, Vector2.up);
-
  			Debug.DrawRay(hit.point, Vector2.Perpendicular(hit.normal), Color.green);
  			Debug.DrawRay(hit.point, hit.normal, Color.red);
 
  			return hit.normal;
  		}
  		dist = 0.0f;
+
  		return Vector2.up;
  	}
 

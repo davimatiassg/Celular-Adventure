@@ -5,10 +5,34 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {	
+	public static GameObject Instance; 
 	private RectTransform rtrs;
 
-	private bool isVisible = true;
+	public bool isVisible = true;
 	private Image gaugeImage;
+
+
+    void OnEnable()
+	{	
+		 if(HealthBar.Instance == null)
+        {
+            HealthBar.Instance = this.gameObject;
+        }
+        else if(HealthBar.Instance != this.gameObject)
+        {
+            Destroy(this.gameObject);
+        }
+
+        Time.timeScale = 1f;
+		GameEvents.StartListening("GameResumed", SetVisible);
+		GameEvents.StartListening("GamePaused", SetInvisible);
+	}
+	void OnDisable()
+	{	
+		GameEvents.StopListening("GamePaused", SetVisible);
+		GameEvents.StopListening("GameResumed", SetInvisible);
+		
+	}
 
 	private void Awake()
 	{
@@ -20,17 +44,24 @@ public class HealthBar : MonoBehaviour
 		rtrs = GetComponent<RectTransform>();
 	}
 
-	public void SetGaugeValue(float life, float maxlife)
+	public static void SetGaugeValue(float life, float maxlife)
 	{
-		gaugeImage.fillAmount = life/maxlife;
+		Instance.GetComponent<HealthBar>().gaugeImage.fillAmount = life/maxlife;
 		
 	}
 	public void ToggleVisibility(bool x)
 	{
 		isVisible = x;
-		gameObject.SetActive(x);
-
-	}	
+		HealthBar.Instance.SetActive(x);
+	}
+	public static void SetInvisible()
+	{	
+		Instance.GetComponent<HealthBar>().ToggleVisibility(false);
+	}
+	public static void SetVisible()
+	{	
+		Instance.GetComponent<HealthBar>().ToggleVisibility(true);
+	}
 
 
 }

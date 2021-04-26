@@ -4,6 +4,31 @@ using UnityEngine;
 
 public class ClostridriumTetaniBehavior : MonoBehaviour {
 
+	[Header("Detalhes do Boss")]
+
+    [Tooltip("Identificador")]
+    [SerializeField] public int enemyID; 
+
+    [Tooltip("Nome científico")]
+    [SerializeField] public string enemyName;
+
+    [Tooltip("Local de Encontro")]
+    [SerializeField] public string encounterLocal; 
+
+    [TextArea]
+    [Tooltip("Comportamento In-Game")]
+    [SerializeField] public string enemyBehavior;
+
+    [TextArea]
+    [Tooltip("Informações científicas")]
+    [SerializeField] public string realInfo; 
+
+    [SerializeField] public Sprite inGameImg;
+
+    [SerializeField] public Sprite realImg;
+
+	[Header("Atributos do Inimigo")]
+
 	private Animator anim;
 
 	public GameObject P;
@@ -21,7 +46,8 @@ public class ClostridriumTetaniBehavior : MonoBehaviour {
 	private bool paralized;
 
 	private float starty;
-	public GameObject FinalScreen;
+
+
 
 	void OnEnable()
 	{
@@ -50,7 +76,7 @@ public class ClostridriumTetaniBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		player = GameObject.FindWithTag("Player").gameObject.GetComponent<MasterController> ();
+		
 			if(Core.life <= Core.maxlife*2/5 && Core.life > 0)
 			{
 				isPinch = true;
@@ -76,7 +102,6 @@ public class ClostridriumTetaniBehavior : MonoBehaviour {
 					}
 
 					int atkchosen = Random.Range(0, atks.Count);
-					Debug.Log(atkchosen, gameObject);
 					anim.SetTrigger(atks[atkchosen]);
 					
 				}
@@ -88,14 +113,22 @@ public class ClostridriumTetaniBehavior : MonoBehaviour {
 	{	
 		
 		anim.SetTrigger("Die");
-		player.TogglePlayable(false);	
+		player.TogglePlayable(false);
+		Time.timeScale = 1f;
+		CardIndex enemyCard = new CardIndex(enemyID, realImg, inGameImg, encounterLocal, enemyBehavior, enemyName, realInfo);
+		BestiaryElements.AddCardEnemy(enemyCard);
+		PontuationCounter.AddScore(3000);
 	}
 
 	private void Dead()
-	{
-		FinalScreen.SetActive(true);
-		Time.timeScale = 0.0f;
-		anim.speed = 0f;
+	{	
+		this.gameObject.SetActive(false);
+		GameEvents.ScreamEvent("FinalBossIsDead");
+		GameEvents.ScreamEvent("BossDead");
+		GameEvents.ScreamEvent("FadeOut");
+		Debug.Log("BossDead");
+		Time.timeScale = 1f;
+		Destroy(this.gameObject);
 
 	}
 

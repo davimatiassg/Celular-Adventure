@@ -9,9 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4917135685485604291}
-  - component: {fileID: 4917135685485604288}
   - component: {fileID: 4917135685485604290}
   - component: {fileID: 6494371217680057721}
+  - component: {fileID: 2054749157}
+  - component: {fileID: 8100207643211027843}
+  - component: {fileID: 7192294914337495538}
   m_Layer: 0
   m_Name: DialogTriggerer
   m_TagString: Untagged
@@ -33,44 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4917135685485604288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4917135685485604289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88d263c3814ac82448a5a561153cc809, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  phrases:
-  - "Ya\xEA pessoal :D"
-  - "Esse daqui \xE9 o v\xEDdeo de teste sobre a caixinha de texto que vos fala.
-    como no modelo que tem a foto aqui no grupo."
-  - "<-------- Aqui ter\xE1 a foto do personagem que estar\xE1 falando :D"
-  - "E Aqui em baixo ter\xE1 o Nome do personagem que estiver falando, caso queiramos
-    que o personagem jog\xE1vel responda <----------------------"
-  - "Essa caixa de di\xE1logo conta com a op\xE7\xE3o de precisar da intera\xE7\xE3o
-    do jogador (ou n\xE3o) para come\xE7ar o di\xE1logo"
-  - "E tamb\xE9m a op\xE7\xE3o de pausar (ou n\xE3o, novamente) o jogo ao ser ativada."
-  - "S\xF3 falta adicionar direitinho a exibi\xE7\xE3o de imagens e nomes para termos
-    um sistema de di\xE1logo completo :D"
-  photo: []
-  name:
-  - 
-  - 
-  showask:
-  - Press space to interact
-  showphoto:
-  - {fileID: 21300000, guid: 77c5a99a18fc4a14182390012b050c51, type: 3}
-  visible: 0
-  interactable: 1
-  pause: 0
-  destroyonread: 0
-  TextBox: {fileID: 0}
-  showing: 0
 --- !u!61 &4917135685485604290
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -95,8 +59,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 1
   serializedVersion: 2
-  m_Size: {x: 6.041107, y: 6.0097504}
-  m_EdgeRadius: 0
+  m_Size: {x: 2.03, y: 1.98}
+  m_EdgeRadius: 0.49
 --- !u!212 &6494371217680057721
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -147,3 +111,70 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2054749157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4917135685485604289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4a2d729f46ccb341a0c027d7b2f652e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Answer: {fileID: 0}
+--- !u!114 &8100207643211027843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4917135685485604289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c868293e2bd31488419e9f98aededc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialog:
+  - enterAction:
+      m_PersistentCalls:
+        m_Calls: []
+    exitAction:
+      m_PersistentCalls:
+        m_Calls: []
+    ownerName: 
+    ownerPhoto: {fileID: 0}
+    dialogText: 
+    hasChoices: 0
+    bt1text: 
+    bt2text: 
+    _enterAction:
+      m_PersistentCalls:
+        m_Calls: []
+    _exitAction:
+      m_PersistentCalls:
+        m_Calls: []
+    _ownerName: 
+    _ownerPhoto: {fileID: 0}
+    _dialogText: 
+    _hasChoices: 0
+    _bt1text: 
+    _bt2text: 
+  TextBox: {fileID: 0}
+--- !u!114 &7192294914337495538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4917135685485604289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88d263c3814ac82448a5a561153cc809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactable: 0
+  pause: 0
+  destroyonread: 0
+  showing: 0

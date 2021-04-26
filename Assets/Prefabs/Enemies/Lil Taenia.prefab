@@ -9,14 +9,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4656372725139800246}
-  - component: {fileID: 4656372725139800247}
-  - component: {fileID: 4656372725139800244}
   - component: {fileID: 4656372725139800233}
   - component: {fileID: 4656372725139800237}
+  - component: {fileID: 4656372725139800247}
+  - component: {fileID: 4656372725139800244}
   - component: {fileID: 4656372725139800235}
-  - component: {fileID: 4656372725139800234}
   - component: {fileID: 4656372725139800232}
+  - component: {fileID: 4656372725139800234}
   - component: {fileID: 4656372725139800236}
+  - component: {fileID: 8903690937246533779}
   m_Layer: 0
   m_Name: Lil Taenia
   m_TagString: hitable
@@ -39,6 +40,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4656372725139800233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4656372725139800245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b535b7a36c19854cb5f62e71126f029, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyID: 5
+  enemyName: Taenia Solium
+  encounterLocal: Fase 2 - Intestino
+  enemyBehavior: "Vida: 140; Dano: 25;\nEsse inimigo rasteja veloz na dire\xE7\xE3o
+    do jogador assim que o v\xEA, tentando agarra-lo com a cauda e ataca-lo com as
+    garras quando pr\xF3ximo suficiente."
+  realInfo: "Esse verme \xE9 um Filhote de Taenia Solium. Os filhotes eclodem de
+    seus ovos ap\xF3s chegarem no intestino de uma pessoa infectada e v\xE3o consumir
+    os seus nutrientes enquanto viverem."
+  inGameImg: {fileID: 5142815633578807668, guid: 67d8e12897016e544a61ad40199bed3c,
+    type: 3}
+  realImg: {fileID: 21300000, guid: b072e4b2b48e91242a00008f50c3d459, type: 3}
+  DieDestroy: 1
+  tname: 
+  life: 140
+  attackdmg: 25
+  hitstun: 0.3
+  stun: 0
+  hiteffect: {fileID: 1357709085957344, guid: 940af74b4bc820b4e94b7020a2e48efe, type: 3}
+  hitparticles: {fileID: 4656372725579054969}
+  KnBackIntensity: {x: 0.1, y: 0.05}
+--- !u!114 &4656372725139800237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4656372725139800245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf9c4784cfeafcf4ea816ce2093738c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: {x: 20, y: 3}
+  speed: 8
+  hooked: 0
+  hookcd: 0
 --- !u!212 &4656372725139800247
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -54,6 +104,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -88,7 +139,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
   m_SpriteSortPoint: 0
 --- !u!95 &4656372725139800244
 Animator:
@@ -109,43 +160,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4656372725139800233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4656372725139800245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b535b7a36c19854cb5f62e71126f029, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DieDestroy: 1
-  name: TaeniaSolium1
-  life: 140
-  attackdmg: 12
-  hitstun: 0.3
-  hiteffect: {fileID: 1357709085957344, guid: 940af74b4bc820b4e94b7020a2e48efe, type: 3}
-  hitparticles: {fileID: 4656372725579054969}
-  sfx:
-  - {fileID: 8300000, guid: 24b984b4e664bb44882088770293a70a, type: 3}
-  - {fileID: 8300000, guid: 2d0fd496da60b1440918ba34b7151f4f, type: 3}
-  KnBackIntensity: {x: 1.2, y: 0.05}
---- !u!114 &4656372725139800237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4656372725139800245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf9c4784cfeafcf4ea816ce2093738c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: {x: 20, y: 3}
-  speed: 8
 --- !u!70 &4656372725139800235
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -162,27 +176,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.046527863, y: -0.16340399}
   m_Size: {x: 0.41217804, y: 0.673192}
   m_Direction: 0
---- !u!50 &4656372725139800234
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4656372725139800245}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 40
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!61 &4656372725139800232
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -209,6 +202,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.75081635, y: 0.7654772}
   m_EdgeRadius: 0
+--- !u!50 &4656372725139800234
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4656372725139800245}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 40
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!82 &4656372725139800236
 AudioSource:
   m_ObjectHideFlags: 0
@@ -230,7 +244,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -295,7 +309,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.46813202
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -305,6 +319,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8903690937246533779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4656372725139800245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab2ba0dac15889f44ab0ce99eb19bd03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aud: {fileID: 0}
+  thistag: sfx
+  clip:
+  - {fileID: 8300000, guid: 24b984b4e664bb44882088770293a70a, type: 3}
+  - {fileID: 8300000, guid: 2d0fd496da60b1440918ba34b7151f4f, type: 3}
+  - {fileID: 8300000, guid: 9fac9028dcd92e44d8733a2993bb3feb, type: 3}
+  - {fileID: 8300000, guid: 99282d952361b754e8d27923c47de0ac, type: 3}
+  - {fileID: 8300000, guid: 3bbf38418127abf44ad64704699d83cd, type: 3}
+  cname:
+  - dmg
+  - die
+  - atk
+  - grab
+  - roar
 --- !u!1 &4656372725579054724
 GameObject:
   m_ObjectHideFlags: 0
@@ -2430,6 +2470,62 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+  LifetimeByEmitterSpeedModule:
+    enabled: 0
+    m_Curve:
+      serializedVersion: 2
+      minMaxState: 1
+      scalar: 1
+      minScalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: -0.8
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 0.2
+          inSlope: -0.8
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    m_Range: {x: 0, y: 1}
   ForceModule:
     enabled: 0
     x:
@@ -5011,6 +5107,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5053,6 +5150,8 @@ ParticleSystemRenderer:
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
+  m_FreeformStretching: 0
+  m_RotateWithStretchDirection: 1
   m_VertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}

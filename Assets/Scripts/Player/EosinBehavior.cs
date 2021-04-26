@@ -9,6 +9,8 @@ public class EosinBehavior : MonoBehaviour
     [SerializeField] private GameObject MeleeShot;
     [SerializeField] private Transform ShotLocal;
 
+    [SerializeField] private AudioInterface a;
+
    
    	private float TbtwAtk = 0f;
    	private bool atkqueue = false;
@@ -17,7 +19,8 @@ public class EosinBehavior : MonoBehaviour
 	private bool rangedatk;
 
     void Start()
-    {
+    {	
+    	a = this.gameObject.GetComponent<AudioInterface>();
         mainCode = this.gameObject.GetComponent<MasterController>();
     }
 
@@ -39,8 +42,6 @@ public class EosinBehavior : MonoBehaviour
     	}
       if(mainCode.playable)
 		{
-			mainCode.Jforce = new Vector2 (0, mainCode.jspeed);
-			mainCode.Cforce = new Vector2 (mainCode.speed/12*mainCode.movSen, 0.0f);
 			mainCode.isGrounded = GroundDetect();
 			
 			if(mainCode.framestop > 0)
@@ -105,8 +106,6 @@ public class EosinBehavior : MonoBehaviour
 				Animate();
 
 				mainCode.GetControlInput();
-
-				//atk2 = Input.GetButtonDown("Fire2");
 
 				mainCode.isinMov = (mainCode.axis*mainCode.rigb.velocity.x != 0);
 
@@ -174,7 +173,8 @@ public class EosinBehavior : MonoBehaviour
 				else
 				{
 					if (!mainCode.anim.GetCurrentAnimatorStateInfo(0).IsTag("air"))
-					{
+					{	
+						a.PlaySound("jump");
 						if(mainCode.isinMov)
 						{
 							mainCode.anim.Play("Dash_Jump");
@@ -189,7 +189,10 @@ public class EosinBehavior : MonoBehaviour
 			Attack();
 		}
 		else
-		{
+		{	if(mainCode.gothit)
+			{
+				a.PlaySound("dmg");
+			}
 			mainCode.gothit = false;
 		}	
 	}
@@ -242,7 +245,8 @@ public class EosinBehavior : MonoBehaviour
 	public void selAttack()
 	{
 		if(rangedatk)
-		{
+		{	
+			a.PlaySound("shot");
 			Fire();
 		}
 		else
@@ -253,12 +257,12 @@ public class EosinBehavior : MonoBehaviour
 	void Fire()
 	{
 		var Object = Instantiate(Shot, ShotLocal.position, ShotLocal.rotation);
-		Object.transform.Rotate(0f, (direction/Mathf.Abs(direction)-1)*(-90), mainCode.ayis*(45f), Space.Self);
+		Object.transform.Rotate(0f, (-Mathf.Sign(direction)*(90) + 90), mainCode.ayis*(45f), Space.Self);
 	}
 	private void Melee()
 	{
 		var Object = Instantiate(MeleeShot, ShotLocal.position, ShotLocal.rotation);
-		Object.transform.Rotate(0f, (direction/Mathf.Abs(direction)-1)*(-90), mainCode.ayis*(45f), Space.Self);
+		Object.transform.Rotate(0f, (-Mathf.Sign(direction)*(90) + 90), mainCode.ayis*(45f), Space.Self);
 	}
 	private void endatk()
 	{	
