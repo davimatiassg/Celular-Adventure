@@ -69,13 +69,11 @@ public class InputManager : MonoBehaviour
 			if(Input.GetKey(keybindings.CheckKey("right")))
 			{
 				x++;
-				Debug.Log(x);
 				return x;
 			}
 			if (Input.GetKey(keybindings.CheckKey("left")))
 			{
 				x--;
-				Debug.Log(x);
 				return x;
 			}
 			
@@ -86,13 +84,11 @@ public class InputManager : MonoBehaviour
 			if(Input.GetKey(keybindings.CheckKey("up")))
 			{
 				y++;
-				Debug.Log(y*2);
 				return y;
 			}
 			if (Input.GetKey(keybindings.CheckKey("down")))
 			{
 				y--;
-				Debug.Log(y*2);
 				return y;
 			}
 			

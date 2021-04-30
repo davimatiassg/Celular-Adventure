@@ -20,6 +20,12 @@ TextureImporter:
   - first:
       213: 2926769648525297287
     second: Cursor_5
+  - first:
+      213: -7967919159556622880
+    second: Cursor_6
+  - first:
+      213: 1347301497552378782
+    second: Cursor_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,6 +47,7 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -75,6 +82,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -226,6 +234,48 @@ TextureImporter:
       bones: []
       spriteID: 786ceb71d79fd9820800000000000000
       internalID: 2926769648525297287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cursor_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e5399f7db34c6190800000000000000
+      internalID: -7967919159556622880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cursor_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9b16fed29392b210800000000000000
+      internalID: 1347301497552378782
       vertices: []
       indices: 
       edges: []

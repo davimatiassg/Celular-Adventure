@@ -11,12 +11,12 @@ public class SceneChanger : MonoBehaviour
 
     void OnEnable()
 	{	
-		GameEvents.StartListening("BossDead", FadeOut);
+        GameEvents.StartListening("FinalBossIsDead", CompleteLevel);
 		GameEvents.StartListening("FadeOut", FadeOut);
 	}
 	void OnDisable()
 	{
-		GameEvents.StopListening("BossDead", FadeOut);
+        GameEvents.StopListening("FinalBossIsDead", CompleteLevel);
 		GameEvents.StopListening("FadeOut", FadeOut);
 	}
     void Start()
@@ -37,7 +37,6 @@ public class SceneChanger : MonoBehaviour
 
     public void FadeOut()
     {	
-        Debug.Log("FadeOut");
     	anim.Play("FadeOut");
     }
 
@@ -46,7 +45,6 @@ public class SceneChanger : MonoBehaviour
 
         if(nextScene != null)
         {	
-        	Debug.Log("nextScene");
             SceneManager.LoadScene(nextScene);
             nextScene = null;
         }
@@ -58,6 +56,14 @@ public class SceneChanger : MonoBehaviour
     	
     }
 
+    public void CompleteLevel()
+    {
+        int i = PlayerPrefs.GetInt("level");
+        PlayerPrefs.SetInt("level", i+1);
+        PlayerPrefs.Save();
+        FadeOut();
+
+    }
     public static void Load(string s)
     {
         SceneChanger.nextScene = s;

@@ -17,10 +17,32 @@ public class Icon : MonoBehaviour
 	public string scene;
 	public MainMenu startb;
 	[SerializeField] private bool isselected;
+    [SerializeField] private bool selectable = true;
+    [SerializeField] private int level;
     // Start is called before the first frame update
     void Start()
     {
         
+        int l = 0;
+        SpriteRenderer s= this.gameObject.GetComponent<SpriteRenderer>();
+        if(PlayerPrefs.HasKey("level"))
+        {
+          l = PlayerPrefs.GetInt("level");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("level", 0);
+        }
+        if(l < level -1)
+        {
+            selectable = false;
+            s.color = new Color(1, 0, 0, 0.3f); 
+        }
+        else
+        {
+            selectable = true;
+            s.color = new Color(1, 1, 1, 1f); 
+        }
     }
 
     // Update is called once per frame
@@ -41,18 +63,24 @@ public class Icon : MonoBehaviour
         }
     }
     void OnMouseEnter()
-    {
-    	Selecter.GetComponent<Transform>().position = this.gameObject.transform.position;
-    	Selecter.GetComponent<Cursor>().Attached = true;
-    	isselected = true;
+    {   
+        if(selectable)
+        {
+            Selecter.GetComponent<Transform>().position = this.gameObject.transform.position;
+            Selecter.GetComponent<Cursor>().Attached = true;
+            isselected = true;
+        }
+
 
         
     }
     void OnMouseExit()
     {
-    	Selecter.GetComponent<Cursor>().Attached = false;
-    	isselected = false;
-        
+        if(selectable)
+        {
+        	Selecter.GetComponent<Cursor>().Attached = false;
+        	isselected = false;
+        }
     }
 
     public void ToggleContent()

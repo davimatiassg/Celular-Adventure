@@ -21,7 +21,6 @@ public class EnemyOptimizer : MonoBehaviour
 			}		
 			
 		}
-		Debug.Log(e);
 		screensize = Mathf.Pow(Screen.width, 1);
 	}
 	void FixedUpdate()
@@ -31,22 +30,27 @@ public class EnemyOptimizer : MonoBehaviour
 			if(enemy == null)
 			{
 				e.Remove(enemy);
-			}
-			float a = ((Vector2)p.position - (Vector2) enemy.transform.position).sqrMagnitude;
-			if(enemy.activeSelf)
-			{
-				if(screensize < a)
-				{
-					enemy.SetActive(false);
-				}
+				break;
 			}
 			else
 			{
-				if(screensize > a)
+				float a = ((Vector2)p.position - (Vector2) enemy.transform.position).sqrMagnitude;
+				if(enemy.activeSelf)
 				{
-					enemy.SetActive(true);
+					if(screensize < a)
+					{
+						enemy.SetActive(false);
+					}
+				}
+				else
+				{
+					if(screensize > a)
+					{
+						enemy.SetActive(true);
+					}
 				}
 			}
+
 		}
 	}
 }

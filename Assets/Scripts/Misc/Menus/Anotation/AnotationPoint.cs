@@ -32,7 +32,7 @@ public class AnotationPoint : MonoBehaviour
     {
     	if(!Attached)
     	{
-	    	if(other.gameObject.tag == "Player" && Input.GetAxisRaw("Vertical") > 0)
+	    	if(other.gameObject.tag == "Player" && InputManager.instance.GetAxisRaw("Vertical") > 0)
 	    	{	
 	    		AdcthisNote();
 	    		if(destroyonread)
@@ -40,6 +40,7 @@ public class AnotationPoint : MonoBehaviour
 	    			a.PlaySound("got");
 	    			part.Stop();
 	    			this.gameObject.transform.DetachChildren();
+            this.gameObject.SetActive(false);
 	    			Destroy(this.gameObject);
 	    		}
 	    	}
@@ -64,7 +65,6 @@ public class AnotationPoint : MonoBehaviour
     	{
 	    	if(other.gameObject.tag == "Player")
 	    	{	
-	    		ao.GetComponent<Animator>().Play("Vanish");
 	    		part.Stop();
 	    	}
 	    }
@@ -73,6 +73,6 @@ public class AnotationPoint : MonoBehaviour
     public void AdcthisNote()
     {
     	AnotationManager.AddNote(new Anotation(id, sp, txt));
-       	PontuationCounter.AddScore(1000);
+      PontuationCounter.AddScore(1000);
     }
 }

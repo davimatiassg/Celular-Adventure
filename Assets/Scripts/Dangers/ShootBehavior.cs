@@ -56,7 +56,6 @@ public class ShootBehavior : MonoBehaviour {
 		{	
 			var hited = other.gameObject.GetComponent<CombatEnemy>();
 			hited.takedamage(dmg, new Vector2(Mathf.Sign(transform.right.x)*knockback.x, knockback.y*transform.right.y));
-			Debug.Log(transform.right);
 
 			if(speed != 0f)
 			{	

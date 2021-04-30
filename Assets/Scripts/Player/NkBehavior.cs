@@ -312,32 +312,30 @@ public class NkBehavior : MonoBehaviour
 
 		ContactFilter2D c = new ContactFilter2D();
 
-		c.SetLayerMask(mainCode.solid);
+
+		c.SetLayerMask(LayerMask.GetMask("solid"));
+
+		if(dir == Vector2.zero)
+		{
+			dir = mainCode.movSen*Vector2.right;
+		}
 
 		int dest = col.Raycast(dir, c, touchingpoints, teleportRange);
 
-	
 		
-		if(dest != 0)
-		{	
 
-			Vector2 v = col.bounds.center;
-			final = touchingpoints[0].point - (col.ClosestPoint(touchingpoints[0].point) - v);
+		if(dest > 0)
+		{	
+			Debug.Log(c.IsFilteringLayerMask(touchingpoints[0].transform.gameObject));
+			final = touchingpoints[0].point - dir;
 		}
 		else
 		{	
 
-			if(dir == Vector2.zero)
-			{
-				final = (Vector2) mainCode.trs.position +  new Vector2(teleportRange * mainCode.movSen, 0f);
-				mainCode.rigb.velocity = Vector2.right * mainCode.movSen * 3f;
-				trail.AddPosition(final);
-			}
-			else
-			{
-				final = (Vector2) mainCode.trs.position + (dir * teleportRange);
-			}
+			final = (Vector2) mainCode.trs.position + (dir * teleportRange);
+					
 		}
+		trail.AddPosition(final);	
 
 
 		Debug.DrawLine(mainCode.trs.position, final, Color.red, 5);
@@ -350,6 +348,8 @@ public class NkBehavior : MonoBehaviour
 
 		if(swordtrail.emitting)
 		{	
+			c.SetLayerMask(LayerMask.GetMask("hitable"));
+			col.Raycast(-dir, c, touchingpoints, teleportRange);
 			foreach(RaycastHit2D targ in touchingpoints)
 			{	
 				if(targ)
