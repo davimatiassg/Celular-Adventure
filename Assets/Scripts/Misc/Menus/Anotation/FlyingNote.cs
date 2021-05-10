@@ -56,7 +56,7 @@ public class FlyingNote : MonoBehaviour
 
 					if(cols[0] == thiscol)
 					{	
-						Debug.Log(cols.Length);
+
 						isDrag = true;
 						isSelected = true;
 						if(Vector2.Distance(mousep, lastMousePos) < 0.1f)
@@ -220,7 +220,6 @@ public class FlyingNote : MonoBehaviour
 	public void Unlock()
 	{	
 		loadTime = 1;
-		Debug.Log("Unlock");
 		NoteLigator LNote= Line.GetComponent<NoteLigator>();
 		isSelected = false;
 		if(LNote.Ob2)

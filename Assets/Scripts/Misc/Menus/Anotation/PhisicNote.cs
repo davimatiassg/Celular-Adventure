@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -90,7 +90,12 @@ public class PhisicNote : MonoBehaviour
             {
 
                 spR.enabled = true;
+                Debug.Log("Width: " + i.pic.width + "; Height: " + i.pic.height);
                 spR.sprite = Sprite.Create((Texture2D)i.pic, new Rect(0.0f, 0.0f, i.pic.width, i.pic.height), Vector2.one/2);
+
+                float spc = (spR.sprite.pixelsPerUnit/(i.pic.width/4.8f)) * 0.2f ;
+
+                spR.gameObject.GetComponent<RectTransform>().localScale = Vector2.one * spc;
             }
     		
     	}

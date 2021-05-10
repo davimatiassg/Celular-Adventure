@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class AnotationPage : MonoBehaviour
 {
 	[SerializeField] private Text Info;//Informações Científicas
@@ -17,8 +18,14 @@ public class AnotationPage : MonoBehaviour
 
     void setPage()
     {	
+        RectTransform r = Photo.gameObject.GetComponent<RectTransform>();
+        Rect s = Rect.zero;
+        Texture2D t = (Texture2D) Notes[Pagenum].pic;
+        s.size = new Vector2(r.sizeDelta.x, r.sizeDelta.y);
+        s.center = new Vector2(t.width/2, t.height/2);
     	Info.text = Notes[Pagenum].text;
-    	Photo.sprite = Sprite.Create((Texture2D)Notes[Pagenum].pic, new Rect(0.0f, 0.0f, Notes[Pagenum].pic.width, Notes[Pagenum].pic.height), Vector2.one/2);
+    	Photo.sprite = Sprite.Create(t, s, Vector2.one/2);
+
     }
 
     public void setPagenum(int n)
