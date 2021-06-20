@@ -146,10 +146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0616a680759e5941a9ea5e71f8f9a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 40
+  dmg: 60
   speed: 0
   HitEffect: {fileID: 1357709085957344, guid: 940af74b4bc820b4e94b7020a2e48efe, type: 3}
-  knockback: {x: 30, y: 50}
+  knockback: {x: 20, y: 80}
   destroyOnContact: 1
   enemie: 0
 --- !u!50 &-4217990923205873860

@@ -84,7 +84,7 @@ MonoBehaviour:
   realImg: {fileID: 21300000, guid: 7b948e24f654a5942a96a1b183476df4, type: 3}
   DieDestroy: 1
   tname: 
-  life: 60
+  life: 30
   attackdmg: 0
   hitstun: 0.3
   stun: 0

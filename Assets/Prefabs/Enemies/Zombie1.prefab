@@ -4894,13 +4894,13 @@ MonoBehaviour:
   realImg: {fileID: 21300000, guid: 7b948e24f654a5942a96a1b183476df4, type: 3}
   DieDestroy: 1
   tname: 
-  life: 30
+  life: 60
   attackdmg: 5
   hitstun: 0.3
   stun: 0
   hiteffect: {fileID: 1357709085957344, guid: 940af74b4bc820b4e94b7020a2e48efe, type: 3}
   hitparticles: {fileID: 0}
-  KnBackIntensity: {x: 0, y: 0}
+  KnBackIntensity: {x: 1, y: 1}
 --- !u!212 &4088241295254731204
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -26,6 +26,7 @@ public class InputMenu : MonoBehaviour
 		thiscode = InputManager.instance.keybindings.CheckKey(innerName);
 		keytext.text = thiscode.ToString();
 		Unselect();
+		a = this.gameObject.GetComponent<AudioInterface>();
 
 	}
 	void OnDisable()
@@ -40,9 +41,13 @@ public class InputMenu : MonoBehaviour
 	}
 	public void Select()
 	{	
-		a.PlaySound("click");
-		GameEvents.ScreamEvent("selectKeyButton");
-		selected = true;
+		if(a != null)
+		{
+			a.PlaySound("click");
+			GameEvents.ScreamEvent("selectKeyButton");
+			selected = true;
+		}
+
 	}
 
 	void OnGUI()

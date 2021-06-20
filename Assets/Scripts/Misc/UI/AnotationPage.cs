@@ -21,10 +21,10 @@ public class AnotationPage : MonoBehaviour
         RectTransform r = Photo.gameObject.GetComponent<RectTransform>();
         Rect s = Rect.zero;
         Texture2D t = (Texture2D) Notes[Pagenum].pic;
-        s.size = new Vector2(r.sizeDelta.x, r.sizeDelta.y);
-        s.center = new Vector2(t.width/2, t.height/2);
+        s.size = Vector2.one*t.width;
+        Debug.Log(s.ToString());
     	Info.text = Notes[Pagenum].text;
-    	Photo.sprite = Sprite.Create(t, s, Vector2.one/2);
+    	Photo.sprite = Sprite.Create(t, s, Vector2.one/2, 64, 5);
 
     }
 
