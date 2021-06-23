@@ -15,6 +15,8 @@ public class ShootBehavior : MonoBehaviour {
 
 	public bool enemie = true;
 
+	public float lifetime = 5;
+
 	// Use this for initialization
 	void Start () 
 	{	
@@ -36,6 +38,15 @@ public class ShootBehavior : MonoBehaviour {
 		if (!enemie)
 		{
 			Physics2D.IgnoreCollision(this.gameObject.GetComponent<Collider2D>(), GameObject.FindWithTag("Player").GetComponent<Collider2D>(), true);
+		}
+
+		if(lifetime > 0)
+		{
+			lifetime -= Time.deltaTime;
+		}
+		else
+		{
+			Destroy(this.gameObject);
 		}
 	}
 	
