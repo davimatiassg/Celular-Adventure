@@ -3885,7 +3885,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Piranha (1)
+    path: Piranha (0)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3895,7 +3895,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Piranha (1)
+    path: Piranha (0)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3905,7 +3905,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Piranha (1)
+    path: Piranha (0)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3915,7 +3915,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Piranha (2)
+    path: Piranha (1)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3925,7 +3925,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Piranha (2)
+    path: Piranha (1)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3935,37 +3935,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Piranha (2)
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Piranha (0)
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Piranha (0)
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Piranha (0)
+    path: Piranha (1)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4095,7 +4065,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Piranha (4)
+    path: Piranha (6)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4105,7 +4075,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Piranha (4)
+    path: Piranha (6)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4115,7 +4085,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Piranha (4)
+    path: Piranha (6)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4155,7 +4125,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Piranha (6)
+    path: Piranha (2)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4165,7 +4135,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Piranha (6)
+    path: Piranha (2)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4175,7 +4145,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Piranha (6)
+    path: Piranha (2)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4206,6 +4176,36 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
     path: Piranha (5)
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Piranha (4)
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Piranha (4)
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Piranha (4)
     classID: 4
     script: {fileID: 0}
   - curve:

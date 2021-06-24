@@ -8,6 +8,7 @@ public class PiranhaBehavior : MonoBehaviour
 	public int attackdmg;
 	private SpriteRenderer spr;
 	private CircleCollider2D cColider;
+    private Transform trs;
 
    	[SerializeField] private Color atkcolor = new Color(255, 227, 0, 255)/255;
    	[SerializeField] private Color ncolor = new Color(0, 241, 255, 255)/255;
@@ -17,6 +18,7 @@ public class PiranhaBehavior : MonoBehaviour
     void Start()
     {
         spr = this.GetComponent<SpriteRenderer>();
+        trs = this.GetComponent<Transform>();
         cColider = this.GetComponent<CircleCollider2D>();
     }
 
@@ -27,6 +29,8 @@ public class PiranhaBehavior : MonoBehaviour
         {
         	spr.material.color = atkcolor;
         	cColider.isTrigger = true;
+            
+
         }
         else
         {

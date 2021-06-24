@@ -2154,6 +2154,34 @@ AnimationClip:
     path: Piranha (1)
     classID: 114
     script: {fileID: 11500000, guid: 90969707ed1707647b7ed93445613a9c, type: 3}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 3.5714285
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: damageMultiplicator
+    path: 
+    classID: 114
+    script: {fileID: 11500000, guid: ab9001135559c2b4aaff3805cfc275c8, type: 3}
   m_PPtrCurves:
   - curve:
     - time: 0
@@ -2647,6 +2675,13 @@ AnimationClip:
       attribute: 1
       script: {fileID: 0}
       typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 0
+      attribute: 4186022392
+      script: {fileID: 11500000, guid: ab9001135559c2b4aaff3805cfc275c8, type: 3}
+      typeID: 114
       customType: 0
       isPPtrCurve: 0
     pptrCurveMapping:
@@ -8236,6 +8271,34 @@ AnimationClip:
     path: Piranha (1)
     classID: 114
     script: {fileID: 11500000, guid: 90969707ed1707647b7ed93445613a9c, type: 3}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 3.5714285
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: damageMultiplicator
+    path: 
+    classID: 114
+    script: {fileID: 11500000, guid: ab9001135559c2b4aaff3805cfc275c8, type: 3}
   m_EulerEditorCurves:
   - curve:
       serializedVersion: 2

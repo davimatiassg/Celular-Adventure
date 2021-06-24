@@ -8,8 +8,23 @@ public class PontuationCounter : MonoBehaviour
     [SerializeField] private static int score;
 
 
+    void OnEnable()
+    {
+        GameEvents.StartListening("FadeOut", SaveScore);
+    }
+    void OnDisable()
+    {
+        GameEvents.StopListening("FadeOut", SaveScore);
+    }
 
-    // Update is called once per frame
+
+    public void Start()
+    {
+        if(score <= 0 && PlayerPrefs.HasKey("score"))
+        {
+            score = PlayerPrefs.GetInt("score");
+        }
+    }
     public static void AddScore(int s)
     {	
 
@@ -26,6 +41,13 @@ public class PontuationCounter : MonoBehaviour
     public static string GetScoreString()
     {	
 
+
     	return "Pontuação: " + score; 
+    }
+
+    public void SaveScore()
+    {
+        PlayerPrefs.SetInt("score", GetScore());
+        PlayerPrefs.Save();
     }
 }

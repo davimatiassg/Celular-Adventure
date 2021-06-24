@@ -40,6 +40,8 @@ public class TrypShoalBehavior : MonoBehaviour
         Player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         speed = mainSpeed;
         core = this.gameObject.GetComponent<BossCore>();
+        anim.Play("Entry");
+        cd = atkCoolDown;
     }
 
     // Update is called once per frame
@@ -71,7 +73,7 @@ public class TrypShoalBehavior : MonoBehaviour
             }
             trs.position = Vector2.MoveTowards(trs.position, destination, speed*Time.deltaTime);
         }
-        else if(!currentAnimation.IsName("Die"))
+        else if(core.life <= 0)
         {
             Die();
         }
@@ -131,7 +133,7 @@ public class TrypShoalBehavior : MonoBehaviour
 
     public void Dead()
     {      
-        GameEvents.ScreamEvent("BossDead");
+        GameEvents.ScreamEvent("FinalBossIsDead");
         Destroy(this.gameObject);
         
     }

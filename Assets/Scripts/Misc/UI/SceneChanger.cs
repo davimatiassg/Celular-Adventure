@@ -37,6 +37,8 @@ public class SceneChanger : MonoBehaviour
 
     public void FadeOut()
     {	
+        PlayerPrefs.SetFloat("playtime", Time.timeSinceLevelLoad);
+        PlayerPrefs.Save();
     	anim.Play("FadeOut");
     }
 
@@ -61,7 +63,7 @@ public class SceneChanger : MonoBehaviour
         int i = PlayerPrefs.GetInt("level");
         PlayerPrefs.SetInt("level", i+1);
         PlayerPrefs.Save();
-        FadeOut();
+        GameEvents.ScreamEvent("FadeOut");
 
     }
     public static void Load(string s)
