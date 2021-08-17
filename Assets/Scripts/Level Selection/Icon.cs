@@ -12,7 +12,9 @@ public class Icon : MonoBehaviour
 	[SerializeField] public UnityEngine.UI.Image Screen;
 	public Text label;
     [TextArea] 
-	public string text; 
+	public string text;
+    [TextArea] 
+    public string ptext;
 	public GameObject Pannel;
 	public string scene;
 	public MainMenu startb;
@@ -85,13 +87,15 @@ public class Icon : MonoBehaviour
 
     public void ToggleContent()
     {
-        if(Screen.sprite == SplashScreen)
+        if(label.text == text)
         {
             Screen.sprite = Player;
+            label.text = ptext;
         }
         else
         {
             Screen.sprite = SplashScreen;
+            label.text = text;
         }
         
     }

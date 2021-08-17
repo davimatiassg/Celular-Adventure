@@ -200,7 +200,7 @@ public class MasterController : MonoBehaviour
 		//pulo
 		else if(i_jump)
 		{	
-			jumpframes = 3;
+			jumpframes = 5;
 
 			rigb.velocity += Vector2.up*jspeed;
 			flytime = 0f;

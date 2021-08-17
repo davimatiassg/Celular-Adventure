@@ -362,15 +362,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyID: 8
-  enemyName: Orthocoronavirinae
+  enemyName: Sars-CoV-2
   encounterLocal: "Fase 3 - Pulm\xE3o"
   enemyBehavior: "Vida: 30; Dano: 15; Esse neutr\xF3filo infectado perseguir\xE1
     o jogador e ap\xF3s um tempo causar\xE1 muito dano, voltando a sua posi\xE7\xE3o
     original."
-  realInfo: "O v\xEDrus Orthocoronavirinae, causador da doen\xE7a Covid-19, \xE9
-    capaz de infectar c\xE9lulas do pulm\xE3o. O virus tamb\xE9m libera subst\xE2ncias
-    que afetam os sentidos de algumas c\xE9lulas do sistema imunol\xF3gico, fazendo
-    com que elas se descontrolem e ataquem qualquer coisa em seu caminho."
+  realInfo: "O v\xEDrus Sars-CoV-2, causador da doen\xE7a Covid-19, \xE9 capaz de
+    infectar c\xE9lulas do pulm\xE3o. O virus tamb\xE9m libera subst\xE2ncias que
+    afetam os sentidos de algumas c\xE9lulas do sistema imunol\xF3gico, fazendo com
+    que elas se descontrolem e ataquem qualquer coisa em seu caminho."
   inGameImg: {fileID: 4723107735738678597, guid: b58dc30a9b692ea42a4c347b5db06ad3,
     type: 3}
   realImg: {fileID: 21300000, guid: 7b948e24f654a5942a96a1b183476df4, type: 3}

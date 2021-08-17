@@ -12,28 +12,59 @@ public class Cursor : MonoBehaviour
 
 	public bool Attached = false;
 
+	public bool LvlSelec = true;
+
+
+	void OnEnable()
+	{	
+		GameEvents.StartListening("ToogleCursor", ToggleVisible);
+	}
+	void OnDisable()
+	{
+		GameEvents.StopListening("ToogleCursor", ToggleVisible);
+	}
 	void Start()
 	{
-		trs = GetComponent<Transform>();
-		UnityEngine.Cursor.visible = false;
-		CameraBehavior.target = trs;
+		trs = this.gameObject.GetComponent<Transform>();
+		if(LvlSelec)
+		{
+			CameraBehavior.target = trs;
+			ToggleVisible();
+		}
+
+		
+		
 	}
 
 	void Update()
 	{	
+		if(LvlSelec)
+		{
+			if(!Attached && !Pannel.activeSelf)
+			{	
+				mouse = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f);
+				trs.position = Camera.main.ScreenToWorldPoint(mouse);
+			}
+			else if(Pannel.activeSelf)
+			{
+				UnityEngine.Cursor.visible = true;
+			}
 
-		if(!Attached && !Pannel.activeSelf)
-		{	
+			cam.enabled = !Attached;
+		}
+		else
+		{
 			mouse = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f);
-			UnityEngine.Cursor.visible = false;
 			trs.position = Camera.main.ScreenToWorldPoint(mouse);
 		}
-		else if(Pannel.activeSelf)
-		{
-			UnityEngine.Cursor.visible = true;
-		}
 
-		cam.enabled = !Attached;
 
+	}
+
+	void ToggleVisible()
+	{
+		Debug.Log("toogled cur");
+		UnityEngine.Cursor.visible = !UnityEngine.Cursor.visible;
+		this.gameObject.GetComponent<SpriteRenderer>().enabled = !UnityEngine.Cursor.visible;
 	}
 }

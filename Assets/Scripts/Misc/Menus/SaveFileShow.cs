@@ -34,7 +34,8 @@ public class SaveFileShow : MonoBehaviour
     public string FormulateString()
     {
     	string time = (Mathf.RoundToInt(t/3600) + "H, " + (Mathf.RoundToInt(t%3600)/60)) + "m, e " + (Mathf.RoundToInt(t%3600%60)) + "s";
-    	string str = p + "\r\n \r\n" + l + "\r\n \r\n" + time + "\r\n";
+    	string m_time = Mathf.RoundToInt(t/60) + " Minutos";
+    	string str = p + "\r\n \r\n" + l + "\r\n \r\n" + m_time + "\r\n";
     	return str;
     }
 

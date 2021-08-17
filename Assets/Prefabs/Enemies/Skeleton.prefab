@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyID: 9
-  enemyName: Orthocoronavirinae
+  enemyName: Sars-CoV-2
   encounterLocal: "Fase 3 - Pulm\xE3o"
   enemyBehavior: "Vida: 60; Dano: 5; Esse linf\xF3cito T auxiliar ir\xE1 disparar
     um proj\xE9til contra o jogador e esquivar para tr\xE1s quando se sentir amea\xE7ado.

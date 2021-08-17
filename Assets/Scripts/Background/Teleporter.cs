@@ -8,22 +8,72 @@ public class Teleporter : MonoBehaviour
 
    	[SerializeField] private Vector3 exit;
 
+   	[SerializeField] private Vector3 dest = Vector3.zero;
+
    	[SerializeField] private GameObject exitObj;
+
+   	[SerializeField] private Collider2D Player;
+
+   	[SerializeField] private Collider2D ThisCol; 
+
+   	[SerializeField] private int framecount;
+
+   	public InputManager InPut;
+
+   	void OnEnable()
+   	{
+   		GameEvents.StartListening("CheckTP", CheckTP);
+   	}
+
+    void OnDisable()
+   	{
+   		GameEvents.StopListening("CheckTP", CheckTP);
+   	}
 
    	void Start()
    	{
    		if(exitObj)
    		{
-   			exit = exitObj.transform.position;
+   			ThisCol = this.gameObject.GetComponent<Collider2D>();
+   			Player = GameObject.FindWithTag("Player").GetComponent<Collider2D>();
+   			exit = exitObj.transform.position + exit;
+   			InPut = InputManager.instance;
 		}
    	}
 	
-	void OnTriggerStay2D(Collider2D other)
+
+	void Update()
 	{
-		if((!interactable || Input.GetButtonDown("Fire1")) && other.gameObject.tag == "Player")
+		if(dest != Vector3.zero)
+		{   
+			if(framecount == 0)
+			{
+
+				Player.transform.position = dest;
+				dest = Vector3.zero;
+			}
+			else if(framecount > 0)
+			{
+				framecount --;
+			}
+		}
+
+		
+		if(InPut.GetButtonDown("Attack"))
 		{	
-			GameObject.FindWithTag("Player").transform.position = exit + GameObject.FindWithTag("Player").transform.position.z*Vector3.forward;
-			GameObject.FindWithTag("MainCamera").transform.position = exit + GameObject.FindWithTag("MainCamera").transform.position.z*Vector3.forward;
+			GameEvents.ScreamEvent("CheckTP");
+
 		}
 	}
+
+	public void CheckTP()
+	{
+		if(ThisCol.Distance(Player).isOverlapped)
+		{
+			framecount = 5;
+			dest = exit + Player.transform.position.z*Vector3.forward;
+			
+		}
+	}
+
 }

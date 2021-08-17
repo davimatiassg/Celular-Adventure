@@ -4881,7 +4881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyID: 6
-  enemyName: Orthocoronavirinae
+  enemyName: Sars-CoV-2
   encounterLocal: "Fase 3 - Pulm\xE3o"
   enemyBehavior: "Vida: 30; Dano: 5;Tentar\xE1 caminhar e cuspir conte\xFAdo viral
     na dire\xE7\xE3o do jogador. N\xE3o \xE9 atordoado por ataques, trate de destrui-lo

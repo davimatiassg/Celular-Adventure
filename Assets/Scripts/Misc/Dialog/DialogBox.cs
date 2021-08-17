@@ -16,6 +16,8 @@ public class DialogBox : MonoBehaviour
 
     [SerializeField] private Text label;
 
+    public InputManager InPut;
+
     [SerializeField] private Text namelabel;
 
     [SerializeField] private Image picture;
@@ -33,6 +35,7 @@ public class DialogBox : MonoBehaviour
     void OnEnable()
     {
         GameEvents.StartListening("GetDialogBox", SetDialogBox);
+        InPut = InputManager.instance;
 
     }
     void OnDisable()
@@ -45,7 +48,7 @@ public class DialogBox : MonoBehaviour
     {   
         if(Box.activeSelf)
         {   
-            if(Input.GetButtonDown("Jump"))
+            if(InPut.GetButtonDown("Jump"))
             {      
 
                 sendNextMsg();

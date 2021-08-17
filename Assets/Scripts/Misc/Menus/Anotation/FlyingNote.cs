@@ -32,10 +32,12 @@ public class FlyingNote : MonoBehaviour
 	void OnEnable()
 	{
 		GameEvents.StartListening("ClosedTable", Vanish);
+		GameEvents.StartListening("InvisibleNotes", ToogleVisible);
 	}
 	void OnDisable()
 	{
 		GameEvents.StopListening("ClosedTable", Vanish);
+		GameEvents.StopListening("InvisibleNotes", ToogleVisible);
 	}
 	void Start()
 	{
@@ -234,6 +236,17 @@ public class FlyingNote : MonoBehaviour
 
 		Destroy(Line);
 
+	}
+
+	public void ToogleVisible()
+	{
+		this.gameObject.GetComponent<SpriteRenderer>().enabled = !this.gameObject.GetComponent<SpriteRenderer>().enabled;
+		this.gameObject.GetComponent<Collider2D>().enabled = this.gameObject.GetComponent<SpriteRenderer>().enabled;
+		for(int i = 0; i < this.gameObject.transform.childCount ; i ++)
+		{
+			GameObject f = this.gameObject.transform.GetChild(i).gameObject;
+			f.SetActive(!f.activeSelf);	
+		}
 	}
 
 	void Vanish()

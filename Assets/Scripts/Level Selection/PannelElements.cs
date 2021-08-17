@@ -13,6 +13,7 @@ public class PannelElements : MonoBehaviour
     [SerializeField] private Vector2 sc = Vector2.zero;
 
     [SerializeField] private bool basedOnCamSize = false;
+    [SerializeField] private bool texted = false;
 
     private Camera c;
 
@@ -37,9 +38,15 @@ public class PannelElements : MonoBehaviour
         else
         {
             trs.anchoredPosition = pos*Screen.width;
-            trs.sizeDelta = sc*Screen.width; 
-        }
-
-        
+            if(texted)
+            {
+                trs.localScale = sc*Screen.width;
+            }
+            else
+            {
+                trs.sizeDelta = sc*Screen.width;
+            }
+                     
+        }       
     }
 }

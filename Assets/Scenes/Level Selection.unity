@@ -283,6 +283,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos: {x: 0, y: 0}
   sc: {x: 0.05, y: 0.05}
+  basedOnCamSize: 0
+  texted: 0
 --- !u!1 &139110254
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,7 +636,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 300
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -661,8 +663,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c1660dcdf70bca4d92b099708db7a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos: {x: -0.15, y: -0.3}
-  sc: {x: 1, y: 1}
+  pos: {x: -0.165, y: 0}
+  sc: {x: 0.001, y: 0.001}
+  basedOnCamSize: 0
+  texted: 1
 --- !u!1 &527988863
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,6 +974,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos: {x: 0, y: 0}
   sc: {x: 0.05, y: 0.05}
+  basedOnCamSize: 0
+  texted: 0
 --- !u!1 &599076789
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,6 +1218,13 @@ PrefabInstance:
         type: 3}
       propertyPath: level
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560474123034375376, guid: b0f950ff12b5b814598625eeb98d9f24,
+        type: 3}
+      propertyPath: ptext
+      value: "Neutr\xF3filos s\xE3o as c\xE9lulas de defesa prim\xE1ria do organismo.
+        \xC1geis, numerosos e fortes, atacando fortemente qualquer corpo estranho
+        assim que detectado."
       objectReference: {fileID: 0}
     - target: {fileID: 8560474123034375376, guid: b0f950ff12b5b814598625eeb98d9f24,
         type: 3}
@@ -1492,6 +1505,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos: {x: -0.66, y: 0.4}
   sc: {x: 0.46, y: 0.28}
+  basedOnCamSize: 0
+  texted: 0
 --- !u!1 &1198520789
 GameObject:
   m_ObjectHideFlags: 0
@@ -1638,6 +1653,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos: {x: 0, y: 0}
   sc: {x: 0.05, y: 0.05}
+  basedOnCamSize: 0
+  texted: 0
 --- !u!1 &1198566711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1814,6 +1831,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8560474123034375376, guid: b0f950ff12b5b814598625eeb98d9f24,
         type: 3}
+      propertyPath: ptext
+      value: "Eosin\xF3filos s\xE3o c\xE9lulas do Sistema Imune respons\xE1veis por
+        lidar com parasitas, atacando com enzimas inimigos como vermes e protozo\xE1rios"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560474123034375376, guid: b0f950ff12b5b814598625eeb98d9f24,
+        type: 3}
       propertyPath: scene
       value: Level2 - intestin
       objectReference: {fileID: 0}
@@ -1934,6 +1957,12 @@ PrefabInstance:
         type: 3}
       propertyPath: level
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560474123034375376, guid: b0f950ff12b5b814598625eeb98d9f24,
+        type: 3}
+      propertyPath: ptext
+      value: "A maior c\xE9lula do sistema imunol\xF3gico. Atua na limpeza, digest\xE3o
+        e combate durante v\xE1rios tipos de infec\xE7\xF5es."
       objectReference: {fileID: 0}
     - target: {fileID: 8560474123034375376, guid: b0f950ff12b5b814598625eeb98d9f24,
         type: 3}
@@ -2689,6 +2718,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos: {x: 0, y: 0.07}
   sc: {x: 1.77, y: -0.11}
+  basedOnCamSize: 0
+  texted: 0
 --- !u!1 &1708000198
 GameObject:
   m_ObjectHideFlags: 0
@@ -3128,6 +3159,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos: {x: 0, y: 0}
   sc: {x: 0.05, y: 0.05}
+  basedOnCamSize: 0
+  texted: 0
 --- !u!1 &1920653029
 GameObject:
   m_ObjectHideFlags: 0
@@ -3297,6 +3330,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8560474123034375376, guid: b0f950ff12b5b814598625eeb98d9f24,
         type: 3}
+      propertyPath: ptext
+      value: "O linf\xF3cito NK \xE9 um tipo de Gl\xF3bulo branco respons\xE1vel
+        por eliminar c\xE9lulas defeituosas ou infectadas, agindo contra infec\xE7\xF5es
+        virais e Tumores"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560474123034375376, guid: b0f950ff12b5b814598625eeb98d9f24,
+        type: 3}
       propertyPath: scene
       value: Level3 - lungs
       objectReference: {fileID: 0}
@@ -3309,7 +3349,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: -3243837317560229302, guid: 9aea2b956125b364c8e64d32c6302a75,
+      objectReference: {fileID: -6835437350910103714, guid: c0a8dc4ea33f89f4ba265f718b901a80,
         type: 3}
     - target: {fileID: 8560474123034375376, guid: b0f950ff12b5b814598625eeb98d9f24,
         type: 3}
@@ -3496,3 +3536,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos: {x: -0.11, y: 0.11}
   sc: {x: 2.12, y: 0.35}
+  basedOnCamSize: 0
+  texted: 0
