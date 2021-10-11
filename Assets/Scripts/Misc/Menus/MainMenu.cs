@@ -8,6 +8,8 @@ public class MainMenu : SceneLoader
 
 	public GameObject OtherPannel1;
 
+	public GameObject OtherPannel2;
+
 	public void CallScene(string cscene)
 	{
 		SceneManager.LoadScene(cscene);
@@ -17,6 +19,11 @@ public class MainMenu : SceneLoader
 	{
 		OtherPannel1.SetActive(true);
 		gameObject.SetActive(false);
+	}
+	public void CallLvlS()
+	{
+		OtherPannel2.SetActive(true);
+
 	}
 
 	public void Quit()

@@ -12,16 +12,12 @@ public class DialogInitializer : MonoBehaviour
 	[SerializeField]
 	public static DialogBox TextBox;
 
-    void Start()
-    {   
-        GameEvents.ScreamEvent("GetDialogBox");
-    }
 	public void OpenDialogBox()
     {   
         GameEvents.ScreamEvent("GetDialogBox");
-        Debug.Log(DialogInitializer.TextBox);
         DialogInitializer.TextBox.dialogSequence = new List<DialogContent>(dialog);
     	DialogInitializer.TextBox.Activate(true);
+        Debug.Log("START DIALOG");
     	
     }
 	public void CloseDialogBox()

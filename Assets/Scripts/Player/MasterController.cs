@@ -91,7 +91,7 @@ public class MasterController : MonoBehaviour
 
 	public int framestop = 0;
 
-	private int jumpframes = 0;
+	private float jumpframes = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -105,6 +105,15 @@ public class MasterController : MonoBehaviour
 		movSen = 1;
 		lstmovSen = 1;
 		life = maxlife;
+
+		Vector2 chckpos = CheckPointManager.GetLastCheckPoint();
+		if(chckpos != Vector2.zero)
+		{
+			GameEvents.ScreamEvent("CheckPointFound");	
+			trs.position = chckpos;
+			playable = true;
+		}
+
 		playable = true;
 		InPut = InputManager.instance;
 
@@ -135,6 +144,7 @@ public class MasterController : MonoBehaviour
 	}
 	void FixedUpdate()
 	{	
+		
 		float d = 0.0f;
 		jumpDirection = OnSlopeMoviment(out d);
 
@@ -150,8 +160,9 @@ public class MasterController : MonoBehaviour
 		
 		flytime = 0;
 		gothit = false;
-		if(!i_jump && jumpframes == 0)
-		{
+		if(!i_jump && jumpframes <= 0)
+		{ 
+			jumpframes = 0;
 			if(axis == 0)
 				{	
 					rigb.velocity -= new Vector2(movSen*Mathf.Abs(rigb.velocity.x)*Mathf.Pow(dragforce, 2f)*runtime, Mathf.Abs(Vector2.Perpendicular(jumpDirection).y) + Mathf.Abs(rigb.velocity.y)*Mathf.Pow(dragforce, 3f));
@@ -200,16 +211,11 @@ public class MasterController : MonoBehaviour
 		//pulo
 		else if(i_jump)
 		{	
-			jumpframes = 5;
-
-			rigb.velocity += Vector2.up*jspeed;
-			flytime = 0f;
-			MakeDust();
-			isCrouch = false;
+			IgniteJump();
 		}
 		else
 		{
-			jumpframes -= 1;
+			jumpframes -= Time.deltaTime;
 		}
 		//Se estiver num local com teto baixo, para agachar automaticamente
 		if(ayis == -1 || Physics2D.Linecast(trs.position, tpchk.position, 1 << LayerMask.NameToLayer("solid")))
@@ -223,20 +229,34 @@ public class MasterController : MonoBehaviour
 	}
 	public void AirMoviment()
 	{	
-		//movimento vertical
+		
 		flytime += Time.deltaTime;
-		
-		
-			isCrouch = false;
+
+		isCrouch = false;
+		if(jumpframes <= 0)
+		{
+
+			if(i_jump && flytime <= 0.15f)
+			{
+				Debug.Log(jumpframes);
+				IgniteJump();
+			}
+		}
+		else
+		{
+			jumpframes -= Time.deltaTime;
+		}
 
 		if(jump)
 		{	
+
 			if(rigb.velocity.y >= 0.0f)
 			{
+
 				if(flytime <= 0.2f)
 				{	
 					if(rigb.velocity.y < jspeed)
-					rigb.velocity += new Vector2(0, jspeed - rigb.velocity.y)*1/2;
+					rigb.velocity += new Vector2(0, jspeed -rigb.velocity.y)*1/2;
 				}
 
 			}
@@ -245,6 +265,7 @@ public class MasterController : MonoBehaviour
 				rigb.velocity += new Vector2(0, -17f - rigb.velocity.y)/2;
 			}
 		}
+
 
 
 
@@ -322,8 +343,9 @@ public class MasterController : MonoBehaviour
 			isGrounded = false;
 			rigb.velocity = new Vector2(movSen*-10, 20);
 			Explode();
+			HealthBar.SetGaugeValue(-dmg, life, maxlife);
 		}
-		HealthBar.SetGaugeValue(life, maxlife);
+		
 
 	}
 
@@ -331,11 +353,15 @@ public class MasterController : MonoBehaviour
 	{
 		life += gainl;
 
-		if (life >= maxlife)
+		int sup = 0;
+
+		if (life > maxlife)
  		{
+ 			sup = life - maxlife;
  			life = maxlife;
  		}
- 		HealthBar.SetGaugeValue(life, maxlife);
+ 		HealthBar.SetGaugeValue(gainl-sup, life, maxlife);
+ 		
 	}
 
 	public void die()
@@ -351,7 +377,6 @@ public class MasterController : MonoBehaviour
 		camcontroll.edgeup = Mathf.Infinity;
 		camcontroll.edgedown = Mathf.NegativeInfinity;
 		camcontroll.edgeleft = Mathf.NegativeInfinity;
-		
 
 		
 		//dead = true;
@@ -377,7 +402,7 @@ public class MasterController : MonoBehaviour
 		invt = invtime;
 		trs.position = GroundReturn;
 		rigb.velocity = new Vector2(0, 0);
-		HealthBar.SetGaugeValue(life, maxlife);
+		HealthBar.SetGaugeValue(-dmg, life, maxlife);
 
 	}
 
@@ -389,7 +414,7 @@ public class MasterController : MonoBehaviour
 	void OnDrawGizmosSelected()
 	{
 		Gizmos.color = Color.red;
-		Gizmos.DrawLine(flchk.position, flchk.position + Vector3.down*radius);
+		Gizmos.DrawSphere(flchk.position, radius);
 	}
 
  	public void TogglePlayable(bool x)
@@ -415,6 +440,14 @@ public class MasterController : MonoBehaviour
 	public void SetTimeScale(float x)
  	{
  		Time.timeScale = x;
+ 	}
+ 	private void IgniteJump()
+ 	{
+		jumpframes = 0.2f;
+		rigb.velocity += Vector2.up*jspeed;
+		flytime = 0f;
+		MakeDust();
+		isCrouch = false;
  	}
 
  	private Vector2 OnSlopeMoviment(out float dist)

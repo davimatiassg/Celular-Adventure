@@ -47,12 +47,14 @@ public class SceneChanger : MonoBehaviour
 
         if(nextScene != null)
         {	
+            GameEvents.ScreamEvent("LoadingAScene");
             SceneManager.LoadScene(nextScene);
             nextScene = null;
         }
         else if(s != null)
         {
-        	Debug.Log("s");
+            GameEvents.ScreamEvent("LoadingAScene");
+
             SceneManager.LoadScene(s);
         }
     	
@@ -68,6 +70,7 @@ public class SceneChanger : MonoBehaviour
     }
     public static void Load(string s)
     {
+        GameEvents.ScreamEvent("LoadingAScene");
         SceneChanger.nextScene = s;
         SceneChanger.instance.GetComponent<SceneChanger>().FadeOut();
     }

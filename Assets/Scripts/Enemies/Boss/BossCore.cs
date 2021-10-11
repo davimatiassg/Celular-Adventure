@@ -59,6 +59,7 @@ public class BossCore : MonoBehaviour
 			if (life <= 0)
 			{	
 				GameEvents.ScreamEvent("BossDie");
+				GameEvents.ScreamEvent("BossDie");
 				Debug.Log("BossdieEvent");
 			}
 		}
@@ -107,6 +108,10 @@ public class BossCore : MonoBehaviour
  	}
 
 
+ 	public void ded()
+ 	{
+ 		GameEvents.ScreamEvent("FinalBossIsDead");
+ 	}
 
 
 }

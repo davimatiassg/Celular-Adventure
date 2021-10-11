@@ -5091,7 +5091,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.25
+  m_Time: 0.1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -5108,10 +5108,10 @@ TrailRenderer:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.034480862
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        time: 0.73584133
+        value: 0.83783776
+        inSlope: -1.4824882
+        outSlope: -1.4824882
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -5131,39 +5131,39 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 0.9725491, g: 0.94117653, b: 0.47058827, a: 1}
-      key2: {r: 0.9725491, g: 0.72156864, b: 0.0627451, a: 1}
-      key3: {r: 0.15294118, g: 0.2784314, b: 0.25882354, a: 0.80784315}
+      key1: {r: 0.7311321, g: 0.76823133, b: 1, a: 1}
+      key2: {r: 0.2783019, g: 0.5669812, b: 1, a: 1}
+      key3: {r: 0.41034052, g: 0.4009434, b: 1, a: 0.80784315}
       key4: {r: 0, g: 0, b: 0, a: 0.7058824}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 35852
-      ctime1: 49922
-      ctime2: 63993
-      ctime3: 65535
+      ctime0: 21010
+      ctime1: 35852
+      ctime2: 47224
+      ctime3: 63993
       ctime4: 0
       ctime5: 0
       ctime6: 0
       ctime7: 0
       atime0: 0
       atime1: 28720
-      atime2: 40478
+      atime2: 49922
       atime3: 57247
       atime4: 65535
       atime5: 0
       atime6: 0
       atime7: 0
       m_Mode: 1
-      m_NumColorKeys: 3
+      m_NumColorKeys: 4
       m_NumAlphaKeys: 5
-    numCornerVertices: 2
+    numCornerVertices: 1
     numCapVertices: 0
     alignment: 0
-    textureMode: 1
+    textureMode: 0
     shadowBias: 0
     generateLightingData: 0
-  m_MinVertexDistance: 0.2
+  m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 0
 --- !u!1 &3529378971045075963
@@ -5345,7 +5345,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.99, y: 0.96}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -5385,7 +5385,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.5, y: 0.5}
-    newSize: {x: 0.5, y: 0.5}
+    newSize: {x: 0.99, y: 0.96}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

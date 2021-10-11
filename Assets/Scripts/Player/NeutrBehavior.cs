@@ -13,11 +13,13 @@ public class NeutrBehavior : MonoBehaviour
 	public bool isRoll;
 	public float rollcdr;
 	public float rolltm;
+	private float temprad;
 
     void Start()
     {
         mainCode = this.gameObject.GetComponent<MasterController>();
         a = this.gameObject.GetComponent<AudioInterface>();
+        temprad = mainCode.radius;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -49,6 +51,7 @@ public class NeutrBehavior : MonoBehaviour
 
 		if(isRoll)
 		{
+			mainCode.invt = 0.05f;
 			mainCode.rigb.velocity = new Vector2(mainCode.speed*4*mainCode.movSen, mainCode.rigb.velocity.y);
 			mainCode.axis = mainCode.movSen;
 			
@@ -80,7 +83,16 @@ public class NeutrBehavior : MonoBehaviour
     	}
       if(mainCode.playable)
 		{
-			mainCode.isGrounded = Physics2D.OverlapCircle(mainCode.flchk.position, mainCode.radius, mainCode.solid);;
+			if(!mainCode.isGrounded && mainCode.rigb.velocity.y > 0)
+			{
+				mainCode.radius = 0f;
+
+			}
+			else
+			{
+				mainCode.radius = temprad;
+			}
+			mainCode.isGrounded = Physics2D.OverlapCircle(mainCode.flchk.position, mainCode.radius, mainCode.solid);
 			
 			if(mainCode.framestop > 0)
 			{

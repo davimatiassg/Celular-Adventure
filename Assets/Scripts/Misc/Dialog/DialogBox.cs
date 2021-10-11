@@ -48,7 +48,7 @@ public class DialogBox : MonoBehaviour
     {   
         if(Box.activeSelf)
         {   
-            if(InPut.GetButtonDown("Jump"))
+            if(InPut.GetButtonDown("Jump")|| InPut.GetButtonDown("up"))
             {      
 
                 sendNextMsg();
@@ -58,36 +58,44 @@ public class DialogBox : MonoBehaviour
 
     void sendNextMsg()
     {   
-        if(msgnum < dialogSequence.Count)
+        if(msgnum <= dialogSequence.Count)
         {
-            
-            currentDialog = dialogSequence[msgnum];
+           
 
-            label.text = currentDialog.GetMainText();
-            namelabel.text = currentDialog.GetOwnerName();
-            picture.sprite = currentDialog.GetOwnerPhoto();
-            currentDialog.FinalAction();
-            msgnum ++;
+            
             if(msgnum == dialogSequence.Count)
             {
+            	Debug.Log("Dialog Number " + (msgnum +1) + "/" + (dialogSequence.Count) + " completed - Exiting dialogSequence");
                 Time.timeScale = 1f;
                 anim.Play("Dialog Out");
-                ExitChildren();
                 dialogSequence = new List<DialogContent>();
                 msgnum = 0;
+                currentDialog.FinalAction();
+                currentDialog = null;
             }
+            else
+            {
+				Debug.Log("Dialog Number " + (msgnum +1) + "/" + (dialogSequence.Count));
+            	currentDialog = dialogSequence[msgnum];
+
+            	label.text = currentDialog.GetMainText();
+            	namelabel.text = currentDialog.GetOwnerName();
+            	picture.sprite = currentDialog.GetOwnerPhoto();
+            	currentDialog.FinalAction();
+            	msgnum ++;
+            }
+            
         }
         else
-        {   
-            currentDialog.FinalAction();
+        {
             Time.timeScale = 1f;
             anim.Play("Dialog Out");
-            ExitChildren();
-            msgnum = 0;
             dialogSequence = new List<DialogContent>();
+            msgnum = 0;
             currentDialog.FinalAction();
-            currentDialog = null;
+            currentDialog = null;        	
         }
+
     }
     void EnterChildren()
     {   
@@ -116,13 +124,20 @@ public class DialogBox : MonoBehaviour
     void SetDialogBox()
     {
         DialogInitializer.TextBox = this;
-
-        Debug.Log(DialogInitializer.TextBox == this, this.gameObject);
+        msgnum = 0;
     }
 
     public void Activate(bool state)
     {   
-        Box.SetActive(state);
-        EnterChildren();
+    	if(state)
+    	{	
+    		Box.SetActive(true);
+	    	anim.Play("Dialog In");	
+    	}
+    	else
+    	{	
+    		anim.Play("Dialog Out");
+    	}
+
     }
 }

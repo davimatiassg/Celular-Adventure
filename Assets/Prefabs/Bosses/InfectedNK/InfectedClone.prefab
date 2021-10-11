@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3149513686780181975}
   - component: {fileID: 7875372240570232108}
   - component: {fileID: 5227926318403334730}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4896,7 +4896,7 @@ GameObject:
   - component: {fileID: 8191013754696265582}
   - component: {fileID: 8191013754696265583}
   - component: {fileID: 8191013754696265568}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: InfectedClone
   m_TagString: Boss
   m_Icon: {fileID: 0}

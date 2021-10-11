@@ -39,6 +39,7 @@ public class AnotationPoint : MonoBehaviour
 	    		{	
 	    			a.PlaySound("got");
 	    			part.Stop();
+            ao.GetComponent<Animator>().Play("Vanish");
 	    			this.gameObject.transform.DetachChildren();
             this.gameObject.SetActive(false);
 	    			Destroy(this.gameObject);

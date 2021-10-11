@@ -44,11 +44,31 @@ public class HealthBar : MonoBehaviour
 		rtrs = GetComponent<RectTransform>();
 	}
 
-	public static void SetGaugeValue(float life, float maxlife)
+	public static void SetGaugeValue(float delta, float life, float maxlife)
 	{
-		Instance.GetComponent<HealthBar>().gaugeImage.fillAmount = life/maxlife;
+		HealthBar x = Instance.GetComponent<HealthBar>();
+		float deltapertick = (delta)/10;
+		Debug.Log("st life" + (life - delta));
+		Debug.Log("true life" + life);
+		Debug.Log("delta p/ tick" + deltapertick);
+
+
+		x.StartCoroutine(lerpLife(deltapertick, maxlife, 0.02f, 10));
 		
 	}
+	public static IEnumerator lerpLife(float a, float m, float t, int times)
+	{
+
+		yield return new WaitForSeconds(t);
+		Instance.GetComponent<HealthBar>().gaugeImage.fillAmount += a/m;
+		if(times > 0)
+		{
+			Instance.GetComponent<HealthBar>().StartCoroutine(lerpLife(a, m, t, times-1));
+		}
+		
+
+	}
+		
 	public void ToggleVisibility(bool x)
 	{
 		isVisible = x;

@@ -99,7 +99,7 @@ public class HitableParts : MonoBehaviour {
 				}
 				else
 				{
-					GameEvents.ScreamEvent("BossDie");;
+					GameEvents.ScreamEvent("BossDie");
 				}
 				
 			}

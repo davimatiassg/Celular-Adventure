@@ -44,7 +44,7 @@ public class PauseMenu : MonoBehaviour
         MenuObject.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
-        PauseMenu.musicController.UnPause();
+        //PauseMenu.musicController.UnPause();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void Resume()
