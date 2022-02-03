@@ -6,34 +6,37 @@ public class TableManager : MonoBehaviour
 {
 
     public List<string> TrueAwnsers = new List<string>();
+    private List<string> TA;
 
     public int pontuation;
 
+    private string str;
+
+    void Start()
+    {
+        TA = new List<string>(TrueAwnsers);
+    }
+
+    public void VerifyIDString(string Idstr)
+    {
+        str = Idstr;
+        GetAllCombinations();
+    }
+
     public void GetAllCombinations()
     {	
-    	List<string> TA = new List<string>(TrueAwnsers);
-    
-
-        Object[] combinations = Object.FindObjectsOfType<NoteLigator>();
-        Debug.Log(combinations.Length);
-
-        foreach(NoteLigator l in combinations)
-        {	
-
-        	string i = l.GetLigationIDS();
-        	Debug.Log(i);
-        	foreach(string t_awnser in TrueAwnsers)
-        	{
-        		if(i == t_awnser && TA.Contains(i))
-        		{
-        			pontuation += 1;
-        			TA.Remove(t_awnser);
-        		}
-        	}
-            Destroy(l);
+        char[] delimit = new char[]{','};
+        string[] splited = str.Split(delimit);
+        if(TA.Contains(str) || splited[0] == splited[1])
+        {
+        	pontuation += 1;
+        	TA.Remove(str);
+            GameEvents.ScreamEvent("CorrectAwnser");
         }
-        Debug.Log(pontuation);
-        GameEvents.ScreamEvent("ClosedTable");
+        else
+        {
+            GameEvents.ScreamEvent("WrongAwnser");
+        }
         PontuationCounter.AddScore(pontuation*1500);
     }
 }

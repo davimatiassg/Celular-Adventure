@@ -1020,7 +1020,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 599076789}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -2422,6 +2422,7 @@ MonoBehaviour:
   cam: {fileID: 1590337011}
   Pannel: {fileID: 1853321749}
   Attached: 0
+  LvlSelec: 1
 --- !u!95 &1619032563
 Animator:
   serializedVersion: 3
@@ -3522,6 +3523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scenename: 
   OtherPannel1: {fileID: 0}
+  OtherPannel2: {fileID: 0}
 --- !u!114 &2073148902
 MonoBehaviour:
   m_ObjectHideFlags: 0

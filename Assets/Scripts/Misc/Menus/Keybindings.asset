@@ -16,7 +16,7 @@ MonoBehaviour:
   left: 97
   up: 119
   down: 115
-  jump: 103
-  attack: 102
-  spec: 104
+  jump: 107
+  attack: 106
+  spec: 108
   pause: 27

@@ -6,9 +6,11 @@ public class AnotationHotBar : MonoBehaviour
 {
 	[SerializeField] private Transform Hotbar;
 	[SerializeField] private GameObject AnHotBar;
+    [SerializeField] private RelTableList ListInstance;
 
     public void SpawnNotes()
     {	
+        Debug.Log("Notes Spawned");
     	foreach(Anotation note in AnotationManager.Notes)
     	{
     		if(note.pic)
@@ -19,10 +21,8 @@ public class AnotationHotBar : MonoBehaviour
     		}
             
             if(note.text != "")
-            {
-                GameObject tex = Instantiate(AnHotBar, Hotbar);
-                tex.GetComponent<PhisicNote>().isText = true;
-                tex.GetComponent<PhisicNote>().SetInfo(note);
+            {   
+                ListInstance.UpdateNotes(note);
             }	
     	}
 
@@ -57,9 +57,7 @@ public class AnotationHotBar : MonoBehaviour
 
                 if(note.text != "")
                 {
-                    GameObject tex = Instantiate(AnHotBar, Hotbar);
-                    tex.GetComponent<PhisicNote>().isText = true;
-                    tex.GetComponent<PhisicNote>().SetInfo(note);
+                    ListInstance.UpdateNotes(note);
                 }
                     
             }  
@@ -74,12 +72,17 @@ public class AnotationHotBar : MonoBehaviour
         }
     }
 
-    public void RemoveNote(Anotation a)
+    public void TryRespawnNote()
     {
+        Transform Cursor = GameObject.FindWithTag("Indicator").transform;
 
-    }
-    public void AddNote(Anotation a)
-    {
-    	
+        if(Cursor.childCount > 0)
+        {
+            Anotation n = Cursor.GetChild(0).gameObject.GetComponent<PhisicNote>().InfoBase;
+            GameObject pic = Instantiate(AnHotBar, Hotbar);
+            pic.GetComponent<PhisicNote>().isText = false;
+            pic.GetComponent<PhisicNote>().SetInfo(n);
+            Destroy(Cursor.GetChild(0).gameObject);
+        }
     }
 }

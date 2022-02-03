@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level4 - heart.unity
     guid: 3897de9cbfcb8244584731ad2eae7234
+  - enabled: 1
+    path: Assets/Scenes/MissionRelatory.unity
+    guid: 274c764d7de50c64b988d69a38ff4b07
   m_configObjects: {}

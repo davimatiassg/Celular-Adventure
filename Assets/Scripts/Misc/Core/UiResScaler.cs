@@ -18,6 +18,7 @@ private RectTransform trs;
     [SerializeField] private bool texted = false;
 
 	[SerializeField] private bool w_x_h = true;
+    [SerializeField] private bool orthographic = true;
 
     private Camera c;
     private Vector2 img_dim = Vector2.one;
@@ -47,7 +48,15 @@ private RectTransform trs;
 		    }
     	}
 
-        AdaptToCurrentResolution(1f, 1f);
+        if(orthographic)
+        {
+            AdaptToCurrentResolution(1f, 1f);
+        }
+        else
+        {
+            AdaptToCurrentResolution(sd.x, sd.y);
+        }
+        
 
     }
 
@@ -72,15 +81,15 @@ private RectTransform trs;
 
     	if(defaultTRS)
     	{
-    		trs2.localScale =  new Vector3(sc.x*modvalue, sc.y*modvalue, 1f);
+    		trs2.localScale =  new Vector3(sc.x*modvalue/wid, sc.y*modvalue/hei, 1f);
     	}
     	else
         {
 
-            trs.anchoredPosition = new Vector3(pos.x/modvalue, pos.y/modvalue, 1f);
+            trs.anchoredPosition = new Vector3((pos.x/modvalue)/wid, (pos.y/modvalue)/hei, 1f);
             if(texted)
             {
-                trs.localScale = new Vector3(sc.x/modvalue, sc.y/modvalue, 1f);
+                trs.localScale = new Vector3((sc.x/modvalue)/wid, (sc.y/modvalue)/hei, 1f);
             }
             else
             {

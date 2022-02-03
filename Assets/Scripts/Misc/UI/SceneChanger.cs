@@ -31,6 +31,7 @@ public class SceneChanger : MonoBehaviour
             Destroy(this.gameObject);
         }
         Time.timeScale = 1f;
+        GameEvents.ScreamEvent("EnterScene");
     }
 
 

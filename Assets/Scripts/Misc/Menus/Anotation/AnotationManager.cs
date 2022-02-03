@@ -6,6 +6,7 @@ public class AnotationManager : MonoBehaviour
 {   
     public static AnotationManager instance;
     [SerializeField] public static List<Anotation> Notes = new List<Anotation>();
+    public int NoteCount = 0;
 
 
     void Awake()
@@ -46,6 +47,7 @@ public class AnotationManager : MonoBehaviour
         {   
             AnotationManager.Notes.Capacity ++;
             Notes.Add(note);
+            AnotationManager.instance.NoteCount = AnotationManager.Notes.Capacity;
         }
         else
         {
